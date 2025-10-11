@@ -1,9 +1,20 @@
 #!/bin/bash
 
-VIDEO="/workspace/john_wick_end.mkv"
-DETECT_MODEL="/workspace/yolo_weapons_knife/weapon_detection/weapon_detection_yolo11m_640/weights/best_fp16.engine"
-CLASSIFY_MODEL="/workspace/yolo_weapons_knife/convnext_bs4.pt"
-OUTPUT_DIR="./tiled_classify_out"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_ROOT="$(cd "${SCRIPT_DIR}/.." && pwd)"
+
+VIDEO="${PROJECT_ROOT}/data/test_video.mp4"
+DETECT_MODEL="${PROJECT_ROOT}/models/yolo/weapon_detection_yolo11m_640/weights/best_fp16.engine"
+CLASSIFY_MODEL="${PROJECT_ROOT}/models/convnext_compiled/convnext_bs4.pt"
+OUTPUT_DIR="${PROJECT_ROOT}/inference_output"
+
+echo "Project root: ${PROJECT_ROOT}"
+echo "Video: ${VIDEO}"
+echo "Detection model: ${DETECT_MODEL}"
+echo "Classification model: ${CLASSIFY_MODEL}"
+echo ""
+
+cd "${SCRIPT_DIR}"
 
 uv run python tiled_classification_realtime.py \
     --video "$VIDEO" \

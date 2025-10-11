@@ -1,15 +1,23 @@
 #!/bin/bash
 
-cd /workspace/yolo_train
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_ROOT="$(cd "${SCRIPT_DIR}/.." && pwd)"
 
-# Full pipeline: Tiling + SAHI NMS + ROI Refinement + ByteTrack
-# FP Reduction Strategy:
-#   1. Tiled conf=0.25 (recall-first on downscaled)
-#   2. ROI refine_conf=0.50 (strict verification on full-res crops)
-#   3. ByteTrack min_hits=5 (must appear in 5 frames to confirm)
+VIDEO="${PROJECT_ROOT}/data/test_video.mp4"
+MODEL="${PROJECT_ROOT}/models/yolo/weapon_detection_yolo11m_640/weights/best_fp32.engine"
+OUTPUT_DIR="${PROJECT_ROOT}/inference_output"
+
+echo "Project root: ${PROJECT_ROOT}"
+echo "Video: ${VIDEO}"
+echo "Model: ${MODEL}"
+echo ""
+
+cd "${SCRIPT_DIR}"
+
 uv run python tiled_tensorrt_realtime.py \
-  --video /workspace/yolo_infer/john_wick_end.mkv \
-  --model /workspace/yolo_train/weapon_detection/weapon_detection_yolo11m_640/weights/best_fp32.engine \
+  --video "$VIDEO" \
+  --model "$MODEL" \
+  --out "$OUTPUT_DIR" \
   --tile_size 640 \
   --overlap 128 \
   --conf 0.25 \

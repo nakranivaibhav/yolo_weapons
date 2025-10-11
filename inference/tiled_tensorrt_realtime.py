@@ -1,4 +1,4 @@
-#!/workspace/yolo_train/.venv/bin/python
+#!/usr/bin/env python3
 
 import argparse
 import time
@@ -14,9 +14,11 @@ from sahi.prediction import ObjectPrediction
 from sahi.postprocess.combine import NMSPostprocess
 from boxmot import ByteTrack
 
+PROJECT_ROOT = Path(__file__).parent.parent.absolute()
+
 parser = argparse.ArgumentParser(description='Manual Tiled Inference with TensorRT for real-time 4K detection')
-parser.add_argument("--video", type=str, default="/workspace/yolo_infer/john_wick_end.mkv")
-parser.add_argument("--model", type=str, default="/workspace/yolo_train/weapon_detection/weapon_detection_yolo11s_640/weights/best_int8.engine")
+parser.add_argument("--video", type=str, default=str(PROJECT_ROOT / "data" / "test_video.mp4"))
+parser.add_argument("--model", type=str, default=str(PROJECT_ROOT / "models" / "yolo" / "weapon_detection_yolo11s_640" / "weights" / "best_int8.engine"))
 parser.add_argument("--tile_size", type=int, default=640, help="Size of each tile")
 parser.add_argument("--overlap", type=int, default=128, help="Overlap pixels between tiles")
 parser.add_argument("--conf", type=float, default=0.25, help="Confidence threshold")
@@ -32,7 +34,7 @@ parser.add_argument("--track", action="store_true", help="Enable ByteTrack track
 parser.add_argument("--track_persist", type=int, default=30, help="Frames to persist track after disappearance")
 parser.add_argument("--min_hits", type=int, default=3, help="Minimum hits before track is confirmed (higher = fewer FPs)")
 parser.add_argument("--save_vis", action="store_true")
-parser.add_argument("--out", type=str, default="./tiled_out")
+parser.add_argument("--out", type=str, default=str(PROJECT_ROOT / "inference_output"))
 args = parser.parse_args()
 
 print(f"\n{'='*80}")

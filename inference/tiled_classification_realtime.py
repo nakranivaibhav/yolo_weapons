@@ -16,10 +16,12 @@ from boxmot import ByteTrack
 from torchvision.transforms import Compose, Normalize, Resize, CenterCrop, ToTensor
 import torch_tensorrt
 
+PROJECT_ROOT = Path(__file__).parent.parent.absolute()
+
 parser = argparse.ArgumentParser(description='Tiled Detection + ConvNeXT Classification for real-time 4K weapon detection')
-parser.add_argument("--video", type=str, default="/workspace/yolo_infer/john_wick_end.mkv")
-parser.add_argument("--detect_model", type=str, default="/workspace/yolo_train/weapon_detection/weapon_detection_yolo11s_640/weights/best_int8.engine")
-parser.add_argument("--classify_model", type=str, default="/workspace/yolo_weapons_knife/compiled_models/convnext_bs4.ep")
+parser.add_argument("--video", type=str, default=str(PROJECT_ROOT / "data" / "test_video.mp4"))
+parser.add_argument("--detect_model", type=str, default=str(PROJECT_ROOT / "models" / "yolo" / "weapon_detection_yolo11s_640" / "weights" / "best_int8.engine"))
+parser.add_argument("--classify_model", type=str, default=str(PROJECT_ROOT / "models" / "convnext_compiled" / "convnext_bs4.ep"))
 parser.add_argument("--tile_size", type=int, default=1280, help="Size of each tile")
 parser.add_argument("--detect_batch", type=int, default=8, help="Batch size for detection model")
 parser.add_argument("--classify_batch", type=int, default=4, help="Batch size for classification model")
@@ -36,7 +38,7 @@ parser.add_argument("--track", action="store_true", help="Enable ByteTrack track
 parser.add_argument("--track_persist", type=int, default=30, help="Frames to persist track after disappearance")
 parser.add_argument("--min_hits", type=int, default=3, help="Minimum hits before track is confirmed")
 parser.add_argument("--save_vis", action="store_true")
-parser.add_argument("--out", type=str, default="./tiled_classify_out")
+parser.add_argument("--out", type=str, default=str(PROJECT_ROOT / "inference_output"))
 args = parser.parse_args()
 
 print(f"\n{'='*80}")
@@ -71,10 +73,18 @@ elif model_ext == '.ep':
     print(f"      Loading ExportedProgram format...")
     classify_model = torch.export.load(str(model_path)).module()
 elif model_ext == '.pt':
-    print(f"      Loading PyTorch format (legacy)...")
-    classify_model = torch.load(str(model_path), weights_only=False)
-    classify_model.eval()
-    classify_model.cuda()
+    print(f"      Loading Torch-TensorRT compiled model...")
+    try:
+        classify_model = torch_tensorrt.load(str(model_path)).module()
+        classify_model.eval()
+        print(f"      ✓ Torch-TensorRT model loaded")
+    except Exception as e:
+        print(f"      Torch-TensorRT load failed: {e}")
+        print(f"      Trying standard PyTorch load...")
+        classify_model = torch.load(str(model_path), weights_only=False)
+        classify_model.eval()
+        classify_model.cuda()
+        print(f"      ✓ Standard PyTorch model loaded")
 else:
     raise ValueError(f"Unsupported model format: {model_ext}. Use .pt2, .ep, .ts, or .pt")
 
