@@ -1,0 +1,23 @@
+{
+  "model_name": "/workspace/yolo_weapons_knife/weapon_classification_convnextv2/best_checkpoint",
+  "batch_size": 4,
+  "input_size": 224,
+  "num_classes": 2,
+  "id2label": {
+    "0": "gun",
+    "1": "knife"
+  },
+  "label2id": {
+    "gun": 0,
+    "knife": 1
+  },
+  "input_shape": [
+    4,
+    3,
+    224,
+    224
+  ],
+  "backend": "torch.compile with tensorrt",
+  "compile_mode": "reduce-overhead",
+  "dynamic_shapes": false
+}
