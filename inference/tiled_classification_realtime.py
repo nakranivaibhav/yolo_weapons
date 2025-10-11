@@ -140,22 +140,42 @@ def create_tiles(img_w, img_h, tile_size, overlap=None):
             (1280, 164, 1920, 804),
         ]
         
-        print(f"Tiling strategy (hardcoded for 1920x804 @ 0.5x downscale):")
+        print(f"Tiling strategy: CINEMATIC_4K (1920x804 @ 0.5x downscale from 3840x1608)")
         print(f"  Width {img_w}px: 4 tiles, overlap=213px (33.3%)")
         print(f"  Height {img_h}px: 2 tiles, overlap=476px (74.4%)")
         print(f"  Total tiles: 8 (perfect for batch_size=8)")
         
         return tiles
+    elif img_w == 1920 and img_h == 1080 and tile_size == 640:
+        tiles = [
+            (0, 0, 640, 640),
+            (427, 0, 1067, 640),
+            (853, 0, 1493, 640),
+            (1280, 0, 1920, 640),
+            (0, 440, 640, 1080),
+            (427, 440, 1067, 1080),
+            (853, 440, 1493, 1080),
+            (1280, 440, 1920, 1080),
+        ]
+        
+        print(f"Tiling strategy: STANDARD_4K (1920x1080 @ 0.5x downscale from 3840x2160)")
+        print(f"  Width {img_w}px: 4 tiles, overlap=213px (33.3%)")
+        print(f"  Height {img_h}px: 2 tiles, overlap=200px (31.3%)")
+        print(f"  Total tiles: 8 (perfect for batch_size=8)")
+        
+        return tiles
     else:
-        raise ValueError(f"Unsupported dimensions: {img_w}x{img_h}. Expected 1920x804 (downscaled 0.5x from 3840x1608).")
+        raise ValueError(f"Unsupported dimensions: {img_w}x{img_h}. Expected 1920x804 (cinematic_4k @ 0.5x) or 1920x1080 (standard_4k @ 0.5x).")
 
 tile_coords = create_tiles(width, height, args.tile_size)
 print(f"Total tiles per frame: {len(tile_coords)}")
 
 if args.downscale == 0.5:
-    assert width == 1920 and height == 804, f"Expected 1920x804 for 0.5x downscale, got {width}x{height}"
+    valid_dims = [(1920, 804), (1920, 1080)]
+    assert (width, height) in valid_dims, f"Expected 1920x804 (cinematic_4k) or 1920x1080 (standard_4k) for 0.5x downscale, got {width}x{height}"
     assert args.tile_size == 640, f"Expected tile_size=640 for downscaled mode, got {args.tile_size}"
-    print(f"[VALIDATION] Downscale configuration verified: {width}x{height} with {args.tile_size}x{args.tile_size} tiles")
+    mode = "cinematic_4k" if height == 804 else "standard_4k"
+    print(f"[VALIDATION] Downscale configuration verified: {width}x{height} ({mode}) with {args.tile_size}x{args.tile_size} tiles")
 
 print(f"\n[INFO] Warming up models...")
 DETECTION_BATCH_SIZE = args.detect_batch

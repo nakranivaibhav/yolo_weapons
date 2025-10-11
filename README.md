@@ -160,22 +160,37 @@ chmod +x evaluate_best_model.sh
 
 #### Export YOLO to TensorRT
 
+**⚠️ IMPORTANT**: Before exporting, verify the `MODEL_PATH` in `export/export_yolo.sh` matches your trained model location. By default, it points to:
+```bash
+MODEL_PATH="${PROJECT_ROOT}/models/yolo/weapon_detection_yolo11m_640/weights/best.pt"
+```
+
+If you trained a different model (e.g., `weapon_detection_yolo11s_640`), update line 6 in `export_yolo.sh` accordingly.
+
 Option 1: Using shell script (recommended)
 ```bash
 cd export
-./export_yolo.sh ../weapon_detection/weapon_detection_yolo11s/weights/best.pt
+./export_yolo.sh
 ```
 
-Option 2: Direct Python call
+Option 2: With custom model path
 ```bash
 cd export
-uv run python export_yolo.py ../weapon_detection/weapon_detection_yolo11s/weights/best.pt
+./export_yolo.sh ../models/yolo/weapon_detection_yolo11s_640/weights/best.pt
+```
+
+Option 3: Direct Python call
+```bash
+cd export
+uv run python export_yolo.py ../models/yolo/weapon_detection_yolo11s_640/weights/best.pt
 ```
 
 This creates three TensorRT engines:
 - `best_fp32.engine` - Full precision (best accuracy)
 - `best_fp16.engine` - Half precision (2x faster)
 - `best_int8.engine` - 8-bit quantized (3x faster)
+
+**Note**: TensorRT engines are GPU-specific. If you move to a different GPU architecture (e.g., from RTX 3080 to RTX 4090), you must re-export the models.
 
 #### Export ConvNeXT with Torch Compile
 

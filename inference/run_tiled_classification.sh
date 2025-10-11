@@ -3,7 +3,7 @@
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_ROOT="$(cd "${SCRIPT_DIR}/.." && pwd)"
 
-VIDEO="${PROJECT_ROOT}/data/test_video.mp4"
+VIDEO="${PROJECT_ROOT}/input/john_wick_end.mkv"
 DETECT_MODEL="${PROJECT_ROOT}/models/yolo/weapon_detection_yolo11m_640/weights/best_fp16.engine"
 CLASSIFY_MODEL="${PROJECT_ROOT}/models/convnext_compiled/convnext_bs4.pt"
 OUTPUT_DIR="${PROJECT_ROOT}/inference_output"

@@ -3,7 +3,7 @@
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_ROOT="$(cd "${SCRIPT_DIR}/.." && pwd)"
 
-MODEL_PATH="${PROJECT_ROOT}/weapon_detection/weapon_detection_yolo11s/weights/best.pt"
+MODEL_PATH="${PROJECT_ROOT}/models/yolo/weapon_detection_yolo11m_640/weights/best.pt"
 DATA_YAML="${PROJECT_ROOT}/data/yolo_dataset/data.yaml"
 
 if [ $# -ge 1 ]; then
@@ -23,7 +23,7 @@ if [ ! -f "${MODEL_PATH}" ]; then
     echo "Error: Model file not found at ${MODEL_PATH}"
     echo ""
     echo "Usage: $0 [model_path] [data_yaml]"
-    echo "Example: $0 ../weapon_detection/weapon_detection_yolo11s/weights/best.pt"
+    echo "Example: $0 ../models/yolo/weapon_detection_yolo11m_640/weights/best.pt"
     exit 1
 fi
 
@@ -33,4 +33,3 @@ echo "Exporting YOLO model to TensorRT..."
 echo ""
 
 uv run python export_yolo.py "${MODEL_PATH}" "${DATA_YAML}"
-
