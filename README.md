@@ -61,9 +61,12 @@ git lfs pull
 
 # 4. Run inference
 cd inference
-./tiled_run.sh  # YOLO detection only
-# or
+
 ./run_tiled_classification.sh  # YOLO + ConvNeXT classification
+
+# or
+
+./tiled_run.sh  # YOLO detection only (legacy)
 ```
 
 ## Quick Start
