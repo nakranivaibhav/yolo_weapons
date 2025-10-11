@@ -1,17 +1,19 @@
-#!/workspace/yolo_train/.venv/bin/python
+#!/usr/bin/env python3
 
 import sys
 import shutil
 from pathlib import Path
 from ultralytics import YOLO
 
+PROJECT_ROOT = Path(__file__).parent.parent.absolute()
+
 if len(sys.argv) < 2:
     print("Usage: python export_tensorrt.py <path_to_best.pt> [data.yaml]")
-    print("Example: python export_tensorrt.py weapon_detection/weapon_detection_yolo11s/weights/best.pt yolo_dataset/data.yaml")
+    print("Example: python export_tensorrt.py models/yolo/weapon_detection_yolo11s_640/weights/best.pt")
     sys.exit(1)
 
 model_path = sys.argv[1]
-data_yaml = sys.argv[2] if len(sys.argv) > 2 else "yolo_dataset/data.yaml"
+data_yaml = sys.argv[2] if len(sys.argv) > 2 else str(PROJECT_ROOT / "data" / "yolo_dataset" / "data.yaml")
 
 model_path = Path(model_path)
 if not model_path.exists():

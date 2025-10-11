@@ -1,557 +1,511 @@
-# Real-Time Weapon Detection System
+# Dangerous Weapons Detection Pipeline
 
-High-performance weapon detection system for 4K video at 30 FPS using YOLO11 + TensorRT + ByteTrack.
+A complete pipeline for training, evaluating, and deploying real-time dangerous weapons (guns and knives) detection using YOLO11 for object detection and ConvNeXTv2 for classification refinement.
 
-## Overview
+## Features
 
-This system detects weapons (guns and knives) in 4K video streams in real-time using:
+- **Dual-Model Pipeline**: YOLO11 for fast object detection + ConvNeXTv2 for classification refinement
+- **TensorRT Optimization**: INT8/FP16/FP32 quantization for maximum inference speed
+- **Tiled Inference**: Process high-resolution (4K) videos efficiently
+- **Real-time Tracking**: ByteTrack integration for object tracking across frames
+- **Scalable Training**: Support for distributed training with modern optimizations
 
-- **YOLO11** models (nano, small, medium) trained at 640px resolution
-- **TensorRT** acceleration for fast GPU inference (FP32, FP16, INT8)
-- **Tiled inference** to handle 4K resolution efficiently
-- **ROI refinement** to reduce false positives
-- **ByteTrack** for temporal consistency across frames
-- **SAHI NMS** for intelligent tile merging
+## Requirements
 
-**Performance**: Processes 4K video (3840×1608) at ~30 FPS with <50ms latency on modern GPUs.
+- Python 3.12
+- CUDA-capable GPU (for training and inference)
+- 16GB+ GPU memory recommended for training
+- `uv` package manager
+- `gdown` for dataset downloading
 
-## Architecture
+## Pre-trained Models
 
-```
-┌─────────────────────────────────────────────────────────────────┐
-│                       4K VIDEO INPUT                             │
-│                    (3840 × 1608 @ 30fps)                        │
-└──────────────────────┬──────────────────────────────────────────┘
-                       │
-                       ▼
-┌─────────────────────────────────────────────────────────────────┐
-│  STEP 1: DOWNSCALE (Optional)                                   │
-│  ───────────────────────────────────────────────────────────    │
-│  • Reduce to 1920×804 (0.5x) for speed                         │
-│  • Trade-off: 2x faster, slight accuracy loss                  │
-└──────────────────────┬──────────────────────────────────────────┘
-                       │
-                       ▼
-┌─────────────────────────────────────────────────────────────────┐
-│  STEP 2: TILED INFERENCE                                        │
-│  ───────────────────────────────────────────────────────────    │
-│  • Split into 640×640 tiles with overlap                       │
-│  • Batch process all 4 tiles simultaneously                    │
-│  • Run TensorRT engine (batch=4, ~12ms)                        │
-│  • Low confidence (0.25) for high recall                       │
-└──────────────────────┬──────────────────────────────────────────┘
-                       │
-                       ▼
-┌─────────────────────────────────────────────────────────────────┐
-│  STEP 3: SAHI NMS (Tile Merging)                               │
-│  ───────────────────────────────────────────────────────────    │
-│  • Merge overlapping detections from tiles                     │
-│  • Smart NMS that handles tile boundaries                      │
-│  • IoU threshold: 0.45                                         │
-└──────────────────────┬──────────────────────────────────────────┘
-                       │
-                       ▼
-┌─────────────────────────────────────────────────────────────────┐
-│  STEP 4: ROI REFINEMENT (Optional)                             │
-│  ───────────────────────────────────────────────────────────    │
-│  • Crop full-res regions around detections (±30%)              │
-│  • Re-infer on crops with higher confidence (0.50)             │
-│  • Filters ~74% of false positives                             │
-└──────────────────────┬──────────────────────────────────────────┘
-                       │
-                       ▼
-┌─────────────────────────────────────────────────────────────────┐
-│  STEP 5: BYTETRACK (Temporal Filtering)                        │
-│  ───────────────────────────────────────────────────────────    │
-│  • Track objects across frames                                 │
-│  • Filter transient detections (min_hits=3-5)                  │
-│  • Smooth bounding boxes                                       │
-└──────────────────────┬──────────────────────────────────────────┘
-                       │
-                       ▼
-┌─────────────────────────────────────────────────────────────────┐
-│                   FINAL DETECTIONS                              │
-│              (tracked, verified, de-duplicated)                 │
-└─────────────────────────────────────────────────────────────────┘
-```
+This repository includes pre-trained models ready for inference:
 
-### Why This Architecture?
+**YOLO Detection Models** (in `models/yolo/`):
+- `weapon_detection_yolo11m_640` - YOLO11-m trained on 640x640 images (48 MB)
+- `weapon_detection_yolo11s_1280` - YOLO11-s trained on 1280x1280 images (50 MB)
+- Each includes TensorRT engines (FP16, FP32, INT8) for optimized inference
 
-**Challenge**: Training YOLO on downscaled 640px images causes missed detections and false positives on 4K footage.
+**ConvNeXT Classification Model** (in `models/convnext_compiled/`):
+- `convnext_bs4.pt` - Compiled ConvNeXTv2 model with batch size 4 (176 MB)
 
-**Solution**: Train at 640px (feasible), but infer intelligently on 4K using:
-1. **Tiling** - Process 4K in 640px chunks (model's native resolution)
-2. **Downscaling** - Optional 2x speedup with minimal accuracy loss
-3. **ROI Refinement** - Second-pass verification on suspicious regions
-4. **ByteTrack** - Temporal filtering to remove flickering false positives
-
-## Dataset
-
-Download the weapon detection dataset from Google Drive:
-
-**[Download Dataset (yolo_dataset.tar.gz)](https://drive.google.com/file/d/1HwUmZmDNpSyigVIBbRxDPn2xUQpLxBty/view?usp=sharing)**
-
-### Setup Dataset
+⚠️ **IMPORTANT**: These models are stored using **Git LFS**. You must pull them before use:
 
 ```bash
-cd /workspace/yolo_train
+# Install Git LFS (first time only)
+sudo apt-get install git-lfs
+git lfs install
 
-# Extract the dataset
-tar -xzf yolo_dataset.tar.gz
-
-# Verify structure
-ls yolo_dataset/
-# Expected:
-#   data.yaml
-#   images/train/
-#   images/valid/
-#   images/test/
-#   labels/train/
-#   labels/valid/
-#   labels/test/
+# Pull all model files
+git lfs pull
 ```
 
-The dataset contains:
-- **Classes**: Gun, Knife
-- **Format**: YOLO format (normalized bounding boxes)
-- **Splits**: Train / Validation / Test
+After pulling, you can skip training and go directly to inference!
 
-## Installation
+### Quick Inference with Pre-trained Models
 
-### Requirements
-- Ubuntu 22.04+
-- NVIDIA GPU with CUDA support
-- Python 3.12+
-- [uv](https://github.com/astral-sh/uv) package manager
-
-### Install Dependencies
+If you just want to test inference without training:
 
 ```bash
-cd /workspace/yolo_train
+# 1. Setup environment
+uv sync
 
-# Install uv (if not already installed)
-curl -LsSf https://astral.sh/uv/install.sh | sh
+# 2. Pull pre-trained models (Git LFS required!)
+sudo apt-get install git-lfs
+git lfs install
+git lfs pull
 
-# Install all dependencies
+# 3. Place your test video in data/
+# cp /path/to/your/video.mp4 data/test_video.mp4
+
+# 4. Run inference
+cd inference
+./tiled_run.sh  # YOLO detection only
+# or
+./run_tiled_classification.sh  # YOLO + ConvNeXT classification
+```
+
+## Quick Start
+
+### 1. Environment Setup
+
+```bash
+# Install Python 3.12 via pyenv (if not already installed)
+pyenv install 3.12
+
+# Install uv package manager
+pip install uv
+
+# Install gdown for dataset downloads
+pip install gdown
+
+# Clone and navigate to project
+cd yolo_dangerous_weapons
+
+# Sync dependencies
 uv sync
 ```
 
-**Dependencies** (see `pyproject.toml`):
-- `ultralytics` - YOLO11 training and inference
-- `torch` + `torchvision` - PyTorch backend
-- `opencv-python` - Video processing
-- `sahi` - Smart tile merging (NMS)
-- `boxmot` - ByteTrack implementation
-- `onnx` + TensorRT - Model optimization
+### 2. Download Datasets
 
-## Training
-
-### Quick Start
+Download both YOLO detection dataset and ConvNeXT classification dataset:
 
 ```bash
-cd /workspace/yolo_train
-
-# Download pretrained weights (if not already downloaded)
-# These are automatically downloaded by ultralytics
-
-# Train YOLOv11s (recommended: balance of speed and accuracy)
-uv run python train.py
+chmod +x download_datasets.sh
+./download_datasets.sh
 ```
 
-### Customize Training
+This will create:
+- `data/yolo_dataset/` - YOLO object detection dataset (from tar.gz)
+- `data/yolo_dataset_cls_cropped/` - ConvNeXT classification dataset (from zip)
+- `data/convnext_dataset` - Symlink to yolo_dataset_cls_cropped for convenience
 
-Edit `train.py` to change:
+### 3. Train Models
 
-```python
-model_name = "yolo11s.pt"  # Options: yolo11n.pt, yolo11s.pt, yolo11m.pt
-
-model.train(
-    data='yolo_dataset/data.yaml',
-    epochs=200,           # Number of training epochs
-    patience=100,         # Early stopping patience
-    batch=32,             # Batch size (adjust for GPU memory)
-    imgsz=640,            # Image size (640 or 1280)
-    optimizer='SGD',
-    lr0=0.01,             # Initial learning rate
-    # ... see train.py for all options
-)
-```
-
-**Model Sizes**:
-| Model | Params | Speed | Accuracy | Use Case |
-|-------|--------|-------|----------|----------|
-| `yolo11n.pt` | 2.6M | Fastest | Good | Real-time on edge devices |
-| `yolo11s.pt` | 9.4M | Fast | Better | **Recommended for 4K @ 30fps** |
-| `yolo11m.pt` | 20.1M | Medium | Best | High accuracy, GPU required |
-
-**Training Output**:
-```
-weapon_detection/weapon_detection_yolo11s_640/
-├── weights/
-│   ├── best.pt          # Best checkpoint
-│   └── last.pt          # Last checkpoint
-├── results.png          # Training curves
-├── confusion_matrix.png # Validation metrics
-└── args.yaml            # Training config
-```
-
-## TensorRT Export
-
-Convert PyTorch models to optimized TensorRT engines.
-
-### Export All Precision Levels
+#### Train YOLO Detection Model
 
 ```bash
-cd /workspace/yolo_train
-
-# Export FP32, FP16, and INT8 engines
-uv run python export_tensorrt.py \
-  weapon_detection/weapon_detection_yolo11s_640/weights/best.pt \
-  yolo_dataset/data.yaml
+cd train
+uv run python train_yolo.py
 ```
 
-**Output**:
-```
-weapon_detection/weapon_detection_yolo11s_640/weights/
-├── best.pt              # Original PyTorch model
-├── best.engine          # Default engine (FP16)
-├── best_fp32.engine     # Full precision (slowest, most accurate)
-├── best_fp16.engine     # Half precision (2x faster, recommended)
-└── best_int8.engine     # 8-bit quantized (4x faster, slight accuracy loss)
-```
+Configuration:
+- Model: YOLO11-s (small variant)
+- Image size: 640x640
+- Epochs: 200
+- Optimizer: SGD with momentum
+- Saves best model as `.pt` file (export separately)
 
-**Performance Comparison** (4 tiles @ 640px):
-| Precision | Inference Time | Speedup | Quality Loss |
-|-----------|---------------|---------|--------------|
-| FP32 | ~30-40ms | 1x | 0% (baseline) |
-| FP16 | ~15-25ms | **1.5-2x** | <1% |
-| INT8 | ~10-20ms | 2-3x | 1-3% |
-
-**CLI Usage**:
-```bash
-uv run python export_tensorrt.py <model.pt> [data.yaml]
-
-# Examples:
-uv run python export_tensorrt.py weapon_detection/weapon_detection_yolo11n_640/weights/best.pt
-uv run python export_tensorrt.py weapon_detection/weapon_detection_yolo11m_640/weights/best.pt yolo_dataset/data.yaml
-```
-
-## Real-Time Inference
-
-### Quick Start
+#### Train ConvNeXT Classification Model
 
 ```bash
-cd /workspace/yolo_train
-
-# Run full pipeline (tiling + ROI refinement + tracking)
-./tiled_run.sh
+cd train
+chmod +x train_convnext.sh
+./train_convnext.sh
 ```
 
-### CLI Usage
+Configuration:
+- Model: ConvNeXTv2-tiny-22k-224
+- Epochs: 5
+- Batch size: 32
+- Learning rate: 5e-5
+- Heavy augmentation pipeline
+
+### 4. Evaluate Models
+
+#### Evaluate YOLO on Full Test Set
 
 ```bash
-uv run python tiled_tensorrt_realtime.py \
-  --video <path_to_video> \
-  --model <path_to_engine> \
-  [OPTIONS]
-```
-
-### CLI Arguments
-
-**Required**:
-```bash
---video PATH              Input video file
---model PATH              TensorRT engine (.engine file)
-```
-
-**Tiling**:
-```bash
---tile_size 640           Size of each tile (default: 640)
---overlap 128             Overlap between tiles (default: 128)
---downscale 0.5           Downscale factor before tiling (default: 1.0, no downscale)
-                          - 0.5 = half resolution (2x faster)
-                          - 1.0 = full 4K resolution
---batch_tiles             Batch all tiles in one inference (faster)
-```
-
-**Detection**:
-```bash
---conf 0.25               Confidence threshold for tiled inference (default: 0.25)
-                          Lower = more detections (high recall)
---iou 0.45                IoU threshold for NMS (default: 0.45)
-                          Higher = keep more nearby detections
-```
-
-**ROI Refinement** (False Positive Reduction):
-```bash
---refine_rois             Enable ROI refinement (second-pass verification)
---roi_expand 0.3          Expand ROI crop by ±30% (default: 0.3)
---refine_conf 0.50        Higher confidence for ROI verification (default: 0.40)
-                          Typically 0.10-0.20 higher than --conf
-```
-
-**ByteTrack** (Temporal Filtering):
-```bash
---track                   Enable ByteTrack object tracking
---min_hits 3              Minimum frames to confirm detection (default: 1)
-                          - 1 = no filtering
-                          - 3-5 = reduce false positives
-                          - 5+ = very strict (may miss real objects)
---track_persist 30        Keep lost tracks for N frames (default: 30)
-```
-
-**Performance**:
-```bash
---camera_fps 30           Target FPS (default: 30)
---max_frames 600          Stop after N frames (default: -1, process all)
-```
-
-**Output**:
-```bash
---save_vis                Save annotated video to output.mp4
---output PATH             Custom output path (default: output.mp4)
-```
-
-### Example Configurations
-
-**1. Maximum Speed** (downscaled, FP16, minimal post-processing):
-```bash
-uv run python tiled_tensorrt_realtime.py \
-  --video input.mp4 \
-  --model weapon_detection/weapon_detection_yolo11s_640/weights/best_fp16.engine \
-  --downscale 0.5 \
-  --tile_size 640 \
-  --overlap 128 \
-  --conf 0.25 \
-  --iou 0.45 \
-  --batch_tiles \
-  --camera_fps 30
-```
-**Expected**: ~60 FPS, moderate accuracy
-
----
-
-**2. Balanced** (downscaled, ROI refinement, tracking):
-```bash
-uv run python tiled_tensorrt_realtime.py \
-  --video input.mp4 \
-  --model weapon_detection/weapon_detection_yolo11s_640/weights/best_fp16.engine \
-  --downscale 0.5 \
-  --tile_size 640 \
-  --overlap 128 \
-  --conf 0.25 \
-  --iou 0.45 \
-  --batch_tiles \
-  --refine_rois \
-  --refine_conf 0.45 \
-  --track \
-  --min_hits 3 \
-  --camera_fps 30 \
-  --save_vis
-```
-**Expected**: ~30 FPS, good accuracy, fewer false positives
-
----
-
-**3. Maximum Accuracy** (full 4K, FP32, strict filtering):
-```bash
-uv run python tiled_tensorrt_realtime.py \
-  --video input.mp4 \
-  --model weapon_detection/weapon_detection_yolo11m_640/weights/best_fp32.engine \
-  --downscale 1.0 \
-  --tile_size 640 \
-  --overlap 256 \
-  --conf 0.25 \
-  --iou 0.45 \
-  --batch_tiles \
-  --refine_rois \
-  --refine_conf 0.50 \
-  --track \
-  --min_hits 5 \
-  --camera_fps 30 \
-  --save_vis
-```
-**Expected**: ~15-20 FPS, best accuracy, minimal false positives
-
-## Evaluation
-
-Evaluate trained models on test set:
-
-```bash
-cd /workspace/yolo_train
-
-# Evaluate on full test set
+cd evals
 uv run python eval_full_test.py
+```
 
-# Evaluate on dangerous subset only
+#### Evaluate YOLO on Dangerous Subset
+
+```bash
+cd evals
 uv run python eval_dangerous_test.py
 ```
 
-**Output**:
-```
-Precision: 0.9055
-Recall:    0.8412
-mAP50:     0.8990
-mAP50-95:  0.6521
-```
+#### Evaluate ConvNeXT Classification
 
-## Performance Tuning
-
-### Reduce False Positives
-
-Increase these parameters (more strict):
 ```bash
---refine_conf 0.50    # Higher confidence for ROI verification
---min_hits 5          # Must appear in 5 consecutive frames
+cd evals
+chmod +x evaluate_best_model.sh
+./evaluate_best_model.sh
 ```
 
-### Increase Recall (Catch More Objects)
+### 5. Export Models
 
-Decrease these parameters (more permissive):
+#### Export YOLO to TensorRT
+
+Option 1: Using shell script (recommended)
 ```bash
---conf 0.20           # Lower initial confidence
---refine_conf 0.35    # Lower ROI verification threshold
---min_hits 1          # Accept immediately (disable temporal filter)
+cd export
+./export_yolo.sh ../weapon_detection/weapon_detection_yolo11s/weights/best.pt
 ```
 
-### Speed vs Accuracy Trade-off
-
-| Setting | Speed | Accuracy | Notes |
-|---------|-------|----------|-------|
-| `--downscale 0.5` | 2x faster | -5% | Recommended for 4K @ 30fps |
-| `--downscale 1.0` | Baseline | Baseline | Full 4K resolution |
-| `best_fp16.engine` | 2x faster | -1% | **Recommended** |
-| `best_int8.engine` | 3x faster | -3% | For edge devices |
-| `--refine_rois` | -20% slower | +10% precision | Removes FPs |
-| `--track --min_hits 3` | -5% slower | +5% precision | Smooths detections |
-
-## Monitoring Performance
-
-The inference script prints real-time statistics:
-
-```
-═══════════════════════════════════════════════════════════════════
-REAL-TIME INFERENCE COMPLETE
-═══════════════════════════════════════════════════════════════════
-Total time:       600.41s
-Frames produced:  18000
-Frames processed: 17994
-Dropped:          6 (0.0%)
-
-Detection Statistics:
-  Avg raw detections:     0.79
-  Avg merged detections:  0.75
-  Avg refined detections: 0.26
-  ROI refinement reduction: 74.4%
-  NMS reduction:           25.0%
-
-Performance Metrics:
-  Avg tiled inference:  12.2ms
-  P95 tiled inference:  15.0ms
-  Avg ROI refinement:   12.8ms
-  P95 ROI refinement:   16.4ms
-  Total inference:      25.0ms
-
-Latency:
-  Average:  45.8ms  (21.8 FPS equivalent)
-  P95:      80.3ms  (12.5 FPS equivalent)
-  P99:      225.8ms (4.4 FPS equivalent)
-  Max:      446.5ms (2.2 FPS equivalent)
-
-Real-time verdict (target: 33.3ms for 30.0 FPS):
-  Average latency:  ✅ PASS (45.8ms < 66.7ms, 2x budget)
-  P95 latency:      ❌ FAIL (80.3ms > 33.3ms)
-  Dropped frames:   ✅ PASS (0.0% < 1.0%)
-  Overall:          ✅ CAN KEEP UP (few drops acceptable)
+Option 2: Direct Python call
+```bash
+cd export
+uv run python export_yolo.py ../weapon_detection/weapon_detection_yolo11s/weights/best.pt
 ```
 
-**Key Metrics**:
-- **Dropped frames**: Should be <1% for real-time
-- **P95 latency**: 95% of frames processed within this time
-- **ROI refinement reduction**: % of false positives removed (higher is better)
+This creates three TensorRT engines:
+- `best_fp32.engine` - Full precision (best accuracy)
+- `best_fp16.engine` - Half precision (2x faster)
+- `best_int8.engine` - 8-bit quantized (3x faster)
+
+#### Export ConvNeXT with Torch Compile
+
+Option 1: Using shell script (recommended)
+```bash
+cd export
+./export_convnext.sh
+```
+
+Option 2: Direct Python call
+```bash
+cd export
+uv run python export_convnext.py \
+    --model_path ../models/convnext_trained/best_checkpoint \
+    --output_dir ../models/convnext_compiled \
+    --batch_size 4 \
+    --benchmark
+```
+
+Creates optimized models:
+- `.pt` - PyTorch pickle format
+- `.ep` - ExportedProgram format
+- `.ts` - TorchScript format (TensorRT-optimized)
+
+### 6. Run Inference
+
+#### YOLO Detection Only (Fastest)
+
+```bash
+cd inference
+chmod +x tiled_run.sh
+./tiled_run.sh
+```
+
+Features:
+- Tiled inference for 4K videos
+- SAHI NMS for merging overlapping detections
+- Optional ROI refinement
+- ByteTrack tracking
+
+#### YOLO + ConvNeXT Classification (Best Accuracy)
+
+```bash
+cd inference
+chmod +x run_tiled_classification.sh
+./run_tiled_classification.sh
+```
+
+Features:
+- Two-stage pipeline: Detection → Classification
+- Classification refinement reduces false positives
+- Full-resolution crops for classification
+- Real-time tracking
+
+## Directory Structure
+
+```
+yolo_dangerous_weapons/
+├── data/                           # Datasets (created by download_datasets.sh)
+│   ├── yolo_dataset/              # YOLO detection dataset (from tar.gz)
+│   │   ├── images/
+│   │   │   ├── train/
+│   │   │   ├── valid/
+│   │   │   └── test/
+│   │   ├── labels/
+│   │   │   ├── train/
+│   │   │   ├── valid/
+│   │   │   └── test/
+│   │   └── data.yaml
+│   ├── yolo_dataset_cls_cropped/  # ConvNeXT classification dataset (from zip)
+│   │   ├── train/
+│   │   │   ├── gun/
+│   │   │   └── knife/
+│   │   └── valid/
+│   │       ├── gun/
+│   │       └── knife/
+│   └── convnext_dataset -> yolo_dataset_cls_cropped/  # Symlink
+├── train/                          # Training scripts
+│   ├── train_yolo.py              # YOLO training
+│   ├── train_convnext.py          # ConvNeXT training
+│   └── train_convnext.sh          # ConvNeXT training script
+├── evals/                          # Evaluation scripts
+│   ├── eval_full_test.py          # Evaluate YOLO on full test set
+│   ├── eval_dangerous_test.py     # Evaluate YOLO on dangerous subset
+│   ├── evaluate_convnext.py       # Evaluate ConvNeXT classifier
+│   └── evaluate_best_model.sh     # ConvNeXT evaluation script
+├── export/                         # Model export scripts
+│   ├── export_yolo.py             # Export YOLO to TensorRT
+│   ├── export_yolo.sh             # YOLO export shell script
+│   ├── export_convnext.py         # Export ConvNeXT with torch.compile
+│   └── export_convnext.sh         # ConvNeXT export shell script
+├── inference/                      # Inference scripts
+│   ├── tiled_tensorrt_realtime.py # YOLO-only inference
+│   ├── tiled_classification_realtime.py  # YOLO + ConvNeXT inference
+│   ├── tiled_run.sh               # YOLO inference script
+│   └── run_tiled_classification.sh # Classification pipeline script
+├── models/                         # Trained models (created during training)
+│   ├── yolo/                      # YOLO models and weights
+│   │   └── weapon_detection_*/
+│   │       └── weights/
+│   │           ├── best.pt        # PyTorch model
+│   │           ├── best_fp16.engine  # TensorRT FP16
+│   │           ├── best_fp32.engine  # TensorRT FP32
+│   │           └── best_int8.engine  # TensorRT INT8
+│   ├── convnext_trained/          # ConvNeXT trained checkpoints
+│   └── convnext_compiled/         # ConvNeXT compiled models
+│       └── convnext_bs4.pt        # Compiled model (batch size 4)
+├── download_datasets.sh            # Dataset download script
+├── pyproject.toml                  # Python dependencies
+├── uv.lock                         # Locked dependencies
+└── README.md                       # This file
+```
+
+## Pipeline Workflows
+
+### Training Workflow
+
+1. Download datasets → 2. Train YOLO → 3. Export YOLO to TensorRT → 4. Train ConvNeXT → 5. Export ConvNeXT → 6. Evaluate both models
+
+### Inference Workflow
+
+1. Ensure models are exported → 2. Run tiled inference → 3. Get detections with tracking
+
+### Classification Pipeline
+
+1. YOLO detects weapons on downscaled frame (fast)
+2. Extract ROIs from full-resolution frame
+3. ConvNeXT classifies each ROI (accurate)
+4. Filter by classification confidence
+5. Track objects across frames
+
+## Performance
+
+### YOLO Detection
+- **FP32**: ~30-40ms per frame (baseline)
+- **FP16**: ~15-25ms per frame (~1.5-2x faster)
+- **INT8**: ~10-20ms per frame (~2-3x faster)
+
+### ConvNeXT Classification
+- **Torch Compile + TensorRT**: ~5-10ms per batch (4 crops)
+
+### Real-time Performance
+- **1080p @ 30 FPS**: ✅ Real-time capable (all modes)
+- **4K @ 30 FPS**: ✅ Real-time capable (with 0.5x downscaling)
+
+## Configuration
+
+### Key Parameters
+
+#### Detection Confidence
+- `--conf 0.25` - Initial detection threshold (lower = higher recall)
+- `--iou 0.45` - NMS IoU threshold
+
+#### Classification Confidence
+- `--classify_conf 0.97` - Classification threshold (higher = fewer false positives)
+
+#### Tracking Parameters
+- `--track` - Enable ByteTrack
+- `--min_hits 5` - Minimum detections before confirming track
+- `--track_persist 45` - Frames to keep track after disappearance
+
+#### Tiling Parameters
+- `--tile_size 640` - Tile size for detection
+- `--downscale 0.5` - Downscale factor for input video
+- `--detect_batch 8` - Detection batch size
+- `--classify_batch 4` - Classification batch size
+
+## Dataset Format
+
+### YOLO Dataset
+
+```
+yolo_dataset/
+├── images/
+│   ├── train/
+│   │   ├── image1.jpg
+│   │   └── image2.jpg
+│   ├── valid/
+│   └── test/
+├── labels/
+│   ├── train/
+│   │   ├── image1.txt  # YOLO format: class x_center y_center width height
+│   │   └── image2.txt
+│   ├── valid/
+│   └── test/
+└── data.yaml
+```
+
+**data.yaml** format:
+```yaml
+path: /path/to/yolo_dataset
+train: images/train
+val: images/valid
+test: images/test
+
+nc: 2
+names: ['Gun', 'Knife']
+```
+
+### ConvNeXT Dataset
+
+```
+yolo_dataset_cls_cropped/  (or use symlink: convnext_dataset/)
+├── train/
+│   ├── gun/
+│   │   ├── gun_001.jpg
+│   │   └── gun_002.jpg
+│   └── knife/
+│       ├── knife_001.jpg
+│       └── knife_002.jpg
+└── valid/
+    ├── gun/
+    └── knife/
+```
+
+**Note**: The actual folder is `yolo_dataset_cls_cropped`, but a symlink `convnext_dataset` is created for convenience.
 
 ## Troubleshooting
 
+### Dataset Download Issues
+
+**Problem 1**: Download fails or archive file is corrupted
+
+**Solutions**:
+1. The script will automatically retry with alternative methods
+2. If automatic download fails, manually download:
+   - YOLO dataset (tar.gz): https://drive.google.com/file/d/1HwUmZmDNpSyigVIBbRxDPn2xUQpLxBty/view?usp=drive_link
+   - ConvNeXT dataset (zip): https://drive.google.com/file/d/1IRommjmeYrKsy0K5qLlrUR309HZfv5OY/view?usp=sharing
+3. Place downloaded files in `data/` folder:
+   - YOLO: `data/yolo_dataset.tar.gz`
+   - ConvNeXT: `data/yolo_dataset_cls_cropped.zip`
+4. Run `./download_datasets.sh` again to extract
+
+**Clean up corrupted downloads**:
+```bash
+rm -f data/yolo_dataset.tar.gz data/yolo_dataset_cls_cropped.zip
+./download_datasets.sh
+```
+
+**Problem 2**: macOS metadata files (._* files) after extraction
+
+If you see files like `._data.yaml` or warnings about "Ignoring unknown extended header keyword", don't worry - these are harmless macOS resource fork files. 
+
+**The download script automatically removes these files during extraction**, so you shouldn't see them. If they appear, simply run:
+
+```bash
+find data -name "._*" -type f -delete
+find data -name ".DS_Store" -type f -delete
+```
+
+**Note**: The tar extraction warnings about "LIBARCHIVE.xattr" are harmless and can be ignored. They're just Apple-specific metadata that Linux ignores.
+
 ### GPU Out of Memory
+- Reduce batch size in training scripts
+- Use smaller YOLO variant (yolo11n instead of yolo11s)
+- Enable gradient checkpointing
 
-**Symptoms**: CUDA OOM error during training or export
+### TensorRT Export Fails
+- Ensure CUDA and TensorRT are properly installed
+- Check GPU compatibility
+- Try FP16 before INT8
 
-**Solutions**:
-```python
-# In train.py, reduce batch size
-batch=16  # Instead of 32
+### Inference Too Slow
+- Use INT8 quantized models
+- Increase downscale factor (0.5 → 0.25)
+- Reduce tile size
+- Disable classification refinement
 
-# In export_tensorrt.py, reduce batch size
-batch=2   # Instead of 4
+### False Positives
+- Increase `--classify_conf` threshold
+- Enable tracking with `--min_hits 5`
+- Use classification pipeline
+
+### Git LFS Model Files
+
+**Problem**: Models show "invalid load key" error, "FileNotFoundError", or appear as ASCII text
+
+**Cause**: **All pre-trained models** (YOLO TensorRT engines + ConvNeXT) are stored using Git LFS. You only have pointer files, not the actual models.
+
+**Solution - Pull All Models**:
+
+```bash
+# Install Git LFS (one-time setup)
+sudo apt-get install git-lfs
+git lfs install
+
+# Pull ALL model files (~275 MB total)
+git lfs pull
+
+# Or pull specific models only:
+git lfs pull --include="models/yolo/**/*.engine"  # YOLO TensorRT engines only
+git lfs pull --include="models/convnext_compiled/*.pt"  # ConvNeXT only
 ```
 
-### Low FPS / Cannot Keep Up
-
-**Solutions**:
-1. Use `--downscale 0.5` (processes 1920×804 instead of 3840×1608)
-2. Use `best_fp16.engine` or `best_int8.engine` (2-3x faster)
-3. Disable `--refine_rois` (saves ~20% time, more FPs)
-4. Use smaller model: `yolo11s` instead of `yolo11m`
-
-### Too Many False Positives
-
-**Solutions**:
-1. Enable `--refine_rois` with `--refine_conf 0.50`
-2. Enable `--track` with `--min_hits 5` (requires 5 consecutive frames)
-3. Use larger model: `yolo11m` instead of `yolo11s`
-4. Re-train with more negative examples
-
-### Missed Detections
-
-**Solutions**:
-1. Lower `--conf 0.20` (initial confidence)
-2. Increase `--overlap 256` (more tile overlap)
-3. Use `--downscale 1.0` (full 4K resolution)
-4. Use larger model: `yolo11m` instead of `yolo11s`
-5. Re-train at higher resolution (`imgsz=1280` in `train.py`)
-
-## File Structure
-
-```
-yolo_train/
-├── README.md                 # This file
-├── pyproject.toml            # Dependencies
-├── train.py                  # Training script
-├── export_tensorrt.py        # TensorRT export script
-├── tiled_tensorrt_realtime.py # Real-time inference script
-├── tiled_run.sh              # Quick launch script
-├── eval_full_test.py         # Evaluation on full test set
-├── eval_dangerous_test.py    # Evaluation on dangerous subset
-├── yolo_dataset/             # Dataset (download separately)
-│   ├── data.yaml
-│   ├── images/train/
-│   ├── images/valid/
-│   ├── images/test/
-│   ├── labels/train/
-│   ├── labels/valid/
-│   └── labels/test/
-└── weapon_detection/         # Training outputs
-    ├── weapon_detection_yolo11n_640/
-    ├── weapon_detection_yolo11s_640/
-    └── weapon_detection_yolo11m_640/
-        ├── weights/
-        │   ├── best.pt
-        │   ├── best.engine       # FP16 (default)
-        │   ├── best_fp32.engine
-        │   ├── best_fp16.engine
-        │   └── best_int8.engine
-        └── results.png
+**Check if LFS files are downloaded**:
+```bash
+# Should show binary data, not "version https://git-lfs.github.com"
+file models/yolo/weapon_detection_yolo11m_640/weights/best_fp16.engine
 ```
 
-## Credits
+**Alternative**: Train your own models from scratch (see training sections).
 
-- **YOLO11**: [Ultralytics](https://github.com/ultralytics/ultralytics)
-- **TensorRT**: [NVIDIA](https://developer.nvidia.com/tensorrt)
-- **SAHI**: [obss/sahi](https://github.com/obss/sahi)
-- **ByteTrack**: [ifzhang/ByteTrack](https://github.com/ifzhang/ByteTrack)
-- **Dataset**: [Custom weapon detection dataset](https://drive.google.com/file/d/1HwUmZmDNpSyigVIBbRxDPn2xUQpLxBty/view?usp=sharing)
+## Citation
+
+If you use this pipeline in your research, please cite:
+
+```bibtex
+@software{dangerous_weapons_detection,
+  title={Dangerous Weapons Detection Pipeline},
+  author={Your Name},
+  year={2024},
+  url={https://github.com/yourusername/yolo_dangerous_weapons}
+}
+```
 
 ## License
 
-This project is for research and educational purposes only.
+This project is licensed under the MIT License - see the LICENSE file for details.
 
+## Acknowledgments
+
+- [Ultralytics YOLO](https://github.com/ultralytics/ultralytics)
+- [Hugging Face Transformers](https://github.com/huggingface/transformers)
+- [SAHI](https://github.com/obss/sahi)
+- [ByteTrack](https://github.com/ifzhang/ByteTrack)
+- [TensorRT](https://developer.nvidia.com/tensorrt)
+
+## Support
+
+For issues and questions:
+- Open an issue on GitHub
+- Check the documentation
+- Review existing issues and discussions

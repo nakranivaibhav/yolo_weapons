@@ -1,6 +1,8 @@
 #!/bin/bash
 
-PROJECT_ROOT=$(pwd)
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_ROOT="$(cd "${SCRIPT_DIR}/.." && pwd)"
+
 MODEL_PATH="${PROJECT_ROOT}/models/convnext_trained/best_checkpoint"
 OUTPUT_DIR="${PROJECT_ROOT}/models/convnext_compiled"
 BATCH_SIZE=4
@@ -12,7 +14,7 @@ echo "Model path: ${MODEL_PATH}"
 echo "Output directory: ${OUTPUT_DIR}"
 echo ""
 
-cd "${PROJECT_ROOT}/export"
+cd "${SCRIPT_DIR}"
 
 export LD_LIBRARY_PATH="${PROJECT_ROOT}/.venv/lib/python3.12/site-packages/tensorrt_libs:$LD_LIBRARY_PATH"
 

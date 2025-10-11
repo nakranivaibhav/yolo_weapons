@@ -1,10 +1,21 @@
 #!/bin/bash
 
-MODEL_DIR="./weapon_classification_convnextv2/best_checkpoint"
-DATA_DIR="/workspace/yolo_dataset_cls_cropped"
-OUTPUT_DIR="./evaluation_results_best_model"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_ROOT="$(cd "${SCRIPT_DIR}/.." && pwd)"
+
+MODEL_DIR="${PROJECT_ROOT}/models/convnext_trained/best_checkpoint"
+DATA_DIR="${PROJECT_ROOT}/data/convnext_dataset"
+OUTPUT_DIR="${PROJECT_ROOT}/evaluation_results"
 BATCH_SIZE=32
 NUM_WORKERS=4
+
+echo "Project root: ${PROJECT_ROOT}"
+echo "Model directory: ${MODEL_DIR}"
+echo "Data directory: ${DATA_DIR}"
+echo "Output directory: ${OUTPUT_DIR}"
+echo ""
+
+cd "${SCRIPT_DIR}"
 
 uv run python evaluate_convnext.py \
     --model_dir "$MODEL_DIR" \

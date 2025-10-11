@@ -1,15 +1,18 @@
-#!/usr/local/bin/python
+#!/usr/bin/env python3
 
 from ultralytics import YOLO
 from pathlib import Path
 import shutil
 import os
 
-model_path = "/workspace/yolo_train/weapon_detection/weapon_detection_yolo11s_640/weights/best.pt"
-test_images_dir = Path("/workspace/yolo_train/yolo_dataset/images/test")
-test_labels_dir = Path("/workspace/yolo_train/yolo_dataset/labels/test")
+PROJECT_ROOT = Path(__file__).parent.parent.absolute()
+DATA_DIR = PROJECT_ROOT / "data" / "yolo_dataset"
 
-temp_dataset_dir = Path("/workspace/yolo_train/yolo_dataset_dangerous_only")
+model_path = PROJECT_ROOT / "models" / "yolo" / "weapon_detection_yolo11s_640" / "weights" / "best.pt"
+test_images_dir = DATA_DIR / "images" / "test"
+test_labels_dir = DATA_DIR / "labels" / "test"
+
+temp_dataset_dir = PROJECT_ROOT / "temp_dangerous_only"
 temp_images_dir = temp_dataset_dir / "images" / "test"
 temp_labels_dir = temp_dataset_dir / "labels" / "test"
 temp_val_images_dir = temp_dataset_dir / "images" / "val"
@@ -49,7 +52,7 @@ names: ['Gun', 'Knife']
 
 print(f"✅ Temporary dataset created with {len(dangerous_images)} images\n")
 
-model = YOLO(model_path)
+model = YOLO(str(model_path))
 
 results = model.val(
     data=str(temp_yaml),

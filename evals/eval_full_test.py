@@ -1,20 +1,23 @@
-#!/usr/local/bin/python
+#!/usr/bin/env python3
 
 from ultralytics import YOLO
 from pathlib import Path
 
-model_path = "/root/workspace/weapon_detection/weapon_detection_yolo11m/weights/best.pt"
-data_yaml = "/root/workspace/yolo_dataset/data.yaml"
+PROJECT_ROOT = Path(__file__).parent.parent.absolute()
+DATA_DIR = PROJECT_ROOT / "data" / "yolo_dataset"
+
+model_path = PROJECT_ROOT / "models" / "yolo" / "weapon_detection_yolo11m_640" / "weights" / "best.pt"
+data_yaml = DATA_DIR / "data.yaml"
 
 print(f"\n{'='*80}")
 print(f"🔍 Evaluating on FULL test set")
 print(f"Model: {model_path}")
 print(f"{'='*80}\n")
 
-model = YOLO(model_path)
+model = YOLO(str(model_path))
 
 results = model.val(
-    data=data_yaml,
+    data=str(data_yaml),
     split='test',
     batch=16,
     imgsz=640,

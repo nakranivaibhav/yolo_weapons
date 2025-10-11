@@ -11,3 +11,4 @@ wheels/
 *.gz
 *.*.gz
 yolo_dataset/
+data/
