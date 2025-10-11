@@ -1,0 +1,13 @@
+{
+  "data_dir": "/data/Upwork/On Going/yolo_dangerous_weapons/data/convnext_dataset",
+  "model_name": "facebook/convnextv2-tiny-22k-224",
+  "output_dir": "/data/Upwork/On Going/yolo_dangerous_weapons/models/convnext_trained",
+  "epochs": 5,
+  "batch_size": 32,
+  "learning_rate": 5e-05,
+  "num_workers": 8,
+  "seed": 42,
+  "log_steps": 50,
+  "eval_epochs": 1,
+  "save_epochs": 5
+}

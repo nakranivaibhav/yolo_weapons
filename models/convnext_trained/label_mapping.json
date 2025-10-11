@@ -1,0 +1,10 @@
+{
+  "id2label": {
+    "0": "gun",
+    "1": "knife"
+  },
+  "label2id": {
+    "gun": 0,
+    "knife": 1
+  }
+}
