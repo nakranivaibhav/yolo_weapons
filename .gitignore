@@ -12,3 +12,4 @@ wheels/
 *.*.gz
 yolo_dataset/
 data/
+inference_output/

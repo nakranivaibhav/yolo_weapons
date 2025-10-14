@@ -56,19 +56,17 @@ sudo apt-get install git-lfs
 git lfs install
 git lfs pull
 
-# 3. Place your test video in data/
-# cp /path/to/your/video.mp4 data/test_video.mp4
+# 3. Edit the video path in run_tiled_classification.sh
+# Open inference/run_tiled_classification.sh and update line 6:
+# VIDEO="/path/to/your/video.mp4"
 
 # 4. Run inference
 cd inference
 
 ./run_tiled_classification.sh  # YOLO + ConvNeXT classification
-
-# or
-
-./tiled_run.sh  # YOLO detection only (legacy)
 ```
 
+# Only for training.
 ## Quick Start
 
 ### 1. Environment Setup
