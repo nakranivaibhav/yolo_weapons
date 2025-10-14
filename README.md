@@ -66,6 +66,8 @@ cd inference
 ./run_tiled_classification.sh  # YOLO + ConvNeXT classification
 ```
 
+**Output**: The annotated video will be saved to `inference_output/classified_output.mp4` by default.
+
 # Only for training.
 ## Quick Start
 
