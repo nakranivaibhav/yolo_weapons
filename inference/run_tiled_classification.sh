@@ -3,7 +3,7 @@
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_ROOT="$(cd "${SCRIPT_DIR}/.." && pwd)"
 
-VIDEO="/path/to/your/video.mp4" # Update this line to your video path
+VIDEO="/root/workspace/input_videos/protest.mp4" # Update this line to your video path
 DETECT_MODEL="${PROJECT_ROOT}/models/yolo/weapon_detection_yolo11m_640/weights/best_fp16.engine"
 CLASSIFY_MODEL="${PROJECT_ROOT}/models/convnext_compiled/convnext_bs4.pt"
 OUTPUT_DIR="${PROJECT_ROOT}/inference_output"
@@ -34,6 +34,5 @@ uv run python tiled_classification_realtime.py \
     --classify_rois \
     --track \
     --track_persist 30 \
-    --min_hits 3 \
+    --min_hits 5 \
     --save_vis
-

@@ -670,4 +670,3 @@ if args.save_vis:
     print(f"\n📹 Output: {args.out}/classified_output.mp4")
 
 print()
-

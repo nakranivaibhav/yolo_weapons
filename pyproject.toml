@@ -8,6 +8,7 @@ dependencies = [
     "boxmot>=15.0.5",
     "datasets>=4.2.0",
     "hf-transfer>=0.1.9",
+    "ipykernel>=7.1.0",
     "matplotlib>=3.10.6",
     "numpy>=1.26.0,<2.0.0",
     "onnx>=1.19.0",
