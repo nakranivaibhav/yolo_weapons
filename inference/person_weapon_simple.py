@@ -10,12 +10,12 @@ import json
 import base64
 
 PROJECT_ROOT = Path(__file__).parent.parent.absolute()
-DEYO_ROOT = PROJECT_ROOT.parent / "DEYO"
+DEYO_ROOT = PROJECT_ROOT / "DEYO"
 
 import argparse
 parser = argparse.ArgumentParser(description='Simple DEYO Person + ONNX Weapon Detection')
 parser.add_argument("--video", type=str, required=True)
-parser.add_argument("--deyo_model", type=str, default="/root/workspace/deyo_model/deyo-x.pt")
+parser.add_argument("--deyo_model", type=str, default=str(PROJECT_ROOT / "models" / "deyo" / "deyo-x.pt"))
 parser.add_argument("--weapon_model", type=str, default=str(PROJECT_ROOT / "models" / "yolo" / "weapon_detection_yolo11m_640" / "weights" / "best.pt"))
 parser.add_argument("--person_conf", type=float, default=0.3)
 parser.add_argument("--weapon_conf", type=float, default=0.25)

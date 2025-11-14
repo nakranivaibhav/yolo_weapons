@@ -8,7 +8,7 @@ cd "$PROJECT_ROOT"
 
 uv run python inference/person_weapon_simple.py \
     --video "$VIDEO" \
-    --deyo_model "/root/workspace/deyo_model/deyo-x.pt" \
+    --deyo_model "models/deyo/deyo-x.pt" \
     --weapon_model "models/yolo/weapon_detection_yolo11m_640/weights/best.pt" \
     --person_conf 0.3 \
     --weapon_conf 0.3 \

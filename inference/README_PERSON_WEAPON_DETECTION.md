@@ -30,25 +30,22 @@ Output Video (weapons only)
 
 ## Requirements
 
-### Models
-1. **DEYO-X model**: `/root/workspace/deyo_model/deyo-x.pt`
-   - Download from: https://github.com/ouyanghaodong/DEYO/releases
+### Models (Included with Git LFS)
+
+All models are included in the repository and managed with Git LFS:
+
+1. **DEYO-X model**: `models/deyo/deyo-x.pt`
    - 80 COCO classes, person is class 0
+   - Original source: https://github.com/ouyanghaodong/DEYO/releases
 
 2. **YOLO11 weapon model**: `models/yolo/weapon_detection_yolo11m_640/weights/best.pt`
    - Trained on knife (class 0) and gun (class 1)
 
-### DEYO Repository
-```bash
-# Clone DEYO (required for custom ultralytics)
-cd /root/workspace
-git clone https://github.com/ouyanghaodong/DEYO.git
+### DEYO Repository (Included)
 
-# Fix torch.load for PyTorch 2.6+
-# Edit DEYO/ultralytics/nn/tasks.py line 640:
-# Change: torch.load(file, map_location="cpu")
-# To: torch.load(file, map_location="cpu", weights_only=False)
-```
+The DEYO repository with custom ultralytics is included in `DEYO/` directory.
+
+**Pre-applied fix**: `torch.load()` in `DEYO/ultralytics/nn/tasks.py` already includes `weights_only=False` for PyTorch 2.6+ compatibility.
 
 ### Python Dependencies
 ```bash
@@ -64,15 +61,30 @@ Key packages:
 
 ## Setup
 
-### 1. Install DEYO's ultralytics fix
-The DEYO model requires a patched version of ultralytics. The fix is already applied in:
-- `/root/workspace/DEYO/ultralytics/nn/tasks.py` (lines 640, 661)
-- Changed `torch.load()` to include `weights_only=False`
-
-### 2. Verify Models
+### 1. Clone Repository with LFS
 ```bash
-ls /root/workspace/deyo_model/deyo-x.pt
-ls /root/workspace/yolo_dangerous_weapons/models/yolo/weapon_detection_yolo11m_640/weights/best.pt
+git clone <repository-url>
+cd yolo_dangerous_weapons
+
+# Pull LFS files (models)
+git lfs pull
+```
+
+### 2. Install Dependencies
+```bash
+uv sync
+```
+
+### 3. Verify Setup
+```bash
+# Check DEYO model
+ls models/deyo/deyo-x.pt
+
+# Check weapon model  
+ls models/yolo/weapon_detection_yolo11m_640/weights/best.pt
+
+# Check DEYO repo
+ls DEYO/ultralytics/
 ```
 
 ## Usage
@@ -85,11 +97,11 @@ cd /root/workspace/yolo_dangerous_weapons/inference
 
 ### Manual Run
 ```bash
-cd /root/workspace/yolo_dangerous_weapons
+cd yolo_dangerous_weapons
 
 uv run python inference/person_weapon_simple.py \
     --video /path/to/video.mp4 \
-    --deyo_model /root/workspace/deyo_model/deyo-x.pt \
+    --deyo_model models/deyo/deyo-x.pt \
     --weapon_model models/yolo/weapon_detection_yolo11m_640/weights/best.pt \
     --person_conf 0.3 \
     --weapon_conf 0.3 \
@@ -163,13 +175,13 @@ uv run python inference/person_weapon_simple.py \
 ### Why Subprocess for Weapon Detection?
 ```python
 # Main Process (DEYO)
-sys.path.insert(0, '/root/workspace/DEYO')
+sys.path.insert(0, str(PROJECT_ROOT / 'DEYO'))
 from ultralytics import RTDETR  # DEYO's old ultralytics
-person_model = RTDETR('deyo-x.pt')
+person_model = RTDETR('models/deyo/deyo-x.pt')
 
 # Subprocess (YOLO11)
 # Fresh Python process with clean ultralytics from venv
-weapon_model = YOLO('best.pt')  # New ultralytics with YOLO11 support
+weapon_model = YOLO('models/yolo/.../best.pt')  # New ultralytics with YOLO11 support
 ```
 
 **Benefits**:
@@ -204,11 +216,6 @@ weapon_model = YOLO('best.pt')  # New ultralytics with YOLO11 support
 - Too many person detections (increase `--person_conf`)
 - Large ROIs (reduce `--roi_expand`)
 
-**Check GPU usage**:
-```bash
-nvidia-smi -l 1
-```
-
 ### Memory errors
 **Cause**: Large batch or ROI accumulation
 **Fix**: Process is sequential, shouldn't happen. Check subprocess isn't leaking.
@@ -232,22 +239,8 @@ ls -lh inference_output/person_weapon_simple.mp4
 
 ## Performance Benchmarks
 
-Typical performance on RTX 5090:
-- **Person detection**: ~15-25ms per frame (1920x1080)
-- **Weapon detection**: ~5-15ms per person ROI
-- **Total**: ~30-50ms per frame (depends on # of persons)
-- **Real-time**: ✅ Capable at 30 FPS with 1-2 persons per frame
 
 ## Future Improvements
 
-1. **GPU ONNX for weapons**: Fix RTX 5090 compatibility for faster inference
 2. **Batch weapon detection**: Process multiple person ROIs in one batch
 3. **TensorRT**: Export both models to TensorRT for maximum speed
-4. **Dynamic downscaling**: Adjust based on # of persons detected
-
-## References
-
-- **DEYO**: https://github.com/ouyanghaodong/DEYO
-- **YOLO11**: https://github.com/ultralytics/ultralytics
-- **ByteTrack**: https://github.com/mikel-brostrom/boxmot
-
