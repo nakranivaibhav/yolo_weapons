@@ -153,7 +153,7 @@ for frame_idx in range(args.max_frames):
             
             crop_h, crop_w = person_crop.shape[:2]
             max_dim = max(crop_h, crop_w)
-            imgsz = 640 if max_dim < 640 else 1280 if max_dim < 1280 else 1920
+            imgsz = 640
             
             crop_bytes = person_crop.tobytes()
             crop_b64 = base64.b64encode(crop_bytes).decode('utf-8')
