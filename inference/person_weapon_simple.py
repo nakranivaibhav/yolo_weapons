@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-
 import sys
 from pathlib import Path
 import cv2
@@ -57,7 +55,7 @@ while True:
     if not line:
         raise RuntimeError("Weapon model subprocess failed to start")
 
-WEAPON_LABELS = {0: 'knife', 1: 'gun'}
+WEAPON_LABELS = {0: 'knife', 1: 'gun', 2: 'baseball_bat'}
 print(f"      ✓ YOLO weapon model loaded on GPU (subprocess)\n")
 
 if args.track:

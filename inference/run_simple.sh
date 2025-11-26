@@ -6,6 +6,8 @@ VIDEO="${1:-/workspace/input_videos/protest.mp4}"
 
 cd "$PROJECT_ROOT"
 
+export LD_LIBRARY_PATH="${PROJECT_ROOT}/.venv/lib/python3.12/site-packages/opencv_python.libs:${LD_LIBRARY_PATH}"
+
 uv run python inference/person_weapon_simple.py \
     --video "$VIDEO" \
     --deyo_model "models/deyo/deyo-x.pt" \

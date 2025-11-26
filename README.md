@@ -51,10 +51,13 @@ If you just want to test inference without training:
 # 1. Setup environment
 uv sync
 
+source .venv/bin/activate
+
 # 2. Pull pre-trained models (Git LFS required!)
 sudo apt-get install git-lfs
 git lfs install
 git lfs pull
+
 
 # 3. Edit the video path in run_tiled_classification.sh
 # Open inference/run_tiled_classification.sh and update line 6:
