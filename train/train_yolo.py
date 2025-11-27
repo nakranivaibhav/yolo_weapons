@@ -4,11 +4,11 @@ import albumentations as A
 from ultralytics.models.yolo import YOLO
 
 PROJECT_ROOT = Path(__file__).parent.parent.absolute()
-DATA_DIR = Path("/workspace/yolo_dataset_26_nov/yolo_dataset_latest")
+DATA_DIR = Path("/workspace/yolo_dataset_26_nov_eve")
 
 os.chdir(PROJECT_ROOT)
 
-model_name = "yolo11n.pt"
+model_name = "yolo11m.pt"
 
 print(f"\n🚀 Starting training for {model_name}\n{'='*60}\n")
 print(f"Project root: {PROJECT_ROOT}")

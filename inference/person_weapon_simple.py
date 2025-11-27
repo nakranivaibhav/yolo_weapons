@@ -55,7 +55,7 @@ while True:
     if not line:
         raise RuntimeError("Weapon model subprocess failed to start")
 
-WEAPON_LABELS = {0: 'knife', 1: 'gun', 2: 'baseball_bat'}
+WEAPON_LABELS = {0: 'knife', 1: 'gun', 2: 'rifle', 3: 'baseball_bat'}
 print(f"      ✓ YOLO weapon model loaded on GPU (subprocess)\n")
 
 if args.track:
@@ -217,7 +217,7 @@ for frame_idx in range(args.max_frames):
     for det in weapon_detections:
         x1_w, y1_w, x2_w, y2_w, conf_w, cls_w = det['weapon']
         weapon_name = WEAPON_LABELS[int(cls_w)]
-        color = (0, 0, 255) if weapon_name == 'gun' else (0, 255, 255)
+        color = (0, 0, 255) if weapon_name in ['gun', 'rifle'] else (0, 255, 255)
         
         cv2.rectangle(annotated, (int(x1_w), int(y1_w)), (int(x2_w), int(y2_w)), color, 3)
         

@@ -13,3 +13,5 @@ wheels/
 yolo_dataset/
 data/
 inference_output/
+weapon_detection/
+weapon_detection_yolo11m/
