@@ -9,7 +9,7 @@ PROJECT_ROOT = Path(__file__).parent.parent.absolute()
 model_path = sys.argv[1]
 conf_threshold = float(sys.argv[2])
 
-from ultralytics import YOLO
+from ultralytics.models.yolo import YOLO
 weapon_model = YOLO(model_path, task='detect')
 
 sys.stderr.write("WEAPON_MODEL_READY\n")
