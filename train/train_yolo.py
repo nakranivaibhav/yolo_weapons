@@ -4,7 +4,7 @@ import albumentations as A
 from ultralytics.models.yolo import YOLO
 
 PROJECT_ROOT = Path(__file__).parent.parent.absolute()
-DATA_DIR = Path("/workspace/yolo_dataset_26_nov_eve")
+DATA_DIR = Path("/workspace/yolo_dataset_4_dec")
 
 os.chdir(PROJECT_ROOT)
 
@@ -34,6 +34,7 @@ custom_transforms = [
     A.ImageCompression(quality_range=(40, 90), p=0.3),
     A.RandomBrightnessContrast(brightness_limit=0.3, contrast_limit=0.3, p=0.4),
     A.Downscale(scale_range=(0.4, 0.85), p=0.2),
+    A.RandomShadow(num_shadows_limit=(1, 2), shadow_roi=(0, 0.5, 1, 1), p=0.2),
 ]
 
 model_tag = model_name.replace('.pt', '')
@@ -51,7 +52,7 @@ results = model.train(
     hsv_v=0.4,
     
     degrees=15.0,
-    translate=0.2,
+    translate=0.1,      # Reduced from 0.2
     scale=0.4,
     shear=3.0,
     perspective=0.0002,
@@ -59,12 +60,12 @@ results = model.train(
     fliplr=0.5,
     flipud=0.0,
     
-    mosaic=0.5,
+    mosaic=0.3,         # Reduced from 0.5
     mixup=0.1,
     copy_paste=0.0,
     
-    close_mosaic=20,
-    
+    close_mosaic=15,    # Reduced from 20
+    label_smoothing=0.1,
     optimizer='SGD',
     momentum=0.937,
     lr0=0.01,

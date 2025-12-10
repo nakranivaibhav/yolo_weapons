@@ -1,0 +1,2 @@
+image_name,gt_class,pred_class_argmax,pred_class_raw,pred_conf,iou
+crowdhuman_train_011601.jpg,background,baseball_bat,baseball_bat,0.5585082769393921,0.0

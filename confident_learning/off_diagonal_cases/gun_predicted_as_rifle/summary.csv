@@ -1,0 +1,7 @@
+image_name,gt_class,pred_class_argmax,pred_class_raw,pred_conf,iou
+voc_train_005585.jpg,gun,rifle,rifle,0.7773095369338989,0.9496531389947129
+youtube_train_008602.jpg,gun,rifle,rifle,0.7315800189971924,0.929071254064879
+youtube_train_010839.jpg,gun,rifle,rifle,0.6683160662651062,0.9603975616444078
+youtube_train_010891.jpg,gun,rifle,rifle,0.8252435922622681,0.9533485576838443
+youtube_train_010891.jpg,gun,rifle,rifle,0.6374403834342957,0.9058073776239359
+youtube_train_010891.jpg,gun,rifle,rifle,0.6138741970062256,0.8327209877221957

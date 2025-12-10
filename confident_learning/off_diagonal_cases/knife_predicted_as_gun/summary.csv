@@ -1,0 +1,2 @@
+image_name,gt_class,pred_class_argmax,pred_class_raw,pred_conf,iou
+dangerous_train_001035.jpg,knife,gun,gun,0.7440274953842163,0.9278567520727459

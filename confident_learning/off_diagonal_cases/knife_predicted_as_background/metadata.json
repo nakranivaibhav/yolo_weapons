@@ -1,0 +1,2650 @@
+[
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_000097.jpg",
+    "image_name": "dangerous_train_000097.jpg",
+    "obj_idx": 1,
+    "gt_class": 0,
+    "gt_class_name": "knife",
+    "gt_bbox_xywh": [
+      0.605137,
+      0.604167,
+      0.522103,
+      0.575
+    ],
+    "pred_class": 0,
+    "pred_class_name": "knife",
+    "pred_conf": 0.013883800245821476,
+    "pred_bbox_xyxy": [
+      242.08619689941406,
+      169.48486328125,
+      796.0936889648438,
+      550.4412841796875
+    ],
+    "iou": 0.7143479552867509,
+    "y_pred": 4,
+    "pred_probs": [
+      0.013883800245821476,
+      0.0,
+      0.0,
+      0.0,
+      0.9861161997541785
+    ],
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background"
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_000137.jpg",
+    "image_name": "dangerous_train_000137.jpg",
+    "obj_idx": 0,
+    "gt_class": 0,
+    "gt_class_name": "knife",
+    "gt_bbox_xywh": [
+      0.35680628719769225,
+      0.796892828696911,
+      0.042471877580911255,
+      0.04138354896583463
+    ],
+    "pred_class": 4,
+    "pred_class_name": "background",
+    "pred_conf": 0,
+    "pred_bbox_xyxy": null,
+    "iou": 0,
+    "y_pred": 4,
+    "pred_probs": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ],
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background"
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_000177.jpg",
+    "image_name": "dangerous_train_000177.jpg",
+    "obj_idx": 0,
+    "gt_class": 0,
+    "gt_class_name": "knife",
+    "gt_bbox_xywh": [
+      0.3625,
+      0.523333,
+      0.1275,
+      0.95
+    ],
+    "pred_class": 0,
+    "pred_class_name": "knife",
+    "pred_conf": 0.025038084015250206,
+    "pred_bbox_xyxy": [
+      221.97613525390625,
+      32.0013427734375,
+      332.0425109863281,
+      461.96295166015625
+    ],
+    "iou": 0.6111357640585247,
+    "y_pred": 4,
+    "pred_probs": [
+      0.025038084015250206,
+      0.0,
+      0.0,
+      0.0,
+      0.9749619159847498
+    ],
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background"
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_000179.jpg",
+    "image_name": "dangerous_train_000179.jpg",
+    "obj_idx": 0,
+    "gt_class": 0,
+    "gt_class_name": "knife",
+    "gt_bbox_xywh": [
+      0.6681195332674004,
+      0.2389931353295018,
+      0.14326726210357266,
+      0.02769424402892845
+    ],
+    "pred_class": 4,
+    "pred_class_name": "background",
+    "pred_conf": 0,
+    "pred_bbox_xyxy": null,
+    "iou": 0,
+    "y_pred": 4,
+    "pred_probs": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ],
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background"
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_000214.jpg",
+    "image_name": "dangerous_train_000214.jpg",
+    "obj_idx": 0,
+    "gt_class": 0,
+    "gt_class_name": "knife",
+    "gt_bbox_xywh": [
+      0.7635542168674699,
+      0.36596385542168675,
+      0.024849397590361377,
+      0.05120481927710841
+    ],
+    "pred_class": 0,
+    "pred_class_name": "knife",
+    "pred_conf": 0.4244646430015564,
+    "pred_bbox_xyxy": [
+      747.938720703125,
+      254.28945922851562,
+      776.5045166015625,
+      293.98309326171875
+    ],
+    "iou": 0.8416291632509187,
+    "y_pred": 4,
+    "pred_probs": [
+      0.4244646430015564,
+      0.0,
+      0.0,
+      0.0,
+      0.5755353569984436
+    ],
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background"
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_000427.jpg",
+    "image_name": "dangerous_train_000427.jpg",
+    "obj_idx": 1,
+    "gt_class": 0,
+    "gt_class_name": "knife",
+    "gt_bbox_xywh": [
+      0.5486355154106677,
+      0.4747112520626703,
+      0.053667398713807546,
+      0.04394985457326106
+    ],
+    "pred_class": 0,
+    "pred_class_name": "knife",
+    "pred_conf": 0.16570812463760376,
+    "pred_bbox_xyxy": [
+      513.2244262695312,
+      328.9643249511719,
+      579.3653564453125,
+      379.10498046875
+    ],
+    "iou": 0.5334195704120867,
+    "y_pred": 4,
+    "pred_probs": [
+      0.16570812463760376,
+      0.0,
+      0.0,
+      0.0,
+      0.8342918753623962
+    ],
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background"
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_000448.jpg",
+    "image_name": "dangerous_train_000448.jpg",
+    "obj_idx": 0,
+    "gt_class": 0,
+    "gt_class_name": "knife",
+    "gt_bbox_xywh": [
+      0.5211159493009736,
+      0.5160166169497642,
+      0.06596390920586997,
+      0.061947051353367644
+    ],
+    "pred_class": 0,
+    "pred_class_name": "knife",
+    "pred_conf": 0.4158346652984619,
+    "pred_bbox_xyxy": [
+      489.54351806640625,
+      366.01470947265625,
+      552.8453979492188,
+      415.3255920410156
+    ],
+    "iou": 0.826735032013814,
+    "y_pred": 4,
+    "pred_probs": [
+      0.4158346652984619,
+      0.0,
+      0.0,
+      0.0,
+      0.5841653347015381
+    ],
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background"
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_000453.jpg",
+    "image_name": "dangerous_train_000453.jpg",
+    "obj_idx": 0,
+    "gt_class": 0,
+    "gt_class_name": "knife",
+    "gt_bbox_xywh": [
+      0.03966848019561077,
+      0.4462088842884748,
+      0.03715189765481387,
+      0.22610137382901557
+    ],
+    "pred_class": 0,
+    "pred_class_name": "knife",
+    "pred_conf": 0.0445614829659462,
+    "pred_bbox_xyxy": [
+      25.039165496826172,
+      264.9107971191406,
+      61.169349670410156,
+      416.2153625488281
+    ],
+    "iou": 0.745126392055929,
+    "y_pred": 4,
+    "pred_probs": [
+      0.0445614829659462,
+      0.0,
+      0.0,
+      0.0,
+      0.9554385170340538
+    ],
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background"
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_000470.jpg",
+    "image_name": "dangerous_train_000470.jpg",
+    "obj_idx": 0,
+    "gt_class": 0,
+    "gt_class_name": "knife",
+    "gt_bbox_xywh": [
+      0.7306010879602094,
+      0.3482252317445079,
+      0.026996205244517513,
+      0.04755138603547576
+    ],
+    "pred_class": 0,
+    "pred_class_name": "knife",
+    "pred_conf": 0.15328706800937653,
+    "pred_bbox_xyxy": [
+      711.9479370117188,
+      239.22390747070312,
+      747.3118896484375,
+      279.6592102050781
+    ],
+    "iou": 0.6732954286388471,
+    "y_pred": 4,
+    "pred_probs": [
+      0.15328706800937653,
+      0.0,
+      0.0,
+      0.0,
+      0.8467129319906235
+    ],
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background"
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_000501.jpg",
+    "image_name": "dangerous_train_000501.jpg",
+    "obj_idx": 0,
+    "gt_class": 0,
+    "gt_class_name": "knife",
+    "gt_bbox_xywh": [
+      0.2925451807228916,
+      0.6054216867469879,
+      0.022590361445783136,
+      0.19578313253012036
+    ],
+    "pred_class": 0,
+    "pred_class_name": "knife",
+    "pred_conf": 0.2842881679534912,
+    "pred_bbox_xyxy": [
+      279.6761779785156,
+      381.9730224609375,
+      303.8499450683594,
+      525.9647827148438
+    ],
+    "iou": 0.9175538785674088,
+    "y_pred": 4,
+    "pred_probs": [
+      0.2842881679534912,
+      0.0,
+      0.0,
+      0.0,
+      0.7157118320465088
+    ],
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background"
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_000510.jpg",
+    "image_name": "dangerous_train_000510.jpg",
+    "obj_idx": 0,
+    "gt_class": 0,
+    "gt_class_name": "knife",
+    "gt_bbox_xywh": [
+      0.23606927710843376,
+      0.2756024096385542,
+      0.01807228915662648,
+      0.15963855421686746
+    ],
+    "pred_class": 0,
+    "pred_class_name": "knife",
+    "pred_conf": 0.08680842816829681,
+    "pred_bbox_xyxy": [
+      224.37696838378906,
+      149.30613708496094,
+      248.84825134277344,
+      266.0191650390625
+    ],
+    "iou": 0.7246808182074945,
+    "y_pred": 4,
+    "pred_probs": [
+      0.08680842816829681,
+      0.0,
+      0.0,
+      0.0,
+      0.9131915718317032
+    ],
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background"
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_000662.jpg",
+    "image_name": "dangerous_train_000662.jpg",
+    "obj_idx": 1,
+    "gt_class": 0,
+    "gt_class_name": "knife",
+    "gt_bbox_xywh": [
+      0.385528,
+      0.483333,
+      0.683274,
+      0.376667
+    ],
+    "pred_class": 0,
+    "pred_class_name": "knife",
+    "pred_conf": 0.09735506772994995,
+    "pred_bbox_xyxy": [
+      33.30183410644531,
+      180.47671508789062,
+      624.4387817382812,
+      393.137939453125
+    ],
+    "iou": 0.9182706806347121,
+    "y_pred": 4,
+    "pred_probs": [
+      0.09735506772994995,
+      0.0,
+      0.0,
+      0.0,
+      0.90264493227005
+    ],
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background"
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_000689.jpg",
+    "image_name": "dangerous_train_000689.jpg",
+    "obj_idx": 0,
+    "gt_class": 0,
+    "gt_class_name": "knife",
+    "gt_bbox_xywh": [
+      0.36732,
+      0.2175,
+      0.643137,
+      0.091667
+    ],
+    "pred_class": 0,
+    "pred_class_name": "knife",
+    "pred_conf": 0.04439619556069374,
+    "pred_bbox_xyxy": [
+      89.68985748291016,
+      101.98148345947266,
+      533.6699829101562,
+      154.8638458251953
+    ],
+    "iou": 0.8141452455548928,
+    "y_pred": 4,
+    "pred_probs": [
+      0.04439619556069374,
+      0.0,
+      0.0,
+      0.0,
+      0.9556038044393063
+    ],
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background"
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_000693.jpg",
+    "image_name": "dangerous_train_000693.jpg",
+    "obj_idx": 1,
+    "gt_class": 0,
+    "gt_class_name": "knife",
+    "gt_bbox_xywh": [
+      0.8720059902109998,
+      0.565693157440504,
+      0.15967551698075955,
+      0.03742573904387114
+    ],
+    "pred_class": 4,
+    "pred_class_name": "background",
+    "pred_conf": 0,
+    "pred_bbox_xyxy": null,
+    "iou": 0,
+    "y_pred": 4,
+    "pred_probs": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ],
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background"
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_000735.jpg",
+    "image_name": "dangerous_train_000735.jpg",
+    "obj_idx": 0,
+    "gt_class": 0,
+    "gt_class_name": "knife",
+    "gt_bbox_xywh": [
+      0.35938104137576005,
+      0.034118302456744305,
+      0.1291482502518736,
+      0.06823660491348861
+    ],
+    "pred_class": 0,
+    "pred_class_name": "knife",
+    "pred_conf": 0.3566637337207794,
+    "pred_bbox_xyxy": [
+      310.1249694824219,
+      0.0,
+      426.25250244140625,
+      54.7440299987793
+    ],
+    "iou": 0.8157615956167615,
+    "y_pred": 4,
+    "pred_probs": [
+      0.3566637337207794,
+      0.0,
+      0.0,
+      0.0,
+      0.6433362662792206
+    ],
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background"
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_000966.jpg",
+    "image_name": "dangerous_train_000966.jpg",
+    "obj_idx": 0,
+    "gt_class": 0,
+    "gt_class_name": "knife",
+    "gt_bbox_xywh": [
+      0.189367,
+      0.470833,
+      0.058542,
+      0.285
+    ],
+    "pred_class": 0,
+    "pred_class_name": "knife",
+    "pred_conf": 0.033522240817546844,
+    "pred_bbox_xyxy": [
+      134.29026794433594,
+      197.4248046875,
+      166.7449951171875,
+      361.7831115722656
+    ],
+    "iou": 0.6366203216153274,
+    "y_pred": 4,
+    "pred_probs": [
+      0.033522240817546844,
+      0.0,
+      0.0,
+      0.0,
+      0.9664777591824532
+    ],
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background"
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_001146.jpg",
+    "image_name": "dangerous_train_001146.jpg",
+    "obj_idx": 0,
+    "gt_class": 0,
+    "gt_class_name": "knife",
+    "gt_bbox_xywh": [
+      0.311124,
+      0.579167,
+      0.334878,
+      0.051667
+    ],
+    "pred_class": 0,
+    "pred_class_name": "knife",
+    "pred_conf": 0.032241035252809525,
+    "pred_bbox_xyxy": [
+      126.13264465332031,
+      333.85693359375,
+      366.3342590332031,
+      364.5340576171875
+    ],
+    "iou": 0.7505026735045645,
+    "y_pred": 4,
+    "pred_probs": [
+      0.032241035252809525,
+      0.0,
+      0.0,
+      0.0,
+      0.9677589647471905
+    ],
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background"
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_001226.jpg",
+    "image_name": "dangerous_train_001226.jpg",
+    "obj_idx": 1,
+    "gt_class": 0,
+    "gt_class_name": "knife",
+    "gt_bbox_xywh": [
+      0.935,
+      0.786667,
+      0.04,
+      0.35
+    ],
+    "pred_class": 0,
+    "pred_class_name": "knife",
+    "pred_conf": 0.4213637113571167,
+    "pred_bbox_xyxy": [
+      541.5159912109375,
+      361.8995666503906,
+      580.9742431640625,
+      578.4237060546875
+    ],
+    "iou": 0.5899108359763039,
+    "y_pred": 4,
+    "pred_probs": [
+      0.4213637113571167,
+      0.0,
+      0.0,
+      0.0,
+      0.5786362886428833
+    ],
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background"
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_001392.jpg",
+    "image_name": "dangerous_train_001392.jpg",
+    "obj_idx": 1,
+    "gt_class": 0,
+    "gt_class_name": "knife",
+    "gt_bbox_xywh": [
+      0.442055,
+      0.758333,
+      0.172043,
+      0.023333
+    ],
+    "pred_class": 0,
+    "pred_class_name": "knife",
+    "pred_conf": 0.08289574831724167,
+    "pred_bbox_xyxy": [
+      298.64495849609375,
+      442.86181640625,
+      426.1250305175781,
+      463.17138671875
+    ],
+    "iou": 0.6327942195604184,
+    "y_pred": 4,
+    "pred_probs": [
+      0.08289574831724167,
+      0.0,
+      0.0,
+      0.0,
+      0.9171042516827583
+    ],
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background"
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_001442.jpg",
+    "image_name": "dangerous_train_001442.jpg",
+    "obj_idx": 0,
+    "gt_class": 0,
+    "gt_class_name": "knife",
+    "gt_bbox_xywh": [
+      0.248125,
+      0.715,
+      0.03875,
+      0.313333
+    ],
+    "pred_class": 4,
+    "pred_class_name": "background",
+    "pred_conf": 0,
+    "pred_bbox_xyxy": null,
+    "iou": 0,
+    "y_pred": 4,
+    "pred_probs": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ],
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background"
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_001462.jpg",
+    "image_name": "dangerous_train_001462.jpg",
+    "obj_idx": 0,
+    "gt_class": 0,
+    "gt_class_name": "knife",
+    "gt_bbox_xywh": [
+      0.7192434544294919,
+      0.5706664270134785,
+      0.0559927317546024,
+      0.06023675636675685
+    ],
+    "pred_class": 0,
+    "pred_class_name": "knife",
+    "pred_conf": 0.4957490861415863,
+    "pred_bbox_xyxy": [
+      690.4232177734375,
+      403.58465576171875,
+      750.8722534179688,
+      452.8953552246094
+    ],
+    "iou": 0.8486408981679265,
+    "y_pred": 4,
+    "pred_probs": [
+      0.4957490861415863,
+      0.0,
+      0.0,
+      0.0,
+      0.5042509138584137
+    ],
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background"
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_001568.jpg",
+    "image_name": "dangerous_train_001568.jpg",
+    "obj_idx": 1,
+    "gt_class": 0,
+    "gt_class_name": "knife",
+    "gt_bbox_xywh": [
+      0.549375,
+      0.791667,
+      0.35625,
+      0.173333
+    ],
+    "pred_class": 0,
+    "pred_class_name": "knife",
+    "pred_conf": 0.07430332899093628,
+    "pred_bbox_xyxy": [
+      291.7066955566406,
+      408.0090637207031,
+      599.9213256835938,
+      535.4920654296875
+    ],
+    "iou": 0.754348157049088,
+    "y_pred": 4,
+    "pred_probs": [
+      0.07430332899093628,
+      0.0,
+      0.0,
+      0.0,
+      0.9256966710090637
+    ],
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background"
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_001706.jpg",
+    "image_name": "dangerous_train_001706.jpg",
+    "obj_idx": 1,
+    "gt_class": 0,
+    "gt_class_name": "knife",
+    "gt_bbox_xywh": [
+      0.5819296429677594,
+      0.2969820884464056,
+      0.04416424451435097,
+      0.10409771124113545
+    ],
+    "pred_class": 0,
+    "pred_class_name": "knife",
+    "pred_conf": 0.4521782398223877,
+    "pred_bbox_xyxy": [
+      549.142822265625,
+      185.34585571289062,
+      615.864013671875,
+      264.1716003417969
+    ],
+    "iou": 0.6330329430319678,
+    "y_pred": 4,
+    "pred_probs": [
+      0.4521782398223877,
+      0.0,
+      0.0,
+      0.0,
+      0.5478217601776123
+    ],
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background"
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_001734.jpg",
+    "image_name": "dangerous_train_001734.jpg",
+    "obj_idx": 1,
+    "gt_class": 0,
+    "gt_class_name": "knife",
+    "gt_bbox_xywh": [
+      0.556153,
+      0.670833,
+      0.02509,
+      0.201667
+    ],
+    "pred_class": 0,
+    "pred_class_name": "knife",
+    "pred_conf": 0.026521854102611542,
+    "pred_bbox_xyxy": [
+      458.8990478515625,
+      347.1300964355469,
+      477.726318359375,
+      464.2393493652344
+    ],
+    "iou": 0.7168005244355813,
+    "y_pred": 4,
+    "pred_probs": [
+      0.026521854102611542,
+      0.0,
+      0.0,
+      0.0,
+      0.9734781458973885
+    ],
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background"
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_001755.jpg",
+    "image_name": "dangerous_train_001755.jpg",
+    "obj_idx": 0,
+    "gt_class": 0,
+    "gt_class_name": "knife",
+    "gt_bbox_xywh": [
+      0.7688043833916063,
+      0.43170295112176016,
+      0.1768534407138066,
+      0.03290721877438024
+    ],
+    "pred_class": 0,
+    "pred_class_name": "knife",
+    "pred_conf": 0.021743357181549072,
+    "pred_bbox_xyxy": [
+      676.4646606445312,
+      301.25738525390625,
+      820.6546020507812,
+      338.3516540527344
+    ],
+    "iou": 0.5538158088170775,
+    "y_pred": 4,
+    "pred_probs": [
+      0.021743357181549072,
+      0.0,
+      0.0,
+      0.0,
+      0.9782566428184509
+    ],
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background"
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_001760.jpg",
+    "image_name": "dangerous_train_001760.jpg",
+    "obj_idx": 0,
+    "gt_class": 0,
+    "gt_class_name": "knife",
+    "gt_bbox_xywh": [
+      0.136798,
+      0.295833,
+      0.037037,
+      0.325
+    ],
+    "pred_class": 0,
+    "pred_class_name": "knife",
+    "pred_conf": 0.041091423481702805,
+    "pred_bbox_xyxy": [
+      102.38593292236328,
+      80.05453491210938,
+      129.8711700439453,
+      262.6275329589844
+    ],
+    "iou": 0.8301186371188842,
+    "y_pred": 4,
+    "pred_probs": [
+      0.041091423481702805,
+      0.0,
+      0.0,
+      0.0,
+      0.9589085765182972
+    ],
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background"
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_002087.jpg",
+    "image_name": "dangerous_train_002087.jpg",
+    "obj_idx": 0,
+    "gt_class": 0,
+    "gt_class_name": "knife",
+    "gt_bbox_xywh": [
+      0.522922582077963,
+      0.7391118893999618,
+      0.06815261284327084,
+      0.07447186259245842
+    ],
+    "pred_class": 0,
+    "pred_class_name": "knife",
+    "pred_conf": 0.4942164719104767,
+    "pred_bbox_xyxy": [
+      482.38214111328125,
+      540.3740844726562,
+      549.4036865234375,
+      585.9281616210938
+    ],
+    "iou": 0.5867392218033127,
+    "y_pred": 4,
+    "pred_probs": [
+      0.4942164719104767,
+      0.0,
+      0.0,
+      0.0,
+      0.5057835280895233
+    ],
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background"
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_002123.jpg",
+    "image_name": "dangerous_train_002123.jpg",
+    "obj_idx": 0,
+    "gt_class": 0,
+    "gt_class_name": "knife",
+    "gt_bbox_xywh": [
+      0.5726583131190116,
+      0.9291704423174886,
+      0.24178160304154134,
+      0.14165911536502285
+    ],
+    "pred_class": 0,
+    "pred_class_name": "knife",
+    "pred_conf": 0.013520066626369953,
+    "pred_bbox_xyxy": [
+      452.7706298828125,
+      638.1475219726562,
+      651.655029296875,
+      750.0
+    ],
+    "iou": 0.7883485523353655,
+    "y_pred": 4,
+    "pred_probs": [
+      0.013520066626369953,
+      0.0,
+      0.0,
+      0.0,
+      0.98647993337363
+    ],
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background"
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_002124.jpg",
+    "image_name": "dangerous_train_002124.jpg",
+    "obj_idx": 1,
+    "gt_class": 0,
+    "gt_class_name": "knife",
+    "gt_bbox_xywh": [
+      0.800833,
+      0.020833,
+      0.031667,
+      0.015
+    ],
+    "pred_class": 4,
+    "pred_class_name": "background",
+    "pred_conf": 0,
+    "pred_bbox_xyxy": null,
+    "iou": 0,
+    "y_pred": 4,
+    "pred_probs": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ],
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background"
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_002171.jpg",
+    "image_name": "dangerous_train_002171.jpg",
+    "obj_idx": 1,
+    "gt_class": 0,
+    "gt_class_name": "knife",
+    "gt_bbox_xywh": [
+      0.49826669238851906,
+      0.934936041033362,
+      0.11718045288781731,
+      0.13012791793327594
+    ],
+    "pred_class": 0,
+    "pred_class_name": "knife",
+    "pred_conf": 0.20577116310596466,
+    "pred_bbox_xyxy": [
+      455.800537109375,
+      659.865234375,
+      564.683349609375,
+      750.0
+    ],
+    "iou": 0.7501948606388525,
+    "y_pred": 4,
+    "pred_probs": [
+      0.20577116310596466,
+      0.0,
+      0.0,
+      0.0,
+      0.7942288368940353
+    ],
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background"
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_002197.jpg",
+    "image_name": "dangerous_train_002197.jpg",
+    "obj_idx": 0,
+    "gt_class": 0,
+    "gt_class_name": "knife",
+    "gt_bbox_xywh": [
+      0.5025,
+      0.609167,
+      0.993,
+      0.191667
+    ],
+    "pred_class": 0,
+    "pred_class_name": "knife",
+    "pred_conf": 0.4681633412837982,
+    "pred_bbox_xyxy": [
+      6.304073333740234,
+      306.88714599609375,
+      1000.0,
+      432.1231689453125
+    ],
+    "iou": 0.9170859546867833,
+    "y_pred": 4,
+    "pred_probs": [
+      0.4681633412837982,
+      0.0,
+      0.0,
+      0.0,
+      0.5318366587162018
+    ],
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background"
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_002235.jpg",
+    "image_name": "dangerous_train_002235.jpg",
+    "obj_idx": 1,
+    "gt_class": 0,
+    "gt_class_name": "knife",
+    "gt_bbox_xywh": [
+      0.881433,
+      0.400833,
+      0.233098,
+      0.185
+    ],
+    "pred_class": 0,
+    "pred_class_name": "knife",
+    "pred_conf": 0.10779424756765366,
+    "pred_bbox_xyxy": [
+      758.0294189453125,
+      183.4701385498047,
+      991.0,
+      311.461181640625
+    ],
+    "iou": 0.859709649632445,
+    "y_pred": 4,
+    "pred_probs": [
+      0.10779424756765366,
+      0.0,
+      0.0,
+      0.0,
+      0.8922057524323463
+    ],
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background"
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_002294.jpg",
+    "image_name": "dangerous_train_002294.jpg",
+    "obj_idx": 0,
+    "gt_class": 0,
+    "gt_class_name": "knife",
+    "gt_bbox_xywh": [
+      0.523125,
+      0.504167,
+      0.06875,
+      0.691667
+    ],
+    "pred_class": 0,
+    "pred_class_name": "knife",
+    "pred_conf": 0.17603930830955505,
+    "pred_bbox_xyxy": [
+      382.98822021484375,
+      96.22371673583984,
+      458.79052734375,
+      508.1637878417969
+    ],
+    "iou": 0.7216817439393524,
+    "y_pred": 4,
+    "pred_probs": [
+      0.17603930830955505,
+      0.0,
+      0.0,
+      0.0,
+      0.823960691690445
+    ],
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background"
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_002376.jpg",
+    "image_name": "dangerous_train_002376.jpg",
+    "obj_idx": 0,
+    "gt_class": 0,
+    "gt_class_name": "knife",
+    "gt_bbox_xywh": [
+      0.1582113991983701,
+      0.34058434917629543,
+      0.045075597083718055,
+      0.050480248364701
+    ],
+    "pred_class": 0,
+    "pred_class_name": "knife",
+    "pred_conf": 0.013452141545712948,
+    "pred_bbox_xyxy": [
+      137.786865234375,
+      228.05569458007812,
+      190.12913513183594,
+      273.86944580078125
+    ],
+    "iou": 0.6421952478420078,
+    "y_pred": 4,
+    "pred_probs": [
+      0.013452141545712948,
+      0.0,
+      0.0,
+      0.0,
+      0.986547858454287
+    ],
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background"
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_002517.jpg",
+    "image_name": "dangerous_train_002517.jpg",
+    "obj_idx": 1,
+    "gt_class": 0,
+    "gt_class_name": "knife",
+    "gt_bbox_xywh": [
+      0.6065512048192769,
+      0.564759036144578,
+      0.08810240963855442,
+      0.030120481927710885
+    ],
+    "pred_class": 0,
+    "pred_class_name": "knife",
+    "pred_conf": 0.09882906079292297,
+    "pred_bbox_xyxy": [
+      562.4575805664062,
+      411.5509948730469,
+      655.9107666015625,
+      432.1244201660156
+    ],
+    "iou": 0.8081405042110871,
+    "y_pred": 4,
+    "pred_probs": [
+      0.09882906079292297,
+      0.0,
+      0.0,
+      0.0,
+      0.901170939207077
+    ],
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background"
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_002598.jpg",
+    "image_name": "dangerous_train_002598.jpg",
+    "obj_idx": 0,
+    "gt_class": 0,
+    "gt_class_name": "knife",
+    "gt_bbox_xywh": [
+      0.574074,
+      0.075,
+      0.847073,
+      0.11
+    ],
+    "pred_class": 0,
+    "pred_class_name": "knife",
+    "pred_conf": 0.48021969199180603,
+    "pred_bbox_xyxy": [
+      115.33023834228516,
+      2.999274492263794,
+      837.0,
+      84.65339660644531
+    ],
+    "iou": 0.7940971002303688,
+    "y_pred": 4,
+    "pred_probs": [
+      0.48021969199180603,
+      0.0,
+      0.0,
+      0.0,
+      0.519780308008194
+    ],
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background"
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_002607.jpg",
+    "image_name": "dangerous_train_002607.jpg",
+    "obj_idx": 0,
+    "gt_class": 0,
+    "gt_class_name": "knife",
+    "gt_bbox_xywh": [
+      0.248507,
+      0.709167,
+      0.126643,
+      0.021667
+    ],
+    "pred_class": 0,
+    "pred_class_name": "knife",
+    "pred_conf": 0.14751794934272766,
+    "pred_bbox_xyxy": [
+      158.7095489501953,
+      416.8661804199219,
+      236.00827026367188,
+      431.9084167480469
+    ],
+    "iou": 0.6466713410087152,
+    "y_pred": 4,
+    "pred_probs": [
+      0.14751794934272766,
+      0.0,
+      0.0,
+      0.0,
+      0.8524820506572723
+    ],
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background"
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_002613.jpg",
+    "image_name": "dangerous_train_002613.jpg",
+    "obj_idx": 0,
+    "gt_class": 0,
+    "gt_class_name": "knife",
+    "gt_bbox_xywh": [
+      0.21469101237557767,
+      0.8872761643974847,
+      0.23840684971035148,
+      0.22544767120503062
+    ],
+    "pred_class": 0,
+    "pred_class_name": "knife",
+    "pred_conf": 0.4301317036151886,
+    "pred_bbox_xyxy": [
+      76.65576934814453,
+      558.7440185546875,
+      347.71722412109375,
+      750.0
+    ],
+    "iou": 0.7775761919183622,
+    "y_pred": 4,
+    "pred_probs": [
+      0.4301317036151886,
+      0.0,
+      0.0,
+      0.0,
+      0.5698682963848114
+    ],
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background"
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_002645.jpg",
+    "image_name": "dangerous_train_002645.jpg",
+    "obj_idx": 1,
+    "gt_class": 0,
+    "gt_class_name": "knife",
+    "gt_bbox_xywh": [
+      0.39375,
+      0.4375,
+      0.1125,
+      0.131667
+    ],
+    "pred_class": 0,
+    "pred_class_name": "knife",
+    "pred_conf": 0.15698187053203583,
+    "pred_bbox_xyxy": [
+      264.7652893066406,
+      218.9781494140625,
+      361.85601806640625,
+      310.4801025390625
+    ],
+    "iou": 0.8003179821346403,
+    "y_pred": 4,
+    "pred_probs": [
+      0.15698187053203583,
+      0.0,
+      0.0,
+      0.0,
+      0.8430181294679642
+    ],
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background"
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_002700.jpg",
+    "image_name": "dangerous_train_002700.jpg",
+    "obj_idx": 0,
+    "gt_class": 0,
+    "gt_class_name": "knife",
+    "gt_bbox_xywh": [
+      0.8200109812971654,
+      0.6347452284651679,
+      0.0445012051213558,
+      0.06069717619183623
+    ],
+    "pred_class": 0,
+    "pred_class_name": "knife",
+    "pred_conf": 0.047681670635938644,
+    "pred_bbox_xyxy": [
+      783.5595092773438,
+      446.4517517089844,
+      842.5462036132812,
+      496.9903869628906
+    ],
+    "iou": 0.6348929343777822,
+    "y_pred": 4,
+    "pred_probs": [
+      0.047681670635938644,
+      0.0,
+      0.0,
+      0.0,
+      0.9523183293640614
+    ],
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background"
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_002881.jpg",
+    "image_name": "dangerous_train_002881.jpg",
+    "obj_idx": 0,
+    "gt_class": 0,
+    "gt_class_name": "knife",
+    "gt_bbox_xywh": [
+      0.242834,
+      0.65,
+      0.02707,
+      0.17
+    ],
+    "pred_class": 0,
+    "pred_class_name": "knife",
+    "pred_conf": 0.327835351228714,
+    "pred_bbox_xyxy": [
+      141.78311157226562,
+      338.70941162109375,
+      169.55894470214844,
+      443.5857849121094
+    ],
+    "iou": 0.5952553620409621,
+    "y_pred": 4,
+    "pred_probs": [
+      0.327835351228714,
+      0.0,
+      0.0,
+      0.0,
+      0.672164648771286
+    ],
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background"
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_002975.jpg",
+    "image_name": "dangerous_train_002975.jpg",
+    "obj_idx": 1,
+    "gt_class": 0,
+    "gt_class_name": "knife",
+    "gt_bbox_xywh": [
+      0.584118,
+      0.485833,
+      0.602961,
+      0.551667
+    ],
+    "pred_class": 0,
+    "pred_class_name": "knife",
+    "pred_conf": 0.27198582887649536,
+    "pred_bbox_xyxy": [
+      162.4120635986328,
+      122.720947265625,
+      668.2183227539062,
+      468.39019775390625
+    ],
+    "iou": 0.8481278907574966,
+    "y_pred": 4,
+    "pred_probs": [
+      0.27198582887649536,
+      0.0,
+      0.0,
+      0.0,
+      0.7280141711235046
+    ],
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background"
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_002996.jpg",
+    "image_name": "dangerous_train_002996.jpg",
+    "obj_idx": 0,
+    "gt_class": 0,
+    "gt_class_name": "knife",
+    "gt_bbox_xywh": [
+      0.6952183734939759,
+      0.516566265060241,
+      0.03953313253012036,
+      0.033132530120481896
+    ],
+    "pred_class": 0,
+    "pred_class_name": "knife",
+    "pred_conf": 0.3006996810436249,
+    "pred_bbox_xyxy": [
+      674.173095703125,
+      373.7521667480469,
+      713.7015380859375,
+      400.1414794921875
+    ],
+    "iou": 0.8841534154300157,
+    "y_pred": 4,
+    "pred_probs": [
+      0.3006996810436249,
+      0.0,
+      0.0,
+      0.0,
+      0.6993003189563751
+    ],
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background"
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_003288.jpg",
+    "image_name": "dangerous_train_003288.jpg",
+    "obj_idx": 1,
+    "gt_class": 0,
+    "gt_class_name": "knife",
+    "gt_bbox_xywh": [
+      0.441458,
+      0.629167,
+      0.142174,
+      0.355
+    ],
+    "pred_class": 0,
+    "pred_class_name": "knife",
+    "pred_conf": 0.48651519417762756,
+    "pred_bbox_xyxy": [
+      307.0195007324219,
+      274.36431884765625,
+      428.6466369628906,
+      488.7320556640625
+    ],
+    "iou": 0.9369092722933446,
+    "y_pred": 4,
+    "pred_probs": [
+      0.48651519417762756,
+      0.0,
+      0.0,
+      0.0,
+      0.5134848058223724
+    ],
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background"
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_003347.jpg",
+    "image_name": "dangerous_train_003347.jpg",
+    "obj_idx": 1,
+    "gt_class": 0,
+    "gt_class_name": "knife",
+    "gt_bbox_xywh": [
+      0.32699548192770855,
+      0.5692771084337347,
+      0.0214608433734938,
+      0.051204819277108515
+    ],
+    "pred_class": 0,
+    "pred_class_name": "knife",
+    "pred_conf": 0.4937356412410736,
+    "pred_bbox_xyxy": [
+      315.12109375,
+      403.6713562011719,
+      339.3140563964844,
+      445.3738098144531
+    ],
+    "iou": 0.7870273581436346,
+    "y_pred": 4,
+    "pred_probs": [
+      0.4937356412410736,
+      0.0,
+      0.0,
+      0.0,
+      0.5062643587589264
+    ],
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background"
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_003355.jpg",
+    "image_name": "dangerous_train_003355.jpg",
+    "obj_idx": 1,
+    "gt_class": 0,
+    "gt_class_name": "knife",
+    "gt_bbox_xywh": [
+      0.76875,
+      0.859167,
+      0.2075,
+      0.208333
+    ],
+    "pred_class": 0,
+    "pred_class_name": "knife",
+    "pred_conf": 0.07265010476112366,
+    "pred_bbox_xyxy": [
+      525.2612915039062,
+      442.401123046875,
+      705.669677734375,
+      592.3194580078125
+    ],
+    "iou": 0.7671953012309218,
+    "y_pred": 4,
+    "pred_probs": [
+      0.07265010476112366,
+      0.0,
+      0.0,
+      0.0,
+      0.9273498952388763
+    ],
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background"
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_003434.jpg",
+    "image_name": "dangerous_train_003434.jpg",
+    "obj_idx": 1,
+    "gt_class": 0,
+    "gt_class_name": "knife",
+    "gt_bbox_xywh": [
+      0.36123898286321143,
+      0.5926281590771947,
+      0.025632599799090827,
+      0.04445813960779765
+    ],
+    "pred_class": 0,
+    "pred_class_name": "knife",
+    "pred_conf": 0.46192118525505066,
+    "pred_bbox_xyxy": [
+      345.440185546875,
+      421.890869140625,
+      376.35211181640625,
+      463.4462890625
+    ],
+    "iou": 0.6653519920745895,
+    "y_pred": 4,
+    "pred_probs": [
+      0.46192118525505066,
+      0.0,
+      0.0,
+      0.0,
+      0.5380788147449493
+    ],
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background"
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_003598.jpg",
+    "image_name": "dangerous_train_003598.jpg",
+    "obj_idx": 0,
+    "gt_class": 0,
+    "gt_class_name": "knife",
+    "gt_bbox_xywh": [
+      0.47937369600477964,
+      0.9461134237740777,
+      0.11227172884691078,
+      0.1077731524518446
+    ],
+    "pred_class": 0,
+    "pred_class_name": "knife",
+    "pred_conf": 0.4689539968967438,
+    "pred_bbox_xyxy": [
+      419.9557800292969,
+      660.6324462890625,
+      540.250732421875,
+      750.0
+    ],
+    "iou": 0.8441409826627395,
+    "y_pred": 4,
+    "pred_probs": [
+      0.4689539968967438,
+      0.0,
+      0.0,
+      0.0,
+      0.5310460031032562
+    ],
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background"
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_003746.jpg",
+    "image_name": "dangerous_train_003746.jpg",
+    "obj_idx": 1,
+    "gt_class": 0,
+    "gt_class_name": "knife",
+    "gt_bbox_xywh": [
+      0.5678887733424931,
+      0.6522749831210559,
+      0.037554741727393925,
+      0.03728538469333886
+    ],
+    "pred_class": 0,
+    "pred_class_name": "knife",
+    "pred_conf": 0.25645264983177185,
+    "pred_bbox_xyxy": [
+      539.98681640625,
+      469.05584716796875,
+      589.04931640625,
+      505.61285400390625
+    ],
+    "iou": 0.5855235499552455,
+    "y_pred": 4,
+    "pred_probs": [
+      0.25645264983177185,
+      0.0,
+      0.0,
+      0.0,
+      0.7435473501682281
+    ],
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background"
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_003754.jpg",
+    "image_name": "dangerous_train_003754.jpg",
+    "obj_idx": 0,
+    "gt_class": 0,
+    "gt_class_name": "knife",
+    "gt_bbox_xywh": [
+      0.645625,
+      0.649167,
+      0.35625,
+      0.415
+    ],
+    "pred_class": 0,
+    "pred_class_name": "knife",
+    "pred_conf": 0.030802173539996147,
+    "pred_bbox_xyxy": [
+      406.23651123046875,
+      285.7418212890625,
+      673.77587890625,
+      532.0240478515625
+    ],
+    "iou": 0.72884695296112,
+    "y_pred": 4,
+    "pred_probs": [
+      0.030802173539996147,
+      0.0,
+      0.0,
+      0.0,
+      0.9691978264600039
+    ],
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background"
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_003870.jpg",
+    "image_name": "dangerous_train_003870.jpg",
+    "obj_idx": 0,
+    "gt_class": 0,
+    "gt_class_name": "knife",
+    "gt_bbox_xywh": [
+      0.8109778558883218,
+      0.03507378271739261,
+      0.13057226437552094,
+      0.07014756543478522
+    ],
+    "pred_class": 0,
+    "pred_class_name": "knife",
+    "pred_conf": 0.49789902567863464,
+    "pred_bbox_xyxy": [
+      738.8734130859375,
+      0.0,
+      876.6111450195312,
+      74.37413787841797
+    ],
+    "iou": 0.6705789708982679,
+    "y_pred": 4,
+    "pred_probs": [
+      0.49789902567863464,
+      0.0,
+      0.0,
+      0.0,
+      0.5021009743213654
+    ],
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background"
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_003910.jpg",
+    "image_name": "dangerous_train_003910.jpg",
+    "obj_idx": 1,
+    "gt_class": 0,
+    "gt_class_name": "knife",
+    "gt_bbox_xywh": [
+      0.7918148951347261,
+      0.9478272327661235,
+      0.1942690645220777,
+      0.10434553446775319
+    ],
+    "pred_class": 0,
+    "pred_class_name": "knife",
+    "pred_conf": 0.012229853309690952,
+    "pred_bbox_xyxy": [
+      707.973388671875,
+      674.5008544921875,
+      866.506103515625,
+      749.7882690429688
+    ],
+    "iou": 0.7850593673694614,
+    "y_pred": 4,
+    "pred_probs": [
+      0.012229853309690952,
+      0.0,
+      0.0,
+      0.0,
+      0.987770146690309
+    ],
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background"
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_004009.jpg",
+    "image_name": "dangerous_train_004009.jpg",
+    "obj_idx": 0,
+    "gt_class": 0,
+    "gt_class_name": "knife",
+    "gt_bbox_xywh": [
+      0.523895,
+      0.4425,
+      0.820789,
+      0.088333
+    ],
+    "pred_class": 0,
+    "pred_class_name": "knife",
+    "pred_conf": 0.08464600145816803,
+    "pred_bbox_xyxy": [
+      92.0357666015625,
+      232.77883911132812,
+      628.0648803710938,
+      289.52484130859375
+    ],
+    "iou": 0.6750891958429054,
+    "y_pred": 4,
+    "pred_probs": [
+      0.08464600145816803,
+      0.0,
+      0.0,
+      0.0,
+      0.915353998541832
+    ],
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background"
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_004197.jpg",
+    "image_name": "dangerous_train_004197.jpg",
+    "obj_idx": 0,
+    "gt_class": 0,
+    "gt_class_name": "knife",
+    "gt_bbox_xywh": [
+      0.274194,
+      0.498333,
+      0.034648,
+      0.426667
+    ],
+    "pred_class": 0,
+    "pred_class_name": "knife",
+    "pred_conf": 0.017497003078460693,
+    "pred_bbox_xyxy": [
+      218.4138641357422,
+      166.77749633789062,
+      243.89393615722656,
+      358.963134765625
+    ],
+    "iou": 0.6358899000037153,
+    "y_pred": 4,
+    "pred_probs": [
+      0.017497003078460693,
+      0.0,
+      0.0,
+      0.0,
+      0.9825029969215393
+    ],
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background"
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_004233.jpg",
+    "image_name": "dangerous_train_004233.jpg",
+    "obj_idx": 0,
+    "gt_class": 0,
+    "gt_class_name": "knife",
+    "gt_bbox_xywh": [
+      0.7160591551741577,
+      0.05800327792827852,
+      0.09565539719032568,
+      0.11600655585655704
+    ],
+    "pred_class": 0,
+    "pred_class_name": "knife",
+    "pred_conf": 0.49178701639175415,
+    "pred_bbox_xyxy": [
+      660.196044921875,
+      0.0,
+      765.5830078125,
+      83.33269500732422
+    ],
+    "iou": 0.8727506298065237,
+    "y_pred": 4,
+    "pred_probs": [
+      0.49178701639175415,
+      0.0,
+      0.0,
+      0.0,
+      0.5082129836082458
+    ],
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background"
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_004242.jpg",
+    "image_name": "dangerous_train_004242.jpg",
+    "obj_idx": 0,
+    "gt_class": 0,
+    "gt_class_name": "knife",
+    "gt_bbox_xywh": [
+      0.350657,
+      0.589167,
+      0.11589,
+      0.215
+    ],
+    "pred_class": 0,
+    "pred_class_name": "knife",
+    "pred_conf": 0.4885311722755432,
+    "pred_bbox_xyxy": [
+      239.85623168945312,
+      285.81829833984375,
+      350.7031555175781,
+      413.5113830566406
+    ],
+    "iou": 0.8278095363612551,
+    "y_pred": 4,
+    "pred_probs": [
+      0.4885311722755432,
+      0.0,
+      0.0,
+      0.0,
+      0.5114688277244568
+    ],
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background"
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_004283.jpg",
+    "image_name": "dangerous_train_004283.jpg",
+    "obj_idx": 1,
+    "gt_class": 0,
+    "gt_class_name": "knife",
+    "gt_bbox_xywh": [
+      0.5949348043783164,
+      0.5264002897408383,
+      0.041364241188374784,
+      0.048681405978261205
+    ],
+    "pred_class": 0,
+    "pred_class_name": "knife",
+    "pred_conf": 0.020920831710100174,
+    "pred_bbox_xyxy": [
+      568.598876953125,
+      370.9320983886719,
+      618.3228149414062,
+      416.47607421875
+    ],
+    "iou": 0.6668881206580828,
+    "y_pred": 4,
+    "pred_probs": [
+      0.020920831710100174,
+      0.0,
+      0.0,
+      0.0,
+      0.9790791682898998
+    ],
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background"
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_004288.jpg",
+    "image_name": "dangerous_train_004288.jpg",
+    "obj_idx": 0,
+    "gt_class": 0,
+    "gt_class_name": "knife",
+    "gt_bbox_xywh": [
+      0.457587,
+      0.324167,
+      0.131422,
+      0.061667
+    ],
+    "pred_class": 0,
+    "pred_class_name": "knife",
+    "pred_conf": 0.27431634068489075,
+    "pred_bbox_xyxy": [
+      334.71685791015625,
+      169.55711364746094,
+      445.3360290527344,
+      212.94114685058594
+    ],
+    "iou": 0.7549673561503123,
+    "y_pred": 4,
+    "pred_probs": [
+      0.27431634068489075,
+      0.0,
+      0.0,
+      0.0,
+      0.7256836593151093
+    ],
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background"
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_004326.jpg",
+    "image_name": "dangerous_train_004326.jpg",
+    "obj_idx": 0,
+    "gt_class": 0,
+    "gt_class_name": "knife",
+    "gt_bbox_xywh": [
+      0.4234732428209529,
+      0.3623168002098145,
+      0.03873051823169876,
+      0.04934610892142216
+    ],
+    "pred_class": 0,
+    "pred_class_name": "knife",
+    "pred_conf": 0.02749129943549633,
+    "pred_bbox_xyxy": [
+      389.3648376464844,
+      245.57284545898438,
+      445.9844665527344,
+      291.32623291015625
+    ],
+    "iou": 0.5533210754346485,
+    "y_pred": 4,
+    "pred_probs": [
+      0.02749129943549633,
+      0.0,
+      0.0,
+      0.0,
+      0.9725087005645037
+    ],
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background"
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_004334.jpg",
+    "image_name": "dangerous_train_004334.jpg",
+    "obj_idx": 1,
+    "gt_class": 0,
+    "gt_class_name": "knife",
+    "gt_bbox_xywh": [
+      0.3863371274945733,
+      0.9592462029900994,
+      0.18369928200044977,
+      0.08150759401980101
+    ],
+    "pred_class": 3,
+    "pred_class_name": "baseball_bat",
+    "pred_conf": 0.15984319150447845,
+    "pred_bbox_xyxy": [
+      287.4414367675781,
+      690.3212890625,
+      481.1944885253906,
+      749.8193359375
+    ],
+    "iou": 0.9240693395769849,
+    "y_pred": 4,
+    "pred_probs": [
+      0.0,
+      0.0,
+      0.0,
+      0.15984319150447845,
+      0.8401568084955215
+    ],
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background"
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_004347.jpg",
+    "image_name": "dangerous_train_004347.jpg",
+    "obj_idx": 0,
+    "gt_class": 0,
+    "gt_class_name": "knife",
+    "gt_bbox_xywh": [
+      0.197174,
+      0.36,
+      0.041723,
+      0.48
+    ],
+    "pred_class": 0,
+    "pred_class_name": "knife",
+    "pred_conf": 0.013614123687148094,
+    "pred_bbox_xyxy": [
+      132.471435546875,
+      73.41282653808594,
+      166.84567260742188,
+      320.93865966796875
+    ],
+    "iou": 0.7217235073416417,
+    "y_pred": 4,
+    "pred_probs": [
+      0.013614123687148094,
+      0.0,
+      0.0,
+      0.0,
+      0.9863858763128519
+    ],
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background"
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_004363.jpg",
+    "image_name": "dangerous_train_004363.jpg",
+    "obj_idx": 1,
+    "gt_class": 0,
+    "gt_class_name": "knife",
+    "gt_bbox_xywh": [
+      0.6415657663896281,
+      0.43753193624730785,
+      0.03798955564808615,
+      0.05497325098558725
+    ],
+    "pred_class": 0,
+    "pred_class_name": "knife",
+    "pred_conf": 0.18906988203525543,
+    "pred_bbox_xyxy": [
+      617.147705078125,
+      303.7673034667969,
+      666.9966430664062,
+      350.3312072753906
+    ],
+    "iou": 0.6747946090597575,
+    "y_pred": 4,
+    "pred_probs": [
+      0.18906988203525543,
+      0.0,
+      0.0,
+      0.0,
+      0.8109301179647446
+    ],
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background"
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_004425.jpg",
+    "image_name": "dangerous_train_004425.jpg",
+    "obj_idx": 0,
+    "gt_class": 0,
+    "gt_class_name": "knife",
+    "gt_bbox_xywh": [
+      0.353644,
+      0.684167,
+      0.160096,
+      0.121667
+    ],
+    "pred_class": 0,
+    "pred_class_name": "knife",
+    "pred_conf": 0.21101658046245575,
+    "pred_bbox_xyxy": [
+      223.98883056640625,
+      368.7375793457031,
+      369.4950866699219,
+      451.979248046875
+    ],
+    "iou": 0.807620892134383,
+    "y_pred": 4,
+    "pred_probs": [
+      0.21101658046245575,
+      0.0,
+      0.0,
+      0.0,
+      0.7889834195375443
+    ],
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background"
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_004432.jpg",
+    "image_name": "dangerous_train_004432.jpg",
+    "obj_idx": 0,
+    "gt_class": 0,
+    "gt_class_name": "knife",
+    "gt_bbox_xywh": [
+      0.478541,
+      0.401667,
+      0.083691,
+      0.796667
+    ],
+    "pred_class": 0,
+    "pred_class_name": "knife",
+    "pred_conf": 0.03449568897485733,
+    "pred_bbox_xyxy": [
+      406.0806884765625,
+      7.552074432373047,
+      485.5067443847656,
+      426.0796813964844
+    ],
+    "iou": 0.8617850359338763,
+    "y_pred": 4,
+    "pred_probs": [
+      0.03449568897485733,
+      0.0,
+      0.0,
+      0.0,
+      0.9655043110251427
+    ],
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background"
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_004485.jpg",
+    "image_name": "dangerous_train_004485.jpg",
+    "obj_idx": 0,
+    "gt_class": 0,
+    "gt_class_name": "knife",
+    "gt_bbox_xywh": [
+      0.6771991694461854,
+      0.6567262281665867,
+      0.07506967405646725,
+      0.07716405663305648
+    ],
+    "pred_class": 0,
+    "pred_class_name": "knife",
+    "pred_conf": 0.34954380989074707,
+    "pred_bbox_xyxy": [
+      635.7874145507812,
+      467.7203063964844,
+      705.8013916015625,
+      521.2290649414062
+    ],
+    "iou": 0.7774480271260364,
+    "y_pred": 4,
+    "pred_probs": [
+      0.34954380989074707,
+      0.0,
+      0.0,
+      0.0,
+      0.6504561901092529
+    ],
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background"
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/voc_train_004723.jpg",
+    "image_name": "voc_train_004723.jpg",
+    "obj_idx": 0,
+    "gt_class": 0,
+    "gt_class_name": "knife",
+    "gt_bbox_xywh": [
+      0.258594,
+      0.653472,
+      0.089063,
+      0.165278
+    ],
+    "pred_class": 0,
+    "pred_class_name": "knife",
+    "pred_conf": 0.4369131624698639,
+    "pred_bbox_xyxy": [
+      265.446044921875,
+      412.38232421875,
+      386.26416015625,
+      523.5234375
+    ],
+    "iou": 0.8594987817427266,
+    "y_pred": 4,
+    "pred_probs": [
+      0.4369131624698639,
+      0.0,
+      0.0,
+      0.0,
+      0.5630868375301361
+    ],
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background"
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/voc_train_004924.jpg",
+    "image_name": "voc_train_004924.jpg",
+    "obj_idx": 0,
+    "gt_class": 0,
+    "gt_class_name": "knife",
+    "gt_bbox_xywh": [
+      0.501953,
+      0.284028,
+      0.039844,
+      0.231944
+    ],
+    "pred_class": 0,
+    "pred_class_name": "knife",
+    "pred_conf": 0.011320572346448898,
+    "pred_bbox_xyxy": [
+      622.7156982421875,
+      118.5345458984375,
+      666.6417236328125,
+      273.7589111328125
+    ],
+    "iou": 0.777948570804193,
+    "y_pred": 4,
+    "pred_probs": [
+      0.011320572346448898,
+      0.0,
+      0.0,
+      0.0,
+      0.9886794276535511
+    ],
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background"
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/voc_train_005329.jpg",
+    "image_name": "voc_train_005329.jpg",
+    "obj_idx": 0,
+    "gt_class": 0,
+    "gt_class_name": "knife",
+    "gt_bbox_xywh": [
+      0.315234,
+      0.636111,
+      0.060156,
+      0.116667
+    ],
+    "pred_class": 0,
+    "pred_class_name": "knife",
+    "pred_conf": 0.4713934063911438,
+    "pred_bbox_xyxy": [
+      371.2950744628906,
+      416.76251220703125,
+      440.9064636230469,
+      509.94384765625
+    ],
+    "iou": 0.8092350639724094,
+    "y_pred": 4,
+    "pred_probs": [
+      0.4713934063911438,
+      0.0,
+      0.0,
+      0.0,
+      0.5286065936088562
+    ],
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background"
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/voc_train_005415.jpg",
+    "image_name": "voc_train_005415.jpg",
+    "obj_idx": 0,
+    "gt_class": 0,
+    "gt_class_name": "knife",
+    "gt_bbox_xywh": [
+      0.701535,
+      0.531323,
+      0.37399,
+      0.153132
+    ],
+    "pred_class": 0,
+    "pred_class_name": "knife",
+    "pred_conf": 0.03237123414874077,
+    "pred_bbox_xyxy": [
+      642.7342529296875,
+      361.68634033203125,
+      1097.59619140625,
+      547.0961303710938
+    ],
+    "iou": 0.7029815881510195,
+    "y_pred": 4,
+    "pred_probs": [
+      0.03237123414874077,
+      0.0,
+      0.0,
+      0.0,
+      0.9676287658512592
+    ],
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background"
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/voc_train_005432.jpg",
+    "image_name": "voc_train_005432.jpg",
+    "obj_idx": 0,
+    "gt_class": 0,
+    "gt_class_name": "knife",
+    "gt_bbox_xywh": [
+      0.501042,
+      0.293521,
+      0.080208,
+      0.021858
+    ],
+    "pred_class": 0,
+    "pred_class_name": "knife",
+    "pred_conf": 0.4791640341281891,
+    "pred_bbox_xyxy": [
+      882.4083251953125,
+      351.09271240234375,
+      1031.710205078125,
+      396.23175048828125
+    ],
+    "iou": 0.5916170029196267,
+    "y_pred": 4,
+    "pred_probs": [
+      0.4791640341281891,
+      0.0,
+      0.0,
+      0.0,
+      0.5208359658718109
+    ],
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background"
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/voc_train_005753.jpg",
+    "image_name": "voc_train_005753.jpg",
+    "obj_idx": 0,
+    "gt_class": 0,
+    "gt_class_name": "knife",
+    "gt_bbox_xywh": [
+      0.444547,
+      0.338015,
+      0.216266,
+      0.627341
+    ],
+    "pred_class": 0,
+    "pred_class_name": "knife",
+    "pred_conf": 0.20250403881072998,
+    "pred_bbox_xyxy": [
+      182.9898681640625,
+      10.392560958862305,
+      327.6788024902344,
+      384.2847595214844
+    ],
+    "iou": 0.7140105547515624,
+    "y_pred": 4,
+    "pred_probs": [
+      0.20250403881072998,
+      0.0,
+      0.0,
+      0.0,
+      0.79749596118927
+    ],
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background"
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/voc_train_006126.jpg",
+    "image_name": "voc_train_006126.jpg",
+    "obj_idx": 0,
+    "gt_class": 0,
+    "gt_class_name": "knife",
+    "gt_bbox_xywh": [
+      0.405,
+      0.466229,
+      0.2625,
+      0.20075
+    ],
+    "pred_class": 0,
+    "pred_class_name": "knife",
+    "pred_conf": 0.45625314116477966,
+    "pred_bbox_xyxy": [
+      222.3272705078125,
+      194.43907165527344,
+      436.34637451171875,
+      303.4436340332031
+    ],
+    "iou": 0.9336651693611278,
+    "y_pred": 4,
+    "pred_probs": [
+      0.45625314116477966,
+      0.0,
+      0.0,
+      0.0,
+      0.5437468588352203
+    ],
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background"
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/voc_train_006203.jpg",
+    "image_name": "voc_train_006203.jpg",
+    "obj_idx": 0,
+    "gt_class": 0,
+    "gt_class_name": "knife",
+    "gt_bbox_xywh": [
+      0.549483,
+      0.670732,
+      0.289513,
+      0.658537
+    ],
+    "pred_class": 0,
+    "pred_class_name": "knife",
+    "pred_conf": 0.07863347232341766,
+    "pred_bbox_xyxy": [
+      300.18560791015625,
+      192.55430603027344,
+      466.0245666503906,
+      445.7130126953125
+    ],
+    "iou": 0.721217023992119,
+    "y_pred": 4,
+    "pred_probs": [
+      0.07863347232341766,
+      0.0,
+      0.0,
+      0.0,
+      0.9213665276765823
+    ],
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background"
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/voc_train_006282.jpg",
+    "image_name": "voc_train_006282.jpg",
+    "obj_idx": 0,
+    "gt_class": 0,
+    "gt_class_name": "knife",
+    "gt_bbox_xywh": [
+      0.235937,
+      0.595833,
+      0.4375,
+      0.166667
+    ],
+    "pred_class": 0,
+    "pred_class_name": "knife",
+    "pred_conf": 0.38399869203567505,
+    "pred_bbox_xyxy": [
+      9.97540283203125,
+      231.1063232421875,
+      291.78436279296875,
+      335.29656982421875
+    ],
+    "iou": 0.7628989618679087,
+    "y_pred": 4,
+    "pred_probs": [
+      0.38399869203567505,
+      0.0,
+      0.0,
+      0.0,
+      0.616001307964325
+    ],
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background"
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/voc_train_007181.jpg",
+    "image_name": "voc_train_007181.jpg",
+    "obj_idx": 0,
+    "gt_class": 0,
+    "gt_class_name": "knife",
+    "gt_bbox_xywh": [
+      0.372533,
+      0.622038,
+      0.715461,
+      0.2109
+    ],
+    "pred_class": 0,
+    "pred_class_name": "knife",
+    "pred_conf": 0.22158366441726685,
+    "pred_bbox_xyxy": [
+      6.801220417022705,
+      223.9053192138672,
+      473.96844482421875,
+      306.7763671875
+    ],
+    "iou": 0.8711543415716656,
+    "y_pred": 4,
+    "pred_probs": [
+      0.22158366441726685,
+      0.0,
+      0.0,
+      0.0,
+      0.7784163355827332
+    ],
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background"
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/voc_train_007253.jpg",
+    "image_name": "voc_train_007253.jpg",
+    "obj_idx": 0,
+    "gt_class": 0,
+    "gt_class_name": "knife",
+    "gt_bbox_xywh": [
+      0.278889,
+      0.286604,
+      0.46,
+      0.292835
+    ],
+    "pred_class": 0,
+    "pred_class_name": "knife",
+    "pred_conf": 0.06434671580791473,
+    "pred_bbox_xyxy": [
+      19.481807708740234,
+      42.2973747253418,
+      240.5426025390625,
+      144.00320434570312
+    ],
+    "iou": 0.8654476177847902,
+    "y_pred": 4,
+    "pred_probs": [
+      0.06434671580791473,
+      0.0,
+      0.0,
+      0.0,
+      0.9356532841920853
+    ],
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background"
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/voc_train_007474.jpg",
+    "image_name": "voc_train_007474.jpg",
+    "obj_idx": 0,
+    "gt_class": 0,
+    "gt_class_name": "knife",
+    "gt_bbox_xywh": [
+      0.770108,
+      0.391304,
+      0.116447,
+      0.763705
+    ],
+    "pred_class": 0,
+    "pred_class_name": "knife",
+    "pred_conf": 0.044565726071596146,
+    "pred_bbox_xyxy": [
+      598.285400390625,
+      3.961805820465088,
+      683.1739501953125,
+      403.3433837890625
+    ],
+    "iou": 0.8609478254849576,
+    "y_pred": 4,
+    "pred_probs": [
+      0.044565726071596146,
+      0.0,
+      0.0,
+      0.0,
+      0.9554342739284039
+    ],
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background"
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/voc_train_007613.jpg",
+    "image_name": "voc_train_007613.jpg",
+    "obj_idx": 0,
+    "gt_class": 0,
+    "gt_class_name": "knife",
+    "gt_bbox_xywh": [
+      0.725359,
+      0.371654,
+      0.549281,
+      0.192126
+    ],
+    "pred_class": 0,
+    "pred_class_name": "knife",
+    "pred_conf": 0.4699764549732208,
+    "pred_bbox_xyxy": [
+      415.99530029296875,
+      183.1376495361328,
+      974.0,
+      293.6917724609375
+    ],
+    "iou": 0.8721954450613755,
+    "y_pred": 4,
+    "pred_probs": [
+      0.4699764549732208,
+      0.0,
+      0.0,
+      0.0,
+      0.5300235450267792
+    ],
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background"
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/voc_train_007624.jpg",
+    "image_name": "voc_train_007624.jpg",
+    "obj_idx": 0,
+    "gt_class": 0,
+    "gt_class_name": "knife",
+    "gt_bbox_xywh": [
+      0.382812,
+      0.442708,
+      0.4125,
+      0.414583
+    ],
+    "pred_class": 0,
+    "pred_class_name": "knife",
+    "pred_conf": 0.1313711553812027,
+    "pred_bbox_xyxy": [
+      93.70721435546875,
+      99.51113891601562,
+      391.44024658203125,
+      317.01971435546875
+    ],
+    "iou": 0.8112472724100243,
+    "y_pred": 4,
+    "pred_probs": [
+      0.1313711553812027,
+      0.0,
+      0.0,
+      0.0,
+      0.8686288446187973
+    ],
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background"
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/voc_train_007689.jpg",
+    "image_name": "voc_train_007689.jpg",
+    "obj_idx": 0,
+    "gt_class": 0,
+    "gt_class_name": "knife",
+    "gt_bbox_xywh": [
+      0.184375,
+      0.345139,
+      0.0625,
+      0.223611
+    ],
+    "pred_class": 0,
+    "pred_class_name": "knife",
+    "pred_conf": 0.1572326123714447,
+    "pred_bbox_xyxy": [
+      206.21890258789062,
+      160.42286682128906,
+      285.5735168457031,
+      311.9368896484375
+    ],
+    "iou": 0.6759463507893703,
+    "y_pred": 4,
+    "pred_probs": [
+      0.1572326123714447,
+      0.0,
+      0.0,
+      0.0,
+      0.8427673876285553
+    ],
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background"
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/voc_train_007956.jpg",
+    "image_name": "voc_train_007956.jpg",
+    "obj_idx": 0,
+    "gt_class": 0,
+    "gt_class_name": "knife",
+    "gt_bbox_xywh": [
+      0.441797,
+      0.475,
+      0.027344,
+      0.125
+    ],
+    "pred_class": 0,
+    "pred_class_name": "knife",
+    "pred_conf": 0.10395795851945877,
+    "pred_bbox_xyxy": [
+      548.838623046875,
+      292.1855773925781,
+      577.3638916015625,
+      385.5492248535156
+    ],
+    "iou": 0.7683640575996171,
+    "y_pred": 4,
+    "pred_probs": [
+      0.10395795851945877,
+      0.0,
+      0.0,
+      0.0,
+      0.8960420414805412
+    ],
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background"
+  }
+]

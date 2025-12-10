@@ -1,0 +1,30 @@
+[
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/cellphone_train_013315.jpg",
+    "image_name": "cellphone_train_013315.jpg",
+    "obj_idx": -1,
+    "gt_class": 4,
+    "gt_class_name": "background",
+    "gt_bbox_xywh": null,
+    "pred_class": 1,
+    "pred_class_name": "gun",
+    "pred_conf": 0.572262704372406,
+    "pred_bbox_xyxy": [
+      615.396240234375,
+      1227.0811767578125,
+      775.813232421875,
+      1439.8690185546875
+    ],
+    "iou": 0.0,
+    "y_pred": 1,
+    "pred_probs": [
+      0.0,
+      0.572262704372406,
+      0.0,
+      0.0,
+      0.427737295627594
+    ],
+    "pred_class_argmax": 1,
+    "pred_class_name_argmax": "gun"
+  }
+]

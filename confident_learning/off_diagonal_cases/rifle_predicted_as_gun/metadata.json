@@ -1,0 +1,68 @@
+[
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/youtube_train_009163.jpg",
+    "image_name": "youtube_train_009163.jpg",
+    "obj_idx": 0,
+    "gt_class": 2,
+    "gt_class_name": "rifle",
+    "gt_bbox_xywh": [
+      0.339844,
+      0.436111,
+      0.21875,
+      0.25
+    ],
+    "pred_class": 1,
+    "pred_class_name": "gun",
+    "pred_conf": 0.5062718987464905,
+    "pred_bbox_xyxy": [
+      292.52520751953125,
+      223.11119079589844,
+      574.66455078125,
+      407.4154052734375
+    ],
+    "iou": 0.9669544760713549,
+    "y_pred": 1,
+    "pred_probs": [
+      0.0,
+      0.5062718987464905,
+      0.0,
+      0.0,
+      0.4937281012535095
+    ],
+    "pred_class_argmax": 1,
+    "pred_class_name_argmax": "gun"
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/youtube_train_010486.jpg",
+    "image_name": "youtube_train_010486.jpg",
+    "obj_idx": 1,
+    "gt_class": 2,
+    "gt_class_name": "rifle",
+    "gt_bbox_xywh": [
+      0.664062,
+      0.227083,
+      0.048438,
+      0.0375
+    ],
+    "pred_class": 1,
+    "pred_class_name": "gun",
+    "pred_conf": 0.5633417963981628,
+    "pred_bbox_xyxy": [
+      818.06982421875,
+      147.05615234375,
+      884.77490234375,
+      176.93255615234375
+    ],
+    "iou": 0.836148361976169,
+    "y_pred": 1,
+    "pred_probs": [
+      0.0,
+      0.5633417963981628,
+      0.0,
+      0.0,
+      0.43665820360183716
+    ],
+    "pred_class_argmax": 1,
+    "pred_class_name_argmax": "gun"
+  }
+]

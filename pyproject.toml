@@ -6,6 +6,7 @@ readme = "README.md"
 requires-python = ">=3.12,<3.13"
 dependencies = [
     "boxmot>=15.0.5",
+    "cleanlab>=2.7.1",
     "datasets>=4.2.0",
     "hf-transfer>=0.1.9",
     "ipykernel>=7.1.0",

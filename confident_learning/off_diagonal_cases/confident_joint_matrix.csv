@@ -1,0 +1,6 @@
+,Pred:knife,Pred:gun,Pred:rifle,Pred:baseball_bat,Pred:background
+GT:knife,2322,1,0,0,81
+GT:gun,1,4594,6,0,239
+GT:rifle,0,2,3265,0,371
+GT:baseball_bat,0,0,0,1004,68
+GT:background,1,1,1,1,8

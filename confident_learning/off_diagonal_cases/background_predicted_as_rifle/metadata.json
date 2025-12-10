@@ -1,0 +1,30 @@
+[
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/crowdhuman_train_012454.jpg",
+    "image_name": "crowdhuman_train_012454.jpg",
+    "obj_idx": -1,
+    "gt_class": 4,
+    "gt_class_name": "background",
+    "gt_bbox_xywh": null,
+    "pred_class": 2,
+    "pred_class_name": "rifle",
+    "pred_conf": 0.6501586437225342,
+    "pred_bbox_xyxy": [
+      62.524967193603516,
+      66.53092956542969,
+      211.50355529785156,
+      265.11004638671875
+    ],
+    "iou": 0.0,
+    "y_pred": 2,
+    "pred_probs": [
+      0.0,
+      0.0,
+      0.6501586437225342,
+      0.0,
+      0.3498413562774658
+    ],
+    "pred_class_argmax": 2,
+    "pred_class_name_argmax": "rifle"
+  }
+]

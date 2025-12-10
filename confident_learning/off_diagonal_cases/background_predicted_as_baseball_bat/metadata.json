@@ -1,0 +1,30 @@
+[
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/crowdhuman_train_011601.jpg",
+    "image_name": "crowdhuman_train_011601.jpg",
+    "obj_idx": -1,
+    "gt_class": 4,
+    "gt_class_name": "background",
+    "gt_bbox_xywh": null,
+    "pred_class": 3,
+    "pred_class_name": "baseball_bat",
+    "pred_conf": 0.5585082769393921,
+    "pred_bbox_xyxy": [
+      26.954294204711914,
+      12.03387451171875,
+      91.02120971679688,
+      81.92587280273438
+    ],
+    "iou": 0.0,
+    "y_pred": 3,
+    "pred_probs": [
+      0.0,
+      0.0,
+      0.0,
+      0.5585082769393921,
+      0.4414917230606079
+    ],
+    "pred_class_argmax": 3,
+    "pred_class_name_argmax": "baseball_bat"
+  }
+]

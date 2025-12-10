@@ -1,0 +1,2170 @@
+[
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_000106.jpg",
+    "image_name": "dangerous_train_000106.jpg",
+    "obj_idx": 0,
+    "gt_class": 3,
+    "gt_class_name": "baseball_bat",
+    "gt_bbox_xywh": [
+      0.3873873873873874,
+      0.759009009009009,
+      0.0247747747747748,
+      0.3138138138138138
+    ],
+    "pred_class": 3,
+    "pred_class_name": "baseball_bat",
+    "pred_conf": 0.2500251233577728,
+    "pred_bbox_xyxy": [
+      372.0369873046875,
+      471.7676086425781,
+      399.9925231933594,
+      688.7838134765625
+    ],
+    "iou": 0.8117474043876248,
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background",
+    "pred_probs": [
+      0.0,
+      0.0,
+      0.0,
+      0.2500251233577728,
+      0.7499748766422272
+    ]
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_000165.jpg",
+    "image_name": "dangerous_train_000165.jpg",
+    "obj_idx": 0,
+    "gt_class": 3,
+    "gt_class_name": "baseball_bat",
+    "gt_bbox_xywh": [
+      0.5785763928810791,
+      0.46462344382359666,
+      0.0019321562169773987,
+      0.003107563291749438
+    ],
+    "pred_class": 4,
+    "pred_class_name": "background",
+    "pred_conf": 0,
+    "pred_bbox_xyxy": null,
+    "iou": 0,
+    "y_pred": 4,
+    "pred_probs": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ],
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background"
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_000260.jpg",
+    "image_name": "dangerous_train_000260.jpg",
+    "obj_idx": 0,
+    "gt_class": 3,
+    "gt_class_name": "baseball_bat",
+    "gt_bbox_xywh": [
+      0.8168140225431592,
+      0.07361014969572574,
+      0.10038831702363371,
+      0.14722029939145148
+    ],
+    "pred_class": 3,
+    "pred_class_name": "baseball_bat",
+    "pred_conf": 0.14373959600925446,
+    "pred_bbox_xyxy": [
+      755.22607421875,
+      0.0,
+      848.3516845703125,
+      115.02201843261719
+    ],
+    "iou": 0.7066098546495125,
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background",
+    "pred_probs": [
+      0.0,
+      0.0,
+      0.0,
+      0.14373959600925446,
+      0.8562604039907455
+    ]
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_000291.jpg",
+    "image_name": "dangerous_train_000291.jpg",
+    "obj_idx": 0,
+    "gt_class": 3,
+    "gt_class_name": "baseball_bat",
+    "gt_bbox_xywh": [
+      0.52625,
+      0.58,
+      0.605,
+      0.113333
+    ],
+    "pred_class": 3,
+    "pred_class_name": "baseball_bat",
+    "pred_conf": 0.08644017577171326,
+    "pred_bbox_xyxy": [
+      250.64466857910156,
+      303.83489990234375,
+      642.8854370117188,
+      383.2437744140625
+    ],
+    "iou": 0.7134107727054849,
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background",
+    "pred_probs": [
+      0.0,
+      0.0,
+      0.0,
+      0.08644017577171326,
+      0.9135598242282867
+    ]
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_000411.jpg",
+    "image_name": "dangerous_train_000411.jpg",
+    "obj_idx": 0,
+    "gt_class": 3,
+    "gt_class_name": "baseball_bat",
+    "gt_bbox_xywh": [
+      0.079167,
+      0.369167,
+      0.158333,
+      0.025
+    ],
+    "pred_class": 3,
+    "pred_class_name": "baseball_bat",
+    "pred_conf": 0.034156933426856995,
+    "pred_bbox_xyxy": [
+      0.0,
+      211.9213409423828,
+      101.25553894042969,
+      234.22154235839844
+    ],
+    "iou": 0.6310828451812494,
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background",
+    "pred_probs": [
+      0.0,
+      0.0,
+      0.0,
+      0.034156933426856995,
+      0.965843066573143
+    ]
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_000485.jpg",
+    "image_name": "dangerous_train_000485.jpg",
+    "obj_idx": 0,
+    "gt_class": 3,
+    "gt_class_name": "baseball_bat",
+    "gt_bbox_xywh": [
+      0.546108,
+      0.7375,
+      0.050299,
+      0.518333
+    ],
+    "pred_class": 3,
+    "pred_class_name": "baseball_bat",
+    "pred_conf": 0.4757942259311676,
+    "pred_bbox_xyxy": [
+      434.07049560546875,
+      297.34625244140625,
+      475.8904113769531,
+      599.0750122070312
+    ],
+    "iou": 0.9183750629361552,
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background",
+    "pred_probs": [
+      0.0,
+      0.0,
+      0.0,
+      0.4757942259311676,
+      0.5242057740688324
+    ]
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_000491.jpg",
+    "image_name": "dangerous_train_000491.jpg",
+    "obj_idx": 0,
+    "gt_class": 3,
+    "gt_class_name": "baseball_bat",
+    "gt_bbox_xywh": [
+      0.6797554589964165,
+      0.8274640455313609,
+      0.6386310845503237,
+      0.34507190893727835
+    ],
+    "pred_class": 3,
+    "pred_class_name": "baseball_bat",
+    "pred_conf": 0.432462215423584,
+    "pred_bbox_xyxy": [
+      341.7543029785156,
+      517.7504272460938,
+      794.17822265625,
+      750.0
+    ],
+    "iou": 0.5938896307386231,
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background",
+    "pred_probs": [
+      0.0,
+      0.0,
+      0.0,
+      0.432462215423584,
+      0.567537784576416
+    ]
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_000706.jpg",
+    "image_name": "dangerous_train_000706.jpg",
+    "obj_idx": 0,
+    "gt_class": 3,
+    "gt_class_name": "baseball_bat",
+    "gt_bbox_xywh": [
+      0.351667,
+      0.479167,
+      0.087778,
+      0.958333
+    ],
+    "pred_class": 0,
+    "pred_class_name": "knife",
+    "pred_conf": 0.010775984264910221,
+    "pred_bbox_xyxy": [
+      278.9919738769531,
+      13.449411392211914,
+      350.83917236328125,
+      521.6026611328125
+    ],
+    "iou": 0.8037271913237283,
+    "y_pred": 4,
+    "pred_probs": [
+      0.010775984264910221,
+      0.0,
+      0.0,
+      0.0,
+      0.9892240157350898
+    ],
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background"
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_000721.jpg",
+    "image_name": "dangerous_train_000721.jpg",
+    "obj_idx": 0,
+    "gt_class": 3,
+    "gt_class_name": "baseball_bat",
+    "gt_bbox_xywh": [
+      0.340563,
+      0.420833,
+      0.057444,
+      0.651667
+    ],
+    "pred_class": 3,
+    "pred_class_name": "baseball_bat",
+    "pred_conf": 0.031793706119060516,
+    "pred_bbox_xyxy": [
+      263.6087951660156,
+      53.29484939575195,
+      310.0931396484375,
+      423.9739074707031
+    ],
+    "iou": 0.8006874312935761,
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background",
+    "pred_probs": [
+      0.0,
+      0.0,
+      0.0,
+      0.031793706119060516,
+      0.9682062938809395
+    ]
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_000754.jpg",
+    "image_name": "dangerous_train_000754.jpg",
+    "obj_idx": 0,
+    "gt_class": 3,
+    "gt_class_name": "baseball_bat",
+    "gt_bbox_xywh": [
+      0.595699,
+      0.356667,
+      0.653763,
+      0.073333
+    ],
+    "pred_class": 3,
+    "pred_class_name": "baseball_bat",
+    "pred_conf": 0.02476930245757103,
+    "pred_bbox_xyxy": [
+      251.81991577148438,
+      180.23153686523438,
+      731.12744140625,
+      243.39315795898438
+    ],
+    "iou": 0.5868566202628862,
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background",
+    "pred_probs": [
+      0.0,
+      0.0,
+      0.0,
+      0.02476930245757103,
+      0.975230697542429
+    ]
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_000759.jpg",
+    "image_name": "dangerous_train_000759.jpg",
+    "obj_idx": 0,
+    "gt_class": 3,
+    "gt_class_name": "baseball_bat",
+    "gt_bbox_xywh": [
+      0.62724,
+      0.425833,
+      0.162485,
+      0.025
+    ],
+    "pred_class": 3,
+    "pred_class_name": "baseball_bat",
+    "pred_conf": 0.024410324171185493,
+    "pred_bbox_xyxy": [
+      470.9280700683594,
+      242.81045532226562,
+      594.8117065429688,
+      263.5675964355469
+    ],
+    "iou": 0.6585677005471602,
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background",
+    "pred_probs": [
+      0.0,
+      0.0,
+      0.0,
+      0.024410324171185493,
+      0.9755896758288145
+    ]
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_000994.jpg",
+    "image_name": "dangerous_train_000994.jpg",
+    "obj_idx": 0,
+    "gt_class": 3,
+    "gt_class_name": "baseball_bat",
+    "gt_bbox_xywh": [
+      0.7943083839085516,
+      0.3952866580651759,
+      0.10549508518217598,
+      0.10644529966486993
+    ],
+    "pred_class": 3,
+    "pred_class_name": "baseball_bat",
+    "pred_conf": 0.45379531383514404,
+    "pred_bbox_xyxy": [
+      740.068603515625,
+      248.9950714111328,
+      852.9050903320312,
+      340.5625915527344
+    ],
+    "iou": 0.8151339298172943,
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background",
+    "pred_probs": [
+      0.0,
+      0.0,
+      0.0,
+      0.45379531383514404,
+      0.546204686164856
+    ]
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_001084.jpg",
+    "image_name": "dangerous_train_001084.jpg",
+    "obj_idx": 0,
+    "gt_class": 3,
+    "gt_class_name": "baseball_bat",
+    "gt_bbox_xywh": [
+      0.857882623705408,
+      0.652857690832374,
+      0.024165707710011364,
+      0.253164556962025
+    ],
+    "pred_class": 3,
+    "pred_class_name": "baseball_bat",
+    "pred_conf": 0.04404956102371216,
+    "pred_bbox_xyxy": [
+      843.2042846679688,
+      406.9153747558594,
+      870.5934448242188,
+      587.87451171875
+    ],
+    "iou": 0.8175779612252915,
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background",
+    "pred_probs": [
+      0.0,
+      0.0,
+      0.0,
+      0.04404956102371216,
+      0.9559504389762878
+    ]
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_001086.jpg",
+    "image_name": "dangerous_train_001086.jpg",
+    "obj_idx": 0,
+    "gt_class": 3,
+    "gt_class_name": "baseball_bat",
+    "gt_bbox_xywh": [
+      0.6742032723597795,
+      0.18375328444777994,
+      0.004510968171584362,
+      0.002227468047412834
+    ],
+    "pred_class": 4,
+    "pred_class_name": "background",
+    "pred_conf": 0,
+    "pred_bbox_xyxy": null,
+    "iou": 0,
+    "y_pred": 4,
+    "pred_probs": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ],
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background"
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_001110.jpg",
+    "image_name": "dangerous_train_001110.jpg",
+    "obj_idx": 0,
+    "gt_class": 3,
+    "gt_class_name": "baseball_bat",
+    "gt_bbox_xywh": [
+      0.2704257767548907,
+      0.25316455696202544,
+      0.0460299194476409,
+      0.5001917913310321
+    ],
+    "pred_class": 3,
+    "pred_class_name": "baseball_bat",
+    "pred_conf": 0.4744754433631897,
+    "pred_bbox_xyxy": [
+      227.4647674560547,
+      1.4331579208374023,
+      292.6282043457031,
+      380.10321044921875
+    ],
+    "iou": 0.6790572031915341,
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background",
+    "pred_probs": [
+      0.0,
+      0.0,
+      0.0,
+      0.4744754433631897,
+      0.5255245566368103
+    ]
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_001136.jpg",
+    "image_name": "dangerous_train_001136.jpg",
+    "obj_idx": 0,
+    "gt_class": 3,
+    "gt_class_name": "baseball_bat",
+    "gt_bbox_xywh": [
+      0.19,
+      0.287013,
+      0.34,
+      0.049351
+    ],
+    "pred_class": 3,
+    "pred_class_name": "baseball_bat",
+    "pred_conf": 0.49618062376976013,
+    "pred_bbox_xyxy": [
+      13.311424255371094,
+      204.51248168945312,
+      212.32212829589844,
+      243.32223510742188
+    ],
+    "iou": 0.8394470751892447,
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background",
+    "pred_probs": [
+      0.0,
+      0.0,
+      0.0,
+      0.49618062376976013,
+      0.5038193762302399
+    ]
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_001221.jpg",
+    "image_name": "dangerous_train_001221.jpg",
+    "obj_idx": 0,
+    "gt_class": 3,
+    "gt_class_name": "baseball_bat",
+    "gt_bbox_xywh": [
+      0.376667,
+      0.6375,
+      0.031111,
+      0.701667
+    ],
+    "pred_class": 3,
+    "pred_class_name": "baseball_bat",
+    "pred_conf": 0.41519418358802795,
+    "pred_bbox_xyxy": [
+      323.0313415527344,
+      161.1494598388672,
+      365.6991271972656,
+      600.0
+    ],
+    "iou": 0.6295381313138265,
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background",
+    "pred_probs": [
+      0.0,
+      0.0,
+      0.0,
+      0.41519418358802795,
+      0.584805816411972
+    ]
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_001296.jpg",
+    "image_name": "dangerous_train_001296.jpg",
+    "obj_idx": 0,
+    "gt_class": 3,
+    "gt_class_name": "baseball_bat",
+    "gt_bbox_xywh": [
+      0.3285385500575373,
+      0.6735711545838128,
+      0.31875719217491355,
+      0.04909858074415033
+    ],
+    "pred_class": 3,
+    "pred_class_name": "baseball_bat",
+    "pred_conf": 0.01911047101020813,
+    "pred_bbox_xyxy": [
+      172.70547485351562,
+      484.5471496582031,
+      440.49853515625,
+      527.297119140625
+    ],
+    "iou": 0.7400607172984593,
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background",
+    "pred_probs": [
+      0.0,
+      0.0,
+      0.0,
+      0.01911047101020813,
+      0.9808895289897919
+    ]
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_001369.jpg",
+    "image_name": "dangerous_train_001369.jpg",
+    "obj_idx": 0,
+    "gt_class": 3,
+    "gt_class_name": "baseball_bat",
+    "gt_bbox_xywh": [
+      0.591995,
+      0.683333,
+      0.34767,
+      0.13
+    ],
+    "pred_class": 3,
+    "pred_class_name": "baseball_bat",
+    "pred_conf": 0.4383038580417633,
+    "pred_bbox_xyxy": [
+      350.74884033203125,
+      375.88177490234375,
+      658.8639526367188,
+      446.4085693359375
+    ],
+    "iou": 0.8544351039744784,
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background",
+    "pred_probs": [
+      0.0,
+      0.0,
+      0.0,
+      0.4383038580417633,
+      0.5616961419582367
+    ]
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_001388.jpg",
+    "image_name": "dangerous_train_001388.jpg",
+    "obj_idx": 0,
+    "gt_class": 3,
+    "gt_class_name": "baseball_bat",
+    "gt_bbox_xywh": [
+      0.6072090025721584,
+      0.6363216752331963,
+      0.02521180804487877,
+      0.2708528590017516
+    ],
+    "pred_class": 3,
+    "pred_class_name": "baseball_bat",
+    "pred_conf": 0.24567677080631256,
+    "pred_bbox_xyxy": [
+      594.7059326171875,
+      381.3467712402344,
+      621.0581665039062,
+      582.3855590820312
+    ],
+    "iou": 0.9078800638356865,
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background",
+    "pred_probs": [
+      0.0,
+      0.0,
+      0.0,
+      0.24567677080631256,
+      0.7543232291936874
+    ]
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_001597.jpg",
+    "image_name": "dangerous_train_001597.jpg",
+    "obj_idx": 0,
+    "gt_class": 3,
+    "gt_class_name": "baseball_bat",
+    "gt_bbox_xywh": [
+      0.40161104718066754,
+      0.5063291139240507,
+      0.06444188722669736,
+      0.06444188722669741
+    ],
+    "pred_class": 1,
+    "pred_class_name": "gun",
+    "pred_conf": 0.04706897586584091,
+    "pred_bbox_xyxy": [
+      367.353759765625,
+      355.20257568359375,
+      432.80743408203125,
+      404.05670166015625
+    ],
+    "iou": 0.9439052221956049,
+    "y_pred": 4,
+    "pred_probs": [
+      0.0,
+      0.04706897586584091,
+      0.0,
+      0.0,
+      0.9529310241341591
+    ],
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background"
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_001698.jpg",
+    "image_name": "dangerous_train_001698.jpg",
+    "obj_idx": 0,
+    "gt_class": 3,
+    "gt_class_name": "baseball_bat",
+    "gt_bbox_xywh": [
+      0.3266492617707055,
+      0.3328593037180312,
+      0.05478817815557552,
+      0.31521801011064615
+    ],
+    "pred_class": 3,
+    "pred_class_name": "baseball_bat",
+    "pred_conf": 0.47880083322525024,
+    "pred_bbox_xyxy": [
+      292.92181396484375,
+      130.25193786621094,
+      359.85498046875,
+      368.454833984375
+    ],
+    "iou": 0.8124015383427293,
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background",
+    "pred_probs": [
+      0.0,
+      0.0,
+      0.0,
+      0.47880083322525024,
+      0.5211991667747498
+    ]
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_001813.jpg",
+    "image_name": "dangerous_train_001813.jpg",
+    "obj_idx": 0,
+    "gt_class": 3,
+    "gt_class_name": "baseball_bat",
+    "gt_bbox_xywh": [
+      0.347704,
+      0.248333,
+      0.023516,
+      0.173333
+    ],
+    "pred_class": 3,
+    "pred_class_name": "baseball_bat",
+    "pred_conf": 0.03281768411397934,
+    "pred_bbox_xyxy": [
+      299.3417663574219,
+      95.67809295654297,
+      320.498779296875,
+      184.9221649169922
+    ],
+    "iou": 0.7940453298884694,
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background",
+    "pred_probs": [
+      0.0,
+      0.0,
+      0.0,
+      0.03281768411397934,
+      0.9671823158860207
+    ]
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_002006.jpg",
+    "image_name": "dangerous_train_002006.jpg",
+    "obj_idx": 0,
+    "gt_class": 3,
+    "gt_class_name": "baseball_bat",
+    "gt_bbox_xywh": [
+      0.509167,
+      0.499499,
+      0.155,
+      0.990991
+    ],
+    "pred_class": 3,
+    "pred_class_name": "baseball_bat",
+    "pred_conf": 0.03315357863903046,
+    "pred_bbox_xyxy": [
+      229.61749267578125,
+      129.44898986816406,
+      374.0474853515625,
+      992.1710815429688
+    ],
+    "iou": 0.5880480579026864,
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background",
+    "pred_probs": [
+      0.0,
+      0.0,
+      0.0,
+      0.03315357863903046,
+      0.9668464213609695
+    ]
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_002073.jpg",
+    "image_name": "dangerous_train_002073.jpg",
+    "obj_idx": 0,
+    "gt_class": 3,
+    "gt_class_name": "baseball_bat",
+    "gt_bbox_xywh": [
+      0.6689189189189189,
+      0.4677177177177177,
+      0.03153153153153154,
+      0.22372372372372362
+    ],
+    "pred_class": 3,
+    "pred_class_name": "baseball_bat",
+    "pred_conf": 0.03520068898797035,
+    "pred_bbox_xyxy": [
+      653.880859375,
+      266.94989013671875,
+      689.6333618164062,
+      436.05462646484375
+    ],
+    "iou": 0.8374447587318458,
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background",
+    "pred_probs": [
+      0.0,
+      0.0,
+      0.0,
+      0.03520068898797035,
+      0.9647993110120296
+    ]
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_002109.jpg",
+    "image_name": "dangerous_train_002109.jpg",
+    "obj_idx": 0,
+    "gt_class": 3,
+    "gt_class_name": "baseball_bat",
+    "gt_bbox_xywh": [
+      0.6913081207484579,
+      0.9132550439749967,
+      0.17145544936181822,
+      0.17348991205000674
+    ],
+    "pred_class": 3,
+    "pred_class_name": "baseball_bat",
+    "pred_conf": 0.16428188979625702,
+    "pred_bbox_xyxy": [
+      621.2944946289062,
+      620.464599609375,
+      760.162841796875,
+      750.0
+    ],
+    "iou": 0.8063154012669254,
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background",
+    "pred_probs": [
+      0.0,
+      0.0,
+      0.0,
+      0.16428188979625702,
+      0.835718110203743
+    ]
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_002162.jpg",
+    "image_name": "dangerous_train_002162.jpg",
+    "obj_idx": 0,
+    "gt_class": 3,
+    "gt_class_name": "baseball_bat",
+    "gt_bbox_xywh": [
+      0.37834,
+      0.286667,
+      0.050633,
+      0.326667
+    ],
+    "pred_class": 3,
+    "pred_class_name": "baseball_bat",
+    "pred_conf": 0.4394929111003876,
+    "pred_bbox_xyxy": [
+      252.34239196777344,
+      74.08642578125,
+      291.87451171875,
+      292.80084228515625
+    ],
+    "iou": 0.761844121175944,
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background",
+    "pred_probs": [
+      0.0,
+      0.0,
+      0.0,
+      0.4394929111003876,
+      0.5605070888996124
+    ]
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_002264.jpg",
+    "image_name": "dangerous_train_002264.jpg",
+    "obj_idx": 0,
+    "gt_class": 3,
+    "gt_class_name": "baseball_bat",
+    "gt_bbox_xywh": [
+      0.5633273157947067,
+      0.7157648158838033,
+      0.11461334015701274,
+      0.4660304211319014
+    ],
+    "pred_class": 3,
+    "pred_class_name": "baseball_bat",
+    "pred_conf": 0.4720560610294342,
+    "pred_bbox_xyxy": [
+      503.6222839355469,
+      363.2049865722656,
+      626.944091796875,
+      713.2922973632812
+    ],
+    "iou": 0.9220545568725823,
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background",
+    "pred_probs": [
+      0.0,
+      0.0,
+      0.0,
+      0.4720560610294342,
+      0.5279439389705658
+    ]
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_002358.jpg",
+    "image_name": "dangerous_train_002358.jpg",
+    "obj_idx": 0,
+    "gt_class": 3,
+    "gt_class_name": "baseball_bat",
+    "gt_bbox_xywh": [
+      0.24662162162162152,
+      0.743243243243243,
+      0.022522522522522483,
+      0.3543543543543549
+    ],
+    "pred_class": 3,
+    "pred_class_name": "baseball_bat",
+    "pred_conf": 0.039883505553007126,
+    "pred_bbox_xyxy": [
+      231.4769287109375,
+      436.62835693359375,
+      257.5750732421875,
+      682.4064331054688
+    ],
+    "iou": 0.7867074228183877,
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background",
+    "pred_probs": [
+      0.0,
+      0.0,
+      0.0,
+      0.039883505553007126,
+      0.9601164944469929
+    ]
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_002409.jpg",
+    "image_name": "dangerous_train_002409.jpg",
+    "obj_idx": 0,
+    "gt_class": 3,
+    "gt_class_name": "baseball_bat",
+    "gt_bbox_xywh": [
+      0.6087456846950512,
+      0.07288070579209817,
+      0.17951668584579936,
+      0.14576141158419634
+    ],
+    "pred_class": 3,
+    "pred_class_name": "baseball_bat",
+    "pred_conf": 0.2779631018638611,
+    "pred_bbox_xyxy": [
+      508.4115905761719,
+      1.4868497848510742,
+      703.7100830078125,
+      107.98297119140625
+    ],
+    "iou": 0.8973124959603468,
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background",
+    "pred_probs": [
+      0.0,
+      0.0,
+      0.0,
+      0.2779631018638611,
+      0.7220368981361389
+    ]
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_002417.jpg",
+    "image_name": "dangerous_train_002417.jpg",
+    "obj_idx": 0,
+    "gt_class": 3,
+    "gt_class_name": "baseball_bat",
+    "gt_bbox_xywh": [
+      0.6588048338235799,
+      0.1339932778724154,
+      0.12024300969916302,
+      0.2679865557448308
+    ],
+    "pred_class": 3,
+    "pred_class_name": "baseball_bat",
+    "pred_conf": 0.4153393805027008,
+    "pred_bbox_xyxy": [
+      622.9198608398438,
+      0.513148307800293,
+      724.6663818359375,
+      191.6768341064453
+    ],
+    "iou": 0.7264203459928064,
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background",
+    "pred_probs": [
+      0.0,
+      0.0,
+      0.0,
+      0.4153393805027008,
+      0.5846606194972992
+    ]
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_002531.jpg",
+    "image_name": "dangerous_train_002531.jpg",
+    "obj_idx": 0,
+    "gt_class": 3,
+    "gt_class_name": "baseball_bat",
+    "gt_bbox_xywh": [
+      0.35875,
+      0.2575,
+      0.065,
+      0.381667
+    ],
+    "pred_class": 3,
+    "pred_class_name": "baseball_bat",
+    "pred_conf": 0.14888212084770203,
+    "pred_bbox_xyxy": [
+      265.74932861328125,
+      40.88106155395508,
+      312.9300537109375,
+      255.87265014648438
+    ],
+    "iou": 0.8518181206570451,
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background",
+    "pred_probs": [
+      0.0,
+      0.0,
+      0.0,
+      0.14888212084770203,
+      0.851117879152298
+    ]
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_002607.jpg",
+    "image_name": "dangerous_train_002607.jpg",
+    "obj_idx": 1,
+    "gt_class": 3,
+    "gt_class_name": "baseball_bat",
+    "gt_bbox_xywh": [
+      0.201912,
+      0.519167,
+      0.169654,
+      0.051667
+    ],
+    "pred_class": 3,
+    "pred_class_name": "baseball_bat",
+    "pred_conf": 0.47117879986763,
+    "pred_bbox_xyxy": [
+      102.24807739257812,
+      292.3092956542969,
+      231.8525390625,
+      324.3835754394531
+    ],
+    "iou": 0.7537570738050124,
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background",
+    "pred_probs": [
+      0.0,
+      0.0,
+      0.0,
+      0.47117879986763,
+      0.52882120013237
+    ]
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_002688.jpg",
+    "image_name": "dangerous_train_002688.jpg",
+    "obj_idx": 0,
+    "gt_class": 3,
+    "gt_class_name": "baseball_bat",
+    "gt_bbox_xywh": [
+      0.373592,
+      0.390833,
+      0.038798,
+      0.355
+    ],
+    "pred_class": 3,
+    "pred_class_name": "baseball_bat",
+    "pred_conf": 0.04755496606230736,
+    "pred_bbox_xyxy": [
+      284.6508483886719,
+      127.00752258300781,
+      314.3127746582031,
+      292.7283935546875
+    ],
+    "iou": 0.7233218945818599,
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background",
+    "pred_probs": [
+      0.0,
+      0.0,
+      0.0,
+      0.04755496606230736,
+      0.9524450339376926
+    ]
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_002747.jpg",
+    "image_name": "dangerous_train_002747.jpg",
+    "obj_idx": 0,
+    "gt_class": 3,
+    "gt_class_name": "baseball_bat",
+    "gt_bbox_xywh": [
+      0.49042792792792866,
+      0.9054054054054055,
+      0.07094594594594611,
+      0.18918918918918914
+    ],
+    "pred_class": 3,
+    "pred_class_name": "baseball_bat",
+    "pred_conf": 0.4727165102958679,
+    "pred_bbox_xyxy": [
+      436.91064453125,
+      607.6069946289062,
+      526.182373046875,
+      748.5117797851562
+    ],
+    "iou": 0.7853011353913517,
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background",
+    "pred_probs": [
+      0.0,
+      0.0,
+      0.0,
+      0.4727165102958679,
+      0.5272834897041321
+    ]
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_002791.jpg",
+    "image_name": "dangerous_train_002791.jpg",
+    "obj_idx": 0,
+    "gt_class": 3,
+    "gt_class_name": "baseball_bat",
+    "gt_bbox_xywh": [
+      0.8118876246402138,
+      0.8794118441068208,
+      0.18773970754523017,
+      0.24117631178635823
+    ],
+    "pred_class": 3,
+    "pred_class_name": "baseball_bat",
+    "pred_conf": 0.4290948212146759,
+    "pred_bbox_xyxy": [
+      734.7730712890625,
+      562.3828735351562,
+      909.874755859375,
+      749.1240234375
+    ],
+    "iou": 0.8578301461613129,
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background",
+    "pred_probs": [
+      0.0,
+      0.0,
+      0.0,
+      0.4290948212146759,
+      0.5709051787853241
+    ]
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_002801.jpg",
+    "image_name": "dangerous_train_002801.jpg",
+    "obj_idx": 0,
+    "gt_class": 3,
+    "gt_class_name": "baseball_bat",
+    "gt_bbox_xywh": [
+      0.270012,
+      0.385833,
+      0.078853,
+      0.658333
+    ],
+    "pred_class": 3,
+    "pred_class_name": "baseball_bat",
+    "pred_conf": 0.48253291845321655,
+    "pred_bbox_xyxy": [
+      184.6095733642578,
+      39.32848358154297,
+      261.5403137207031,
+      423.0376892089844
+    ],
+    "iou": 0.8367900858473949,
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background",
+    "pred_probs": [
+      0.0,
+      0.0,
+      0.0,
+      0.48253291845321655,
+      0.5174670815467834
+    ]
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_003022.jpg",
+    "image_name": "dangerous_train_003022.jpg",
+    "obj_idx": 1,
+    "gt_class": 3,
+    "gt_class_name": "baseball_bat",
+    "gt_bbox_xywh": [
+      0.958333,
+      0.316667,
+      0.081111,
+      0.196667
+    ],
+    "pred_class": 3,
+    "pred_class_name": "baseball_bat",
+    "pred_conf": 0.3666199743747711,
+    "pred_bbox_xyxy": [
+      821.1195068359375,
+      127.76254272460938,
+      898.9957885742188,
+      259.5744323730469
+    ],
+    "iou": 0.8390792173080105,
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background",
+    "pred_probs": [
+      0.0,
+      0.0,
+      0.0,
+      0.3666199743747711,
+      0.6333800256252289
+    ]
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_003057.jpg",
+    "image_name": "dangerous_train_003057.jpg",
+    "obj_idx": 0,
+    "gt_class": 3,
+    "gt_class_name": "baseball_bat",
+    "gt_bbox_xywh": [
+      0.673835,
+      0.458333,
+      0.425329,
+      0.073333
+    ],
+    "pred_class": 3,
+    "pred_class_name": "baseball_bat",
+    "pred_conf": 0.038969822227954865,
+    "pred_bbox_xyxy": [
+      342.1455078125,
+      251.98263549804688,
+      777.7568969726562,
+      295.2462158203125
+    ],
+    "iou": 0.7724414145044362,
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background",
+    "pred_probs": [
+      0.0,
+      0.0,
+      0.0,
+      0.038969822227954865,
+      0.9610301777720451
+    ]
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_003097.jpg",
+    "image_name": "dangerous_train_003097.jpg",
+    "obj_idx": 0,
+    "gt_class": 3,
+    "gt_class_name": "baseball_bat",
+    "gt_bbox_xywh": [
+      0.9167548890883418,
+      0.5253884059268499,
+      0.1664902218233164,
+      0.698754216303358
+    ],
+    "pred_class": 3,
+    "pred_class_name": "baseball_bat",
+    "pred_conf": 0.011243426240980625,
+    "pred_bbox_xyxy": [
+      809.2681884765625,
+      148.77166748046875,
+      1000.0,
+      624.269775390625
+    ],
+    "iou": 0.8014464134488088,
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background",
+    "pred_probs": [
+      0.0,
+      0.0,
+      0.0,
+      0.011243426240980625,
+      0.9887565737590194
+    ]
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_003159.jpg",
+    "image_name": "dangerous_train_003159.jpg",
+    "obj_idx": 0,
+    "gt_class": 3,
+    "gt_class_name": "baseball_bat",
+    "gt_bbox_xywh": [
+      0.571762,
+      0.381667,
+      0.562427,
+      0.086667
+    ],
+    "pred_class": 3,
+    "pred_class_name": "baseball_bat",
+    "pred_conf": 0.022356247529387474,
+    "pred_bbox_xyxy": [
+      257.9418029785156,
+      199.24932861328125,
+      694.351318359375,
+      262.67578125
+    ],
+    "iou": 0.7551718778541223,
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background",
+    "pred_probs": [
+      0.0,
+      0.0,
+      0.0,
+      0.022356247529387474,
+      0.9776437524706125
+    ]
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_003197.jpg",
+    "image_name": "dangerous_train_003197.jpg",
+    "obj_idx": 0,
+    "gt_class": 3,
+    "gt_class_name": "baseball_bat",
+    "gt_bbox_xywh": [
+      0.28649,
+      0.4125,
+      0.049457,
+      0.765
+    ],
+    "pred_class": 3,
+    "pred_class_name": "baseball_bat",
+    "pred_conf": 0.28152114152908325,
+    "pred_bbox_xyxy": [
+      215.26124572753906,
+      7.548254489898682,
+      263.8243713378906,
+      462.0583190917969
+    ],
+    "iou": 0.8025698413083825,
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background",
+    "pred_probs": [
+      0.0,
+      0.0,
+      0.0,
+      0.28152114152908325,
+      0.7184788584709167
+    ]
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_003210.jpg",
+    "image_name": "dangerous_train_003210.jpg",
+    "obj_idx": 0,
+    "gt_class": 3,
+    "gt_class_name": "baseball_bat",
+    "gt_bbox_xywh": [
+      0.548984,
+      0.376667,
+      0.07049,
+      0.656667
+    ],
+    "pred_class": 3,
+    "pred_class_name": "baseball_bat",
+    "pred_conf": 0.3633493185043335,
+    "pred_bbox_xyxy": [
+      438.593994140625,
+      0.0,
+      490.168212890625,
+      418.998046875
+    ],
+    "iou": 0.7801627663232962,
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background",
+    "pred_probs": [
+      0.0,
+      0.0,
+      0.0,
+      0.3633493185043335,
+      0.6366506814956665
+    ]
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_003230.jpg",
+    "image_name": "dangerous_train_003230.jpg",
+    "obj_idx": 0,
+    "gt_class": 3,
+    "gt_class_name": "baseball_bat",
+    "gt_bbox_xywh": [
+      0.498337,
+      0.368333,
+      0.211752,
+      0.043333
+    ],
+    "pred_class": 3,
+    "pred_class_name": "baseball_bat",
+    "pred_conf": 0.019523058086633682,
+    "pred_bbox_xyxy": [
+      383.1072692871094,
+      206.35272216796875,
+      547.2424926757812,
+      232.82022094726562
+    ],
+    "iou": 0.7593052522209983,
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background",
+    "pred_probs": [
+      0.0,
+      0.0,
+      0.0,
+      0.019523058086633682,
+      0.9804769419133663
+    ]
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_003261.jpg",
+    "image_name": "dangerous_train_003261.jpg",
+    "obj_idx": 0,
+    "gt_class": 3,
+    "gt_class_name": "baseball_bat",
+    "gt_bbox_xywh": [
+      0.776608,
+      0.356667,
+      0.063193,
+      0.696667
+    ],
+    "pred_class": 3,
+    "pred_class_name": "baseball_bat",
+    "pred_conf": 0.37255188822746277,
+    "pred_bbox_xyxy": [
+      671.284912109375,
+      0.0,
+      724.7549438476562,
+      426.9190979003906
+    ],
+    "iou": 0.8963262203103992,
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background",
+    "pred_probs": [
+      0.0,
+      0.0,
+      0.0,
+      0.37255188822746277,
+      0.6274481117725372
+    ]
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_003375.jpg",
+    "image_name": "dangerous_train_003375.jpg",
+    "obj_idx": 0,
+    "gt_class": 3,
+    "gt_class_name": "baseball_bat",
+    "gt_bbox_xywh": [
+      0.8692100065300263,
+      0.4647062513563368,
+      0.03418387907097131,
+      0.2512372730396412
+    ],
+    "pred_class": 3,
+    "pred_class_name": "baseball_bat",
+    "pred_conf": 0.29098695516586304,
+    "pred_bbox_xyxy": [
+      854.8243408203125,
+      254.9166259765625,
+      887.8434448242188,
+      448.7907409667969
+    ],
+    "iou": 0.8531027394792805,
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background",
+    "pred_probs": [
+      0.0,
+      0.0,
+      0.0,
+      0.29098695516586304,
+      0.709013044834137
+    ]
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_003408.jpg",
+    "image_name": "dangerous_train_003408.jpg",
+    "obj_idx": 0,
+    "gt_class": 3,
+    "gt_class_name": "baseball_bat",
+    "gt_bbox_xywh": [
+      0.630227,
+      0.563333,
+      0.0227,
+      0.346667
+    ],
+    "pred_class": 3,
+    "pred_class_name": "baseball_bat",
+    "pred_conf": 0.03181449696421623,
+    "pred_bbox_xyxy": [
+      513.1149291992188,
+      230.08287048339844,
+      539.91796875,
+      469.2679138183594
+    ],
+    "iou": 0.6164487858932517,
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background",
+    "pred_probs": [
+      0.0,
+      0.0,
+      0.0,
+      0.03181449696421623,
+      0.9681855030357838
+    ]
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_003459.jpg",
+    "image_name": "dangerous_train_003459.jpg",
+    "obj_idx": 0,
+    "gt_class": 3,
+    "gt_class_name": "baseball_bat",
+    "gt_bbox_xywh": [
+      0.534564619643078,
+      0.024983211716204462,
+      0.08871017093708772,
+      0.049966423432408924
+    ],
+    "pred_class": 3,
+    "pred_class_name": "baseball_bat",
+    "pred_conf": 0.22413288056850433,
+    "pred_bbox_xyxy": [
+      488.0429382324219,
+      0.3532707691192627,
+      565.1294555664062,
+      39.51544189453125
+    ],
+    "iou": 0.780753023802925,
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background",
+    "pred_probs": [
+      0.0,
+      0.0,
+      0.0,
+      0.22413288056850433,
+      0.7758671194314957
+    ]
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_003511.jpg",
+    "image_name": "dangerous_train_003511.jpg",
+    "obj_idx": 0,
+    "gt_class": 3,
+    "gt_class_name": "baseball_bat",
+    "gt_bbox_xywh": [
+      0.723333,
+      0.099523,
+      0.46,
+      0.196663
+    ],
+    "pred_class": 3,
+    "pred_class_name": "baseball_bat",
+    "pred_conf": 0.4328261911869049,
+    "pred_bbox_xyxy": [
+      253.97085571289062,
+      0.598139226436615,
+      580.9462280273438,
+      175.2946014404297
+    ],
+    "iou": 0.7972500398200593,
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background",
+    "pred_probs": [
+      0.0,
+      0.0,
+      0.0,
+      0.4328261911869049,
+      0.5671738088130951
+    ]
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_003528.jpg",
+    "image_name": "dangerous_train_003528.jpg",
+    "obj_idx": 0,
+    "gt_class": 3,
+    "gt_class_name": "baseball_bat",
+    "gt_bbox_xywh": [
+      0.7308558558558559,
+      0.6418918918918921,
+      0.19369369369369394,
+      0.037537537537537746
+    ],
+    "pred_class": 3,
+    "pred_class_name": "baseball_bat",
+    "pred_conf": 0.05723610520362854,
+    "pred_bbox_xyxy": [
+      652.9345703125,
+      462.1594543457031,
+      824.7755737304688,
+      495.3861083984375
+    ],
+    "iou": 0.7596596661032505,
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background",
+    "pred_probs": [
+      0.0,
+      0.0,
+      0.0,
+      0.05723610520362854,
+      0.9427638947963715
+    ]
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_003600.jpg",
+    "image_name": "dangerous_train_003600.jpg",
+    "obj_idx": 0,
+    "gt_class": 3,
+    "gt_class_name": "baseball_bat",
+    "gt_bbox_xywh": [
+      0.41484464902186413,
+      0.665132336018412,
+      0.02416570771001153,
+      0.22861526658995024
+    ],
+    "pred_class": 3,
+    "pred_class_name": "baseball_bat",
+    "pred_conf": 0.3244517147541046,
+    "pred_bbox_xyxy": [
+      398.8171691894531,
+      394.41119384765625,
+      428.40765380859375,
+      599.5568237304688
+    ],
+    "iou": 0.6825770192443448,
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background",
+    "pred_probs": [
+      0.0,
+      0.0,
+      0.0,
+      0.3244517147541046,
+      0.6755482852458954
+    ]
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_003607.jpg",
+    "image_name": "dangerous_train_003607.jpg",
+    "obj_idx": 0,
+    "gt_class": 3,
+    "gt_class_name": "baseball_bat",
+    "gt_bbox_xywh": [
+      0.251667,
+      0.721111,
+      0.043333,
+      0.397778
+    ],
+    "pred_class": 3,
+    "pred_class_name": "baseball_bat",
+    "pred_conf": 0.06666804105043411,
+    "pred_bbox_xyxy": [
+      137.10104370117188,
+      521.6024780273438,
+      163.7008514404297,
+      828.9550170898438
+    ],
+    "iou": 0.8195123796701271,
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background",
+    "pred_probs": [
+      0.0,
+      0.0,
+      0.0,
+      0.06666804105043411,
+      0.9333319589495659
+    ]
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_003663.jpg",
+    "image_name": "dangerous_train_003663.jpg",
+    "obj_idx": 0,
+    "gt_class": 3,
+    "gt_class_name": "baseball_bat",
+    "gt_bbox_xywh": [
+      0.3975,
+      0.687222,
+      0.078333,
+      0.414444
+    ],
+    "pred_class": 3,
+    "pred_class_name": "baseball_bat",
+    "pred_conf": 0.2301023155450821,
+    "pred_bbox_xyxy": [
+      199.818603515625,
+      429.2249450683594,
+      265.67071533203125,
+      809.174072265625
+    ],
+    "iou": 0.7006630541163199,
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background",
+    "pred_probs": [
+      0.0,
+      0.0,
+      0.0,
+      0.2301023155450821,
+      0.7698976844549179
+    ]
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_003686.jpg",
+    "image_name": "dangerous_train_003686.jpg",
+    "obj_idx": 0,
+    "gt_class": 3,
+    "gt_class_name": "baseball_bat",
+    "gt_bbox_xywh": [
+      0.21126875625472377,
+      0.9146884474013812,
+      0.19019264360598426,
+      0.17062310519723767
+    ],
+    "pred_class": 3,
+    "pred_class_name": "baseball_bat",
+    "pred_conf": 0.44937846064567566,
+    "pred_bbox_xyxy": [
+      60.37068176269531,
+      612.9407348632812,
+      323.4188537597656,
+      749.3583984375
+    ],
+    "iou": 0.6725578359370067,
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background",
+    "pred_probs": [
+      0.0,
+      0.0,
+      0.0,
+      0.44937846064567566,
+      0.5506215393543243
+    ]
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_003697.jpg",
+    "image_name": "dangerous_train_003697.jpg",
+    "obj_idx": 0,
+    "gt_class": 3,
+    "gt_class_name": "baseball_bat",
+    "gt_bbox_xywh": [
+      0.9662458184826557,
+      0.057723522973208444,
+      0.06750836303468877,
+      0.11544704594641689
+    ],
+    "pred_class": 4,
+    "pred_class_name": "background",
+    "pred_conf": 0,
+    "pred_bbox_xyxy": null,
+    "iou": 0,
+    "y_pred": 4,
+    "pred_probs": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ],
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background"
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_003752.jpg",
+    "image_name": "dangerous_train_003752.jpg",
+    "obj_idx": 0,
+    "gt_class": 3,
+    "gt_class_name": "baseball_bat",
+    "gt_bbox_xywh": [
+      0.6062145284309717,
+      0.5579609629919307,
+      0.09370750265438443,
+      0.07771345171771415
+    ],
+    "pred_class": 0,
+    "pred_class_name": "knife",
+    "pred_conf": 0.018636995926499367,
+    "pred_bbox_xyxy": [
+      558.3684692382812,
+      389.7966003417969,
+      653.1087646484375,
+      448.6948547363281
+    ],
+    "iou": 0.9633570808655004,
+    "y_pred": 4,
+    "pred_probs": [
+      0.018636995926499367,
+      0.0,
+      0.0,
+      0.0,
+      0.9813630040735006
+    ],
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background"
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_003843.jpg",
+    "image_name": "dangerous_train_003843.jpg",
+    "obj_idx": 0,
+    "gt_class": 3,
+    "gt_class_name": "baseball_bat",
+    "gt_bbox_xywh": [
+      0.7204681112883571,
+      0.37788997625497645,
+      0.27044367549401804,
+      0.391190091018786
+    ],
+    "pred_class": 3,
+    "pred_class_name": "baseball_bat",
+    "pred_conf": 0.15783166885375977,
+    "pred_bbox_xyxy": [
+      573.2203369140625,
+      131.3628692626953,
+      881.3656616210938,
+      429.6788330078125
+    ],
+    "iou": 0.8607840559484675,
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background",
+    "pred_probs": [
+      0.0,
+      0.0,
+      0.0,
+      0.15783166885375977,
+      0.8421683311462402
+    ]
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_003844.jpg",
+    "image_name": "dangerous_train_003844.jpg",
+    "obj_idx": 0,
+    "gt_class": 3,
+    "gt_class_name": "baseball_bat",
+    "gt_bbox_xywh": [
+      0.49042792792792866,
+      0.9054054054054055,
+      0.07094594594594611,
+      0.18918918918918914
+    ],
+    "pred_class": 3,
+    "pred_class_name": "baseball_bat",
+    "pred_conf": 0.47908052802085876,
+    "pred_bbox_xyxy": [
+      438.1962890625,
+      608.0205078125,
+      525.6737670898438,
+      748.5069580078125
+    ],
+    "iou": 0.7989593742473721,
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background",
+    "pred_probs": [
+      0.0,
+      0.0,
+      0.0,
+      0.47908052802085876,
+      0.5209194719791412
+    ]
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_003891.jpg",
+    "image_name": "dangerous_train_003891.jpg",
+    "obj_idx": 0,
+    "gt_class": 3,
+    "gt_class_name": "baseball_bat",
+    "gt_bbox_xywh": [
+      0.537603,
+      0.743333,
+      0.038778,
+      0.503333
+    ],
+    "pred_class": 3,
+    "pred_class_name": "baseball_bat",
+    "pred_conf": 0.4661608338356018,
+    "pred_bbox_xyxy": [
+      435.2626953125,
+      298.5906677246094,
+      477.8745422363281,
+      597.2880859375
+    ],
+    "iou": 0.7665502199736198,
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background",
+    "pred_probs": [
+      0.0,
+      0.0,
+      0.0,
+      0.4661608338356018,
+      0.5338391661643982
+    ]
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_003896.jpg",
+    "image_name": "dangerous_train_003896.jpg",
+    "obj_idx": 0,
+    "gt_class": 3,
+    "gt_class_name": "baseball_bat",
+    "gt_bbox_xywh": [
+      0.5824376265176733,
+      0.27110001977186016,
+      0.10607984121313829,
+      0.17165047010965787
+    ],
+    "pred_class": 3,
+    "pred_class_name": "baseball_bat",
+    "pred_conf": 0.011566056869924068,
+    "pred_bbox_xyxy": [
+      536.4474487304688,
+      136.70199584960938,
+      634.5826416015625,
+      267.14837646484375
+    ],
+    "iou": 0.9065030818199359,
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background",
+    "pred_probs": [
+      0.0,
+      0.0,
+      0.0,
+      0.011566056869924068,
+      0.9884339431300759
+    ]
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_003975.jpg",
+    "image_name": "dangerous_train_003975.jpg",
+    "obj_idx": 0,
+    "gt_class": 3,
+    "gt_class_name": "baseball_bat",
+    "gt_bbox_xywh": [
+      0.8429887540861716,
+      0.9051679546913405,
+      0.07595828582391095,
+      0.18966409061731915
+    ],
+    "pred_class": 3,
+    "pred_class_name": "baseball_bat",
+    "pred_conf": 0.2824000120162964,
+    "pred_bbox_xyxy": [
+      796.1915283203125,
+      610.0726928710938,
+      885.6343383789062,
+      750.0
+    ],
+    "iou": 0.8374431807902064,
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background",
+    "pred_probs": [
+      0.0,
+      0.0,
+      0.0,
+      0.2824000120162964,
+      0.7175999879837036
+    ]
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_004049.jpg",
+    "image_name": "dangerous_train_004049.jpg",
+    "obj_idx": 0,
+    "gt_class": 3,
+    "gt_class_name": "baseball_bat",
+    "gt_bbox_xywh": [
+      0.4470655926352131,
+      0.08285385500575365,
+      0.04487917146144994,
+      0.1657077100115073
+    ],
+    "pred_class": 3,
+    "pred_class_name": "baseball_bat",
+    "pred_conf": 0.46617957949638367,
+    "pred_bbox_xyxy": [
+      413.7723083496094,
+      2.471756935119629,
+      467.6423034667969,
+      123.88402557373047
+    ],
+    "iou": 0.7574199014993901,
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background",
+    "pred_probs": [
+      0.0,
+      0.0,
+      0.0,
+      0.46617957949638367,
+      0.5338204205036163
+    ]
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_004066.jpg",
+    "image_name": "dangerous_train_004066.jpg",
+    "obj_idx": 0,
+    "gt_class": 3,
+    "gt_class_name": "baseball_bat",
+    "gt_bbox_xywh": [
+      0.7714225578836458,
+      0.2838198463871794,
+      0.45715488423270856,
+      0.07703929877131241
+    ],
+    "pred_class": 3,
+    "pred_class_name": "baseball_bat",
+    "pred_conf": 0.1452939212322235,
+    "pred_bbox_xyxy": [
+      546.5794677734375,
+      167.27474975585938,
+      1000.0,
+      242.5457000732422
+    ],
+    "iou": 0.7627973609694522,
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background",
+    "pred_probs": [
+      0.0,
+      0.0,
+      0.0,
+      0.1452939212322235,
+      0.8547060787677765
+    ]
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_004256.jpg",
+    "image_name": "dangerous_train_004256.jpg",
+    "obj_idx": 0,
+    "gt_class": 3,
+    "gt_class_name": "baseball_bat",
+    "gt_bbox_xywh": [
+      0.5532313328084634,
+      0.2722115201137759,
+      0.17295046962808985,
+      0.05544856913674137
+    ],
+    "pred_class": 3,
+    "pred_class_name": "baseball_bat",
+    "pred_conf": 0.01484509464353323,
+    "pred_bbox_xyxy": [
+      463.9539794921875,
+      175.815673828125,
+      597.6716918945312,
+      225.905029296875
+    ],
+    "iou": 0.644608927745146,
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background",
+    "pred_probs": [
+      0.0,
+      0.0,
+      0.0,
+      0.01484509464353323,
+      0.9851549053564668
+    ]
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_004388.jpg",
+    "image_name": "dangerous_train_004388.jpg",
+    "obj_idx": 0,
+    "gt_class": 3,
+    "gt_class_name": "baseball_bat",
+    "gt_bbox_xywh": [
+      0.562724,
+      0.4,
+      0.714456,
+      0.07
+    ],
+    "pred_class": 3,
+    "pred_class_name": "baseball_bat",
+    "pred_conf": 0.02491374872624874,
+    "pred_bbox_xyxy": [
+      186.24688720703125,
+      217.8988800048828,
+      631.2042236328125,
+      262.33807373046875
+    ],
+    "iou": 0.7132543600184649,
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background",
+    "pred_probs": [
+      0.0,
+      0.0,
+      0.0,
+      0.02491374872624874,
+      0.9750862512737513
+    ]
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_004439.jpg",
+    "image_name": "dangerous_train_004439.jpg",
+    "obj_idx": 0,
+    "gt_class": 3,
+    "gt_class_name": "baseball_bat",
+    "gt_bbox_xywh": [
+      0.18750000000000008,
+      0.4406906906906906,
+      0.06869369369369373,
+      0.43093093093093077
+    ],
+    "pred_class": 3,
+    "pred_class_name": "baseball_bat",
+    "pred_conf": 0.14586064219474792,
+    "pred_bbox_xyxy": [
+      150.33326721191406,
+      166.2803955078125,
+      208.39443969726562,
+      480.2310485839844
+    ],
+    "iou": 0.7402176272443646,
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background",
+    "pred_probs": [
+      0.0,
+      0.0,
+      0.0,
+      0.14586064219474792,
+      0.8541393578052521
+    ]
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_004451.jpg",
+    "image_name": "dangerous_train_004451.jpg",
+    "obj_idx": 0,
+    "gt_class": 3,
+    "gt_class_name": "baseball_bat",
+    "gt_bbox_xywh": [
+      0.611976,
+      0.4725,
+      0.579641,
+      0.085
+    ],
+    "pred_class": 3,
+    "pred_class_name": "baseball_bat",
+    "pred_conf": 0.046160731464624405,
+    "pred_bbox_xyxy": [
+      274.51226806640625,
+      257.9129943847656,
+      704.2444458007812,
+      304.6775817871094
+    ],
+    "iou": 0.8113965221319704,
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background",
+    "pred_probs": [
+      0.0,
+      0.0,
+      0.0,
+      0.046160731464624405,
+      0.9538392685353756
+    ]
+  },
+  {
+    "image_path": "/workspace/yolo_dataset_4_dec/images/train/dangerous_train_004486.jpg",
+    "image_name": "dangerous_train_004486.jpg",
+    "obj_idx": 0,
+    "gt_class": 3,
+    "gt_class_name": "baseball_bat",
+    "gt_bbox_xywh": [
+      0.6891691457810859,
+      0.321100079252731,
+      0.10707642904457404,
+      0.08665717334540529
+    ],
+    "pred_class": 0,
+    "pred_class_name": "knife",
+    "pred_conf": 0.06130615994334221,
+    "pred_bbox_xyxy": [
+      645.7073364257812,
+      208.08091735839844,
+      736.1058959960938,
+      271.81829833984375
+    ],
+    "iou": 0.8220719670452227,
+    "y_pred": 4,
+    "pred_probs": [
+      0.06130615994334221,
+      0.0,
+      0.0,
+      0.0,
+      0.9386938400566578
+    ],
+    "pred_class_argmax": 4,
+    "pred_class_name_argmax": "background"
+  }
+]
