@@ -1,2 +1,0 @@
-image_name,gt_class,pred_class_argmax,pred_class_raw,pred_conf,iou
-crowdhuman_train_012454.jpg,background,rifle,rifle,0.6501586437225342,0.0

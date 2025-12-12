@@ -1,2 +1,0 @@
-image_name,gt_class,pred_class_argmax,pred_class_raw,pred_conf,iou
-cellphone_train_013315.jpg,background,gun,gun,0.572262704372406,0.0

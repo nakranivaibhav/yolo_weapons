@@ -1,3 +1,0 @@
-image_name,gt_class,pred_class_argmax,pred_class_raw,pred_conf,iou
-youtube_train_009163.jpg,rifle,gun,gun,0.5062718987464905,0.9669544760713549
-youtube_train_010486.jpg,rifle,gun,gun,0.5633417963981628,0.836148361976169

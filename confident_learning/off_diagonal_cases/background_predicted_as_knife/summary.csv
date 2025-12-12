@@ -1,2 +1,0 @@
-image_name,gt_class,pred_class_argmax,pred_class_raw,pred_conf,iou
-cellphone_train_013265.jpg,background,knife,knife,0.6264373660087585,0.0

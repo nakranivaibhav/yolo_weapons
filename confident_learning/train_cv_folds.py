@@ -10,10 +10,11 @@ import albumentations as A
 from ultralytics.models.yolo import YOLO
 
 CV_FOLDS_PATH = Path("/workspace/cv_folds_5fold")
-OUTPUT_PATH = Path("/workspace/cv_folds_5fold/predictions")
+OUTPUT_PATH = Path("/workspace/cv_folds_5fold/predictions_11_Dec")
+START_FOLD = 1
 NUM_FOLDS = 5
-EPOCHS = 70
-MODEL_NAME = "yolo11n.pt"
+EPOCHS = 40  # Round 2: cleaner data converges faster
+MODEL_NAME = "yolo11s.pt"
 BATCH_SIZE = 32
 IMGSZ = 640
 DEVICE = 0
@@ -22,22 +23,7 @@ CONF_THRESHOLD = 0.01
 CLASS_NAMES = ['knife', 'gun', 'rifle', 'baseball_bat']
 
 custom_transforms = [
-    A.OneOf(
-        [
-            A.MotionBlur(blur_limit=(7, 25), p=1.0),
-            A.Defocus(radius=(3, 7), p=1.0),
-        ],
-        p=0.3,
-    ),
-    A.OneOf(
-        [
-            A.GaussNoise(std_range=(0.03, 0.2), p=1.0),
-            A.ISONoise(color_shift=(0.01, 0.05), intensity=(0.1, 0.5), p=1.0),
-        ],
-        p=0.2,
-    ),
-    A.ImageCompression(quality_range=(40, 90), p=0.2),
-    A.RandomBrightnessContrast(brightness_limit=0.3, contrast_limit=0.3, p=0.3),
+    A.RandomBrightnessContrast(brightness_limit=0.15, contrast_limit=0.15, p=0.2),
 ]
 
 def parse_yolo_label(label_path):
@@ -135,20 +121,20 @@ def train_fold(fold_idx):
         batch=BATCH_SIZE,
         imgsz=IMGSZ,
         augmentations=custom_transforms,
-        hsv_h=0.015,
-        hsv_s=0.3,
-        hsv_v=0.3,
-        degrees=10.0,
-        translate=0.1,
-        scale=0.3,
-        shear=2.0,
-        perspective=0.0001,
+        hsv_h=0.01,
+        hsv_s=0.2,
+        hsv_v=0.2,
+        degrees=5.0,
+        translate=0.05,
+        scale=0.15,
+        shear=0.0,
+        perspective=0.0,
         fliplr=0.5,
         flipud=0.0,
-        mosaic=0.3,
-        mixup=0.1,
+        mosaic=0.0,
+        mixup=0.0,
         copy_paste=0.0,
-        close_mosaic=10,
+        close_mosaic=0,
         optimizer='SGD',
         lr0=0.01,
         lrf=0.01,
@@ -255,11 +241,12 @@ def main():
     print(f"\nTimestamp: {datetime.now().isoformat()}")
     print(f"Model: {MODEL_NAME}")
     print(f"Epochs: {EPOCHS}")
+    print(f"Start Fold: {START_FOLD}")
     print(f"Folds: {NUM_FOLDS}")
     print(f"CV Folds Path: {CV_FOLDS_PATH}")
     print(f"Output Path: {OUTPUT_PATH}")
     
-    for fold_idx in range(NUM_FOLDS):
+    for fold_idx in range(START_FOLD, NUM_FOLDS):
         model_path = train_fold(fold_idx)
         collect_predictions(fold_idx, model_path)
     
