@@ -1,0 +1,14 @@
+{
+  "id2label": {
+    "0": "baseball_bat",
+    "1": "gun",
+    "2": "knife",
+    "3": "rifle"
+  },
+  "label2id": {
+    "baseball_bat": 0,
+    "gun": 1,
+    "knife": 2,
+    "rifle": 3
+  }
+}

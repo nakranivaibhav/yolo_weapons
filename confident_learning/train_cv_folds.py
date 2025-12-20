@@ -10,11 +10,11 @@ import albumentations as A
 from ultralytics.models.yolo import YOLO
 
 CV_FOLDS_PATH = Path("/workspace/cv_folds_5fold")
-OUTPUT_PATH = Path("/workspace/cv_folds_5fold/predictions_11_Dec")
-START_FOLD = 1
+OUTPUT_PATH = Path("/workspace/cv_folds_5fold/predictions_12_Dec")
+START_FOLD = 0
 NUM_FOLDS = 5
-EPOCHS = 40  # Round 2: cleaner data converges faster
-MODEL_NAME = "yolo11s.pt"
+EPOCHS = 50  # Round 2: cleaner data converges faster
+MODEL_NAME = "yolo11n.pt"
 BATCH_SIZE = 32
 IMGSZ = 640
 DEVICE = 0

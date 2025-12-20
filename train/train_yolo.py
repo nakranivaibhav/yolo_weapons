@@ -10,6 +10,8 @@ os.chdir(PROJECT_ROOT)
 
 model_name = "yolo11m.pt"
 
+run_name = f"15_dec_2025_{model_name.replace('.pt', '')}"
+
 print(f"\n🚀 Starting training for {model_name}\n{'='*60}\n")
 print(f"Project root: {PROJECT_ROOT}")
 print(f"Data directory: {DATA_DIR}\n")
@@ -80,13 +82,13 @@ results = model.train(
     iou=0.7,
     max_det=300,
     project='weapon_detection',
-    name=f'weapon_detection_{model_tag}_augmented',
+    name=run_name,
     device=0,
     plots=True
 )
 
 print(f"\n✅ Training complete for {model_tag}!")
-print(f"   Location: weapon_detection/weapon_detection_{model_tag}_augmented/")
-print(f"   Best model: weapon_detection/weapon_detection_{model_tag}_augmented/weights/best.pt")
+print(f"   Location: weapon_detection/{run_name}/")
+print(f"   Best model: weapon_detection/{run_name}/weights/best.pt")
 print(f"\n📌 Next step: Export to TensorRT using export/export_yolo.py")
-print(f"   cd ../export && uv run python export_yolo.py ../weapon_detection/weapon_detection_{model_tag}_augmented/weights/best.pt")
+print(f"   cd ../export && uv run python export_yolo.py ../weapon_detection/{run_name}/weights/best.pt")

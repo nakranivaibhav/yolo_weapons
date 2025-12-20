@@ -1,7 +1,7 @@
 #!/bin/bash
 
 PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-VIDEO_DIR="/workspace/2025_12_04_parking_lot_weapons_video"
+VIDEO_DIR="/workspace/input_videos/25_december_videos"
 
 cd "$PROJECT_ROOT"
 
@@ -20,7 +20,7 @@ for VIDEO in "$VIDEO_DIR"/*.mp4; do
         --video "$VIDEO" \
         --out "$OUTPUT" \
         --deyo_model "models/deyo/deyo-x.pt" \
-        --weapon_model "/workspace/yolo_dangerous_weapons/weapon_detection/weapon_detection_yolo11m_augmented4/weights/best.pt" \
+        --weapon_model "/workspace/yolo_dangerous_weapons/weapon_detection/15_dec_2025_yolo11m/weights/best.pt" \
         --person_conf 0.3 \
         --weapon_conf 0.35 \
         --iou 0.45 \
