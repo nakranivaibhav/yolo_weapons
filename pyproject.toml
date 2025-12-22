@@ -28,5 +28,6 @@ dependencies = [
     "tqdm>=4.67.1",
     "transformers>=4.57.0",
     "ultralytics>=8.3.205",
-    "google-generativeai"
+    "google-generativeai",
+    "albumentations>=2.0.8",
 ]
