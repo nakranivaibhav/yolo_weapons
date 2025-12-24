@@ -16,8 +16,8 @@ import google.generativeai as genai
 # CONFIG
 # -------------------------------------------------
 
-INPUT_DIR = "/workspace/yolo_dangerous_weapons/classification/crops/outside_front"
-OUTPUT_DIR = "classified/outside_front"
+INPUT_DIR = "/workspace/yolo_dangerous_weapons/classification/crops/outside_left"
+OUTPUT_DIR = "classified/outside_left"
 HOLDING_SOMETHING_DIR = Path(OUTPUT_DIR) / "holding_something"
 HOLDING_NOTHING_DIR = Path(OUTPUT_DIR) / "holding_nothing"
 UNCERTAIN_DIR = Path(OUTPUT_DIR) / "uncertain"  # For ambiguous cases

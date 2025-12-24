@@ -4,7 +4,7 @@ set -e
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 PROJECT_ROOT="$(dirname "$SCRIPT_DIR")"
 
-VIDEO_PATH="/workspace/yolo_dangerous_weapons/classification/outside_front_no_weapons.mp4"
+VIDEO_PATH="/workspace/yolo_dangerous_weapons/classification/outside_left_no_weapons.mp4"
 OUT_DIR="${2:-}"
 
 if [ -z "$VIDEO_PATH" ]; then
@@ -19,12 +19,12 @@ fi
 
 if [ -z "$OUT_DIR" ]; then
     VIDEO_NAME=$(basename "$VIDEO_PATH" | sed 's/\.[^.]*$//')
-    OUT_DIR="/workspace/yolo_dangerous_weapons/classification/crops/outside_front"
+    OUT_DIR="/workspace/yolo_dangerous_weapons/classification/crops/outside_left"
 fi
 
 mkdir -p "$OUT_DIR"
 
-echo "Extracting person crops..."
+echo "Extracting 500 person crops from entire video..."
 echo "Video: $VIDEO_PATH"
 echo "Output: $OUT_DIR"
 echo ""
@@ -35,5 +35,5 @@ uv run python "$SCRIPT_DIR/extract_person_crops.py" \
     --model "$PROJECT_ROOT/models/deyo/deyo-x.pt" \
     --conf 0.3 \
     --expand 0.20 \
-    --max_frames 800 \
+    --target_crops 500 \
     --skip 5
