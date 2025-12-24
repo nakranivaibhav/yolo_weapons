@@ -1,78 +1,115 @@
+"""
+Remove multiple time intervals from a video and keep the rest intact.
+
+- Copies video stream (no quality loss)
+- Re-encodes audio to AAC (required for FLAC-in-MP4)
+- Supports multiple removal intervals
+"""
+
 import subprocess
 from pathlib import Path
 
-VIDEO = Path("/workspace/input_videos/25_december_videos/parking_lot_front.mp4")
-TIMESTAMPS = Path("timestamps.txt")
-OUT = Path("parking_lot_front_no_weapons.mp4")
-TMP = Path("tmp_segments")
+# ---------------- USER CONFIG ----------------
 
-TMP.mkdir(exist_ok=True)
+VIDEO = Path("/workspace/input_videos/25_december_videos/outside_left.mp4")          # input video
+TIMESTAMPS = Path("timestamps.txt")             # intervals to REMOVE
+OUTPUT = Path("outside_left_no_weapons.mp4")
+
+TMP_DIR = Path("tmp_segments")
+
+# ---------------------------------------------
+
+TMP_DIR.mkdir(exist_ok=True)
 
 def run(cmd):
     print(" ".join(cmd))
     subprocess.run(cmd, check=True)
 
-# 1. Read weapon intervals
-intervals = []
+def to_seconds(t):
+    """HH:MM:SS(.ms) -> seconds"""
+    h, m, s = t.split(":")
+    return int(h) * 3600 + int(m) * 60 + float(s)
+
+# ---------------- Read weapon intervals ----------------
+
+weapon_intervals = []
 with open(TIMESTAMPS) as f:
     for line in f:
         if line.strip():
-            s, e = line.split()
-            intervals.append((s, e))
+            start, end = line.split()
+            weapon_intervals.append((to_seconds(start), to_seconds(end)))
 
-# 2. Get video duration
-result = subprocess.check_output(
-    ["ffprobe", "-v", "error", "-show_entries",
-     "format=duration", "-of", "default=noprint_wrappers=1:nokey=1",
-     str(VIDEO)]
-)
-duration = float(result.strip())
+weapon_intervals.sort()
 
-def to_sec(t):
-    h, m, s = t.split(":")
-    return int(h)*3600 + int(m)*60 + float(s)
+# ---------------- Get video duration (robust) ----------------
 
-weapon = [(to_sec(s), to_sec(e)) for s, e in intervals]
-weapon.sort()
+def get_duration(video):
+    try:
+        out = subprocess.check_output([
+            "ffprobe", "-v", "error",
+            "-show_entries", "format=duration",
+            "-of", "default=noprint_wrappers=1:nokey=1",
+            str(video)
+        ])
+        return float(out.strip())
+    except Exception:
+        print("⚠️ ffprobe failed, using large fallback duration")
+        return 10_000.0  # safe fallback
 
-# 3. Build keep intervals
-keep = []
-prev = 0.0
-for s, e in weapon:
-    if s > prev:
-        keep.append((prev, s))
-    prev = e
-if prev < duration:
-    keep.append((prev, duration))
+duration = get_duration(VIDEO)
 
-# 4. Slice kept segments
+# ---------------- Build KEEP intervals ----------------
+
+keep_intervals = []
+prev_end = 0.0
+
+for start, end in weapon_intervals:
+    if start > prev_end:
+        keep_intervals.append((prev_end, start))
+    prev_end = end
+
+if prev_end < duration:
+    keep_intervals.append((prev_end, duration))
+
+print("\nKEEP intervals:")
+for s, e in keep_intervals:
+    print(f"  {s:.2f} → {e:.2f}")
+
+# ---------------- Slice KEEP segments ----------------
+
 segment_files = []
-for i, (s, e) in enumerate(keep):
-    out = TMP / f"keep_{i:02d}.mp4"
-    segment_files.append(out)
+
+for idx, (start, end) in enumerate(keep_intervals):
+    out_seg = TMP_DIR / f"keep_{idx:02d}.mp4"
+    segment_files.append(out_seg)
 
     run([
         "ffmpeg", "-y",
-        "-ss", str(s), "-to", str(e),
+        "-ss", f"{start:.3f}", "-to", f"{end:.3f}",
         "-i", str(VIDEO),
-        "-c", "copy",
-        str(out)
+        "-c:v", "copy",      # keep video quality
+        "-c:a", "aac",       # FIX for FLAC audio
+        str(out_seg)
     ])
 
-# 5. Concatenate
-list_file = TMP / "concat.txt"
-with open(list_file, "w") as f:
+# ---------------- Create concat list ----------------
+
+concat_file = TMP_DIR / "concat.txt"
+with open(concat_file, "w") as f:
     for seg in segment_files:
-        f.write(f"file '{seg.absolute()}'\n")
+        f.write(f"file '{seg.resolve()}'\n")
+
+# ---------------- Concatenate ----------------
 
 run([
     "ffmpeg", "-y",
     "-f", "concat",
     "-safe", "0",
-    "-i", str(list_file),
-    "-c", "copy",
-    str(OUT)
+    "-i", str(concat_file),
+    "-c:v", "copy",
+    "-c:a", "aac",
+    str(OUTPUT)
 ])
 
-print("\n✅ Weapon segments removed.")
-print("Output:", OUT)
+print("\n✅ Weapon segments removed successfully")
+print("Output video:", OUTPUT)

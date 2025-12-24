@@ -11,17 +11,20 @@ import albumentations as A
 from albumentations.pytorch import ToTensorV2
 from datasets import load_dataset
 from transformers import AutoImageProcessor, ConvNextV2ForImageClassification
+from sklearn.metrics import precision_score, recall_score, classification_report
 from tqdm import tqdm
 
 CV_FOLDS_PATH = Path("/workspace/yolo_dataset_cls_5fold")
 OUTPUT_PATH = Path("/workspace/yolo_dataset_cls_5fold/predictions")
 START_FOLD = 0
-NUM_FOLDS = 1
-EPOCHS = 1
-MODEL_NAME = "facebook/convnextv2-base-22k-224"
+NUM_FOLDS = 5
+EPOCHS = 8
+MODEL_NAME = "facebook/convnextv2-tiny-22k-224"
 BATCH_SIZE = 32
 NUM_WORKERS = 0
 LEARNING_RATE = 5e-5
+WEIGHT_DECAY = 0.05
+WARMUP_EPOCHS = 1
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 SEED = 42
 
@@ -41,8 +44,23 @@ def get_transforms(image_processor, is_train=True):
     
     if is_train:
         transform = A.Compose([
-            A.RandomResizedCrop(size=(size, size), scale=(0.8, 1.0)),
+            A.RandomResizedCrop(size=(size, size), scale=(0.5, 1.0), ratio=(0.75, 1.33)),
             A.HorizontalFlip(p=0.5),
+            A.ShiftScaleRotate(shift_limit=0.1, scale_limit=0.2, rotate_limit=30, p=0.5),
+            A.OneOf([
+                A.MotionBlur(blur_limit=5, p=1.0),
+                A.MedianBlur(blur_limit=5, p=1.0),
+                A.GaussianBlur(blur_limit=5, p=1.0),
+            ], p=0.3),
+            A.OneOf([
+                A.OpticalDistortion(distort_limit=0.3, p=1.0),
+                A.GridDistortion(distort_limit=0.3, p=1.0),
+                A.ElasticTransform(alpha=1, sigma=50, p=1.0),
+            ], p=0.3),
+            A.ColorJitter(brightness=0.3, contrast=0.3, saturation=0.3, hue=0.1, p=0.5),
+            A.RandomBrightnessContrast(brightness_limit=0.2, contrast_limit=0.2, p=0.5),
+            A.HueSaturationValue(hue_shift_limit=20, sat_shift_limit=30, val_shift_limit=20, p=0.5),
+            A.CoarseDropout(max_holes=8, max_h=32, max_w=32, fill_value=0, p=0.3),
             A.Normalize(mean=mean, std=std),
             ToTensorV2(),
         ])
@@ -98,7 +116,19 @@ def train_fold(fold_idx, id2label, label2id):
     )
     model.to(DEVICE)
     
-    optimizer = torch.optim.AdamW(model.parameters(), lr=LEARNING_RATE)
+    optimizer = torch.optim.AdamW(model.parameters(), lr=LEARNING_RATE, weight_decay=WEIGHT_DECAY)
+    
+    total_steps = len(train_dataloader) * EPOCHS
+    warmup_steps = len(train_dataloader) * WARMUP_EPOCHS
+    
+    def get_lr_multiplier(step):
+        if step < warmup_steps:
+            return step / warmup_steps
+        else:
+            progress = (step - warmup_steps) / (total_steps - warmup_steps)
+            return 0.5 * (1 + np.cos(np.pi * progress))
+    
+    scheduler = torch.optim.lr_scheduler.LambdaLR(optimizer, lr_lambda=get_lr_multiplier)
     
     for epoch in range(EPOCHS):
         model.train()
@@ -117,15 +147,18 @@ def train_fold(fold_idx, id2label, label2id):
             
             loss.backward()
             optimizer.step()
+            scheduler.step()
             
             epoch_loss += loss.item()
             predicted = outputs.logits.argmax(-1)
             correct += (predicted == batch["labels"]).sum().item()
             total += batch["labels"].shape[0]
             
+            current_lr = scheduler.get_last_lr()[0]
             progress_bar.set_postfix({
                 "loss": f"{epoch_loss / (progress_bar.n + 1):.4f}",
-                "acc": f"{correct / total:.4f}"
+                "acc": f"{correct / total:.4f}",
+                "lr": f"{current_lr:.6f}"
             })
     
     model_save_path = OUTPUT_PATH / f"fold_{fold_idx}_model"
@@ -174,14 +207,24 @@ def collect_predictions(fold_idx, model, image_processor, dataset):
     
     image_paths = [str(Path(dataset["validation"][i]["image"].filename)) for i in range(len(dataset["validation"]))]
     
-    accuracy = (np.argmax(all_probs, axis=1) == all_labels).mean()
-    print(f"Fold {fold_idx} Val Accuracy: {accuracy:.4f}")
+    pred_labels = np.argmax(all_probs, axis=1)
+    accuracy = (pred_labels == all_labels).mean()
+    precision = precision_score(all_labels, pred_labels, average='macro', zero_division=0)
+    recall = recall_score(all_labels, pred_labels, average='macro', zero_division=0)
+    
+    print(f"\nFold {fold_idx} Validation Metrics:")
+    print(f"  Accuracy:  {accuracy:.4f}")
+    print(f"  Precision: {precision:.4f}")
+    print(f"  Recall:    {recall:.4f}")
     
     predictions = {
         'image_paths': image_paths,
         'pred_probs': all_probs,
         'labels': all_labels,
-        'fold': fold_idx
+        'fold': fold_idx,
+        'accuracy': accuracy,
+        'precision': precision,
+        'recall': recall
     }
     
     pred_file = OUTPUT_PATH / f"fold_{fold_idx}_predictions.pkl"
@@ -224,9 +267,19 @@ def merge_all_predictions(class_names):
     with open(OUTPUT_PATH / "all_predictions.pkl", 'wb') as f:
         pickle.dump(merged, f)
     
-    overall_acc = (np.argmax(all_pred_probs, axis=1) == all_labels).mean()
-    print(f"Total images: {len(all_image_paths)}")
-    print(f"Overall CV Accuracy: {overall_acc:.4f}")
+    pred_labels = np.argmax(all_pred_probs, axis=1)
+    overall_acc = (pred_labels == all_labels).mean()
+    overall_precision = precision_score(all_labels, pred_labels, average='macro', zero_division=0)
+    overall_recall = recall_score(all_labels, pred_labels, average='macro', zero_division=0)
+    
+    print(f"\nOverall Cross-Validation Results:")
+    print(f"  Total images: {len(all_image_paths)}")
+    print(f"  Accuracy:     {overall_acc:.4f}")
+    print(f"  Precision:    {overall_precision:.4f}")
+    print(f"  Recall:       {overall_recall:.4f}")
+    
+    print(f"\nPer-Class Metrics:")
+    print(classification_report(all_labels, pred_labels, target_names=class_names, digits=4, zero_division=0))
     
     return merged
 
