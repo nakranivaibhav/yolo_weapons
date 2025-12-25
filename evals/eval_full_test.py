@@ -1,13 +1,8 @@
-#!/usr/bin/env python3
+from ultralytics.models.yolo import YOLO
 
-from ultralytics import YOLO
-from pathlib import Path
-
-PROJECT_ROOT = Path(__file__).parent.parent.absolute()
-DATA_DIR = PROJECT_ROOT / "data" / "yolo_dataset"
-
-model_path = PROJECT_ROOT / "models" / "yolo" / "weapon_detection_yolo11m_640" / "weights" / "best.pt"
-data_yaml = DATA_DIR / "data.yaml"
+DATA_DIR = "/workspace/yolo_dataset_4_dec"
+model_path = "/workspace/yolo_dangerous_weapons/weapon_detection/15_dec_2025_yolo11m/weights/best.pt"
+data_yaml = DATA_DIR + "/data.yaml"
 
 print(f"\n{'='*80}")
 print(f"🔍 Evaluating on FULL test set")

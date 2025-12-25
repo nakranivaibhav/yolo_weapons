@@ -6,7 +6,7 @@ import os
 PROJECT_ROOT = Path(__file__).parent.parent.absolute()
 DATA_DIR = "/workspace/yolo_dataset_4_dec"
 
-model_path = "/workspace/yolo_dangerous_weapons/weapon_detection/15_dec_2025_yolo11m/weights/best.pt"
+model_path = "/workspace/yolo_dangerous_weapons/weapon_detection/25_dec_2025_yolo11m/weights/best.pt"
 test_images_dir = DATA_DIR + "/images/test"
 test_labels_dir = DATA_DIR + "/labels/test"
 

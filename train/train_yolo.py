@@ -10,7 +10,7 @@ os.chdir(PROJECT_ROOT)
 
 model_name = "yolo11m.pt"
 
-run_name = f"15_dec_2025_{model_name.replace('.pt', '')}"
+run_name = f"25_dec_2025_{model_name.replace('.pt', '')}"
 
 print(f"\n🚀 Starting training for {model_name}\n{'='*60}\n")
 print(f"Project root: {PROJECT_ROOT}")
