@@ -17,3 +17,5 @@ inference_output/
 .env
 models/convnext_trained
 classification/
+inference_output_clf/
+inference_output_vanilla/

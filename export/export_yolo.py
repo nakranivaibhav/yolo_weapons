@@ -1,28 +1,31 @@
-#!/usr/bin/env python3
-
 import sys
 import shutil
 from pathlib import Path
-from ultralytics import YOLO
+from ultralytics.models.yolo import YOLO
 
 PROJECT_ROOT = Path(__file__).parent.parent.absolute()
 
 if len(sys.argv) < 2:
-    print("Usage: python export_tensorrt.py <path_to_best.pt> [data.yaml]")
-    print("Example: python export_tensorrt.py models/yolo/weapon_detection_yolo11s_640/weights/best.pt")
+    print("Usage: python export_yolo.py <model.pt> [output_dir] [batch_size] [imgsz] [data.yaml]")
+    print("Example: python export_yolo.py models/yolo/weapon_detection_yolo11s_640/weights/best.pt ./exports 8 640")
     sys.exit(1)
 
 model_path = sys.argv[1]
-data_yaml = sys.argv[2] if len(sys.argv) > 2 else str(PROJECT_ROOT / "data" / "yolo_dataset" / "data.yaml")
+output_dir = sys.argv[2] if len(sys.argv) > 2 else None
+batch = int(sys.argv[3]) if len(sys.argv) > 3 else 8
+imgsz = int(sys.argv[4]) if len(sys.argv) > 4 else 640
+data_yaml = sys.argv[5] if len(sys.argv) > 5 else str(PROJECT_ROOT / "data" / "yolo_dataset" / "data.yaml")
 
 model_path = Path(model_path)
 if not model_path.exists():
     print(f"Error: Model file not found: {model_path}")
     sys.exit(1)
 
-weights_dir = model_path.parent
-imgsz = 640
-batch = 8
+if output_dir:
+    weights_dir = Path(output_dir)
+    weights_dir.mkdir(parents=True, exist_ok=True)
+else:
+    weights_dir = model_path.parent
 
 print(f"\n{'='*80}")
 print(f"🚀 Exporting TensorRT Engines (FP32, FP16, INT8)")

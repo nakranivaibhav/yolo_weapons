@@ -8,7 +8,7 @@ DATA_DIR = Path("/workspace/yolo_dataset_4_dec")
 
 os.chdir(PROJECT_ROOT)
 
-model_name = "yolo11m.pt"
+model_name = "yolo11l.pt"
 
 run_name = f"25_dec_2025_{model_name.replace('.pt', '')}"
 

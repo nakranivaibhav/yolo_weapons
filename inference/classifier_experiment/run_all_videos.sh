@@ -1,7 +1,7 @@
 #!/bin/bash
 
 PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
-VIDEO_DIR="${1:-/workspace/input_videos/25_december_videos}"
+VIDEO_DIR="${1:-/workspace/input_videos}"
 
 cd "$PROJECT_ROOT"
 
@@ -27,7 +27,7 @@ for VIDEO in "$VIDEO_DIR"/*.mp4; do
     [ -e "$VIDEO" ] || continue
     
     BASENAME=$(basename "$VIDEO" .mp4)
-    OUTPUT="${PROJECT_ROOT}/inference_output/${BASENAME}_classifier.mp4"
+    OUTPUT="${PROJECT_ROOT}/inference_output_clf/${BASENAME}_classifier.mp4"
     
     PROCESSED=$((PROCESSED + 1))
     echo "=========================================="
@@ -39,7 +39,7 @@ for VIDEO in "$VIDEO_DIR"/*.mp4; do
         --video "$VIDEO" \
         --out "$OUTPUT" \
         --deyo_model "models/deyo/deyo-x.pt" \
-        --weapon_model "/workspace/yolo_dangerous_weapons/weapon_detection/15_dec_2025_yolo11m/weights/best.pt" \
+        --weapon_model "/workspace/yolo_dangerous_weapons/weapon_detection/25_dec_2025_yolo11m/weights/best.pt" \
         --classifier_model "/workspace/yolo_dataset_cls_5fold/predictions/fold_0_model" \
         --person_conf 0.3 \
         --weapon_conf 0.35 \
