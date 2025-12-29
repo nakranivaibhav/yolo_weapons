@@ -11,7 +11,7 @@ export LD_LIBRARY_PATH="${PROJECT_ROOT}/.venv/lib/python3.12/site-packages/openc
 uv run python inference/person_weapon_simple.py \
     --video "$VIDEO" \
     --deyo_model "models/deyo/deyo-x.pt" \
-    --weapon_model "/workspace/weapon_detection/augmented_27_nov/weights/best.pt" \
+    --weapon_model "/workspace/yolo_dangerous_weapons/models/yolo/25_dec_2025_yolo11m/weights/best.pt" \
     --person_conf 0.3 \
     --weapon_conf 0.35 \
     --iou 0.45 \

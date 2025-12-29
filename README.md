@@ -169,11 +169,28 @@ uv run python eval_full_test.py
 
 ## Inference Options
 
-**Simple: Person + Weapon Detection**
+**Person + Weapon Detection (Single Video)**
 ```bash
 cd inference
-./run_simple.sh  # Edit VIDEO path
+./run_simple.sh [VIDEO_PATH]
 ```
+
+Required paths in script:
+- `--deyo_model`: Path to DEYO person detector (e.g., `models/deyo/deyo-x.pt`)
+- `--weapon_model`: Path to YOLO weapon model (e.g., `models/yolo/25_dec_2025_yolo11m/weights/best.pt`)
+- `--video`: Input video path (passed as argument or default set in script)
+
+**Batch Process Multiple Videos (Folder Input)**
+```bash
+cd inference
+./run_all_videos.sh
+```
+
+Required paths in script:
+- `VIDEO_DIR`: Folder containing input videos (default: `/workspace/input_videos`)
+- `--deyo_model`: Path to DEYO person detector
+- `--weapon_model`: Path to YOLO weapon model
+- Output saved to: `inference_output_vanilla/`
 
 **With Classification Refinement**
 ```bash
