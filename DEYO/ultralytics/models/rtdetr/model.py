@@ -26,15 +26,15 @@ class RTDETR(Model):
 
     def __init__(self, model="rtdetr-l.pt") -> None:
         """
-        Initializes the RT-DETR model with the given pre-trained model file. Supports .pt and .yaml formats.
+        Initializes the RT-DETR model with the given pre-trained model file. Supports .pt, .yaml, and .engine formats.
 
         Args:
             model (str): Path to the pre-trained model. Defaults to 'rtdetr-l.pt'.
 
         Raises:
-            NotImplementedError: If the model file extension is not 'pt', 'yaml', or 'yml'.
+            NotImplementedError: If the model file extension is not supported.
         """
-        if model and model.split(".")[-1] not in ("pt", "yaml", "yml"):
+        if model and model.split(".")[-1] not in ("pt", "yaml", "yml", "engine", "onnx"):
             raise NotImplementedError("RT-DETR only supports creating from *.pt, *.yaml, or *.yml files.")
         super().__init__(model=model, task="detect")
 

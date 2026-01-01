@@ -47,6 +47,8 @@ class RTDETRPredictor(BasePredictor):
                 and class labels.
         """
         
+        if isinstance(preds, torch.Tensor):
+            preds = [preds]
         nd = preds[0].shape[-1]
         bboxes, scores = preds[0].split((4, nd - 4), dim=-1)
 

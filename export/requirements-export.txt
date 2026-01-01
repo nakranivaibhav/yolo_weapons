@@ -11,4 +11,8 @@ pillow>=11.3.0
 opencv-python>=4.11.0.86
 pyyaml>=6.0
 albumentations>=2.0.0
-
+matplotlib
+tqdm
+pandas
+dill
+onnxscript

@@ -13,7 +13,7 @@ DEYO_ROOT = PROJECT_ROOT / "DEYO"
 import argparse
 parser = argparse.ArgumentParser(description='Simple DEYO Person + ONNX Weapon Detection')
 parser.add_argument("--video", type=str, required=True)
-parser.add_argument("--deyo_model", type=str, default=str(PROJECT_ROOT / "models" / "deyo" / "deyo-x.pt"))
+parser.add_argument("--deyo_model", type=str, default=str(PROJECT_ROOT / "models" / "deyo" / "deyo-x.engine"))
 parser.add_argument("--weapon_model", type=str, default=str(PROJECT_ROOT / "models" / "yolo" / "weapon_detection_yolo11m_640" / "weights" / "best.pt"))
 parser.add_argument("--person_conf", type=float, default=0.3)
 parser.add_argument("--weapon_conf", type=float, default=0.25)
@@ -118,6 +118,14 @@ for frame_idx in range(args.max_frames):
     for box in person_results.boxes:
         x1, y1, x2, y2 = box.xyxy[0].cpu().numpy()
         conf = float(box.conf[0])
+        
+        if not (np.isfinite(x1) and np.isfinite(y1) and np.isfinite(x2) and np.isfinite(y2)):
+            continue
+        if x1 < 0 or y1 < 0 or x2 > width_person or y2 > height_person:
+            continue
+        if x2 <= x1 or y2 <= y1:
+            continue
+            
         person_boxes.append([float(x1), float(y1), float(x2), float(y2), conf])
     
     weapon_detections = []
@@ -166,7 +174,12 @@ for frame_idx in range(args.max_frames):
             weapon_subprocess.stdin.flush()
             
             response = weapon_subprocess.stdout.readline()
-            detections = json.loads(response.strip())
+            while response:
+                line = response.strip()
+                if line.startswith('[]') or line.startswith('[['):
+                    break
+                response = weapon_subprocess.stdout.readline()
+            detections = json.loads(response.strip()) if response else []
             
             for det in detections:
                 x1_w, y1_w, x2_w, y2_w, conf_w, cls_w = det

@@ -218,18 +218,35 @@ class AutoBackend(nn.Module):
             output_names = []
             fp16 = False  # default updated below
             dynamic = False
-            for i in range(model.num_bindings):
-                name = model.get_binding_name(i)
-                dtype = trt.nptype(model.get_binding_dtype(i))
-                if model.binding_is_input(i):
-                    if -1 in tuple(model.get_binding_shape(i)):  # dynamic
-                        dynamic = True
-                        context.set_binding_shape(i, tuple(model.get_profile_shape(0, i)[2]))
-                    if dtype == np.float16:
-                        fp16 = True
-                else:  # output
-                    output_names.append(name)
-                shape = tuple(context.get_binding_shape(i))
+            num_tensors = model.num_io_tensors if hasattr(model, 'num_io_tensors') else model.num_bindings
+            for i in range(num_tensors):
+                if hasattr(model, 'get_tensor_name'):
+                    name = model.get_tensor_name(i)
+                    dtype = trt.nptype(model.get_tensor_dtype(name))
+                    is_input = model.get_tensor_mode(name) == trt.TensorIOMode.INPUT
+                    if is_input:
+                        shape = model.get_tensor_shape(name)
+                        if -1 in tuple(shape):
+                            dynamic = True
+                            context.set_input_shape(name, tuple(model.get_tensor_profile_shape(name, 0)[2]))
+                        if dtype == np.float16:
+                            fp16 = True
+                    else:
+                        output_names.append(name)
+                    shape = tuple(context.get_tensor_shape(name))
+                else:
+                    name = model.get_binding_name(i)
+                    dtype = trt.nptype(model.get_binding_dtype(i))
+                    is_input = model.binding_is_input(i)
+                    if is_input:
+                        if -1 in tuple(model.get_binding_shape(i)):
+                            dynamic = True
+                            context.set_binding_shape(i, tuple(model.get_profile_shape(0, i)[2]))
+                        if dtype == np.float16:
+                            fp16 = True
+                    else:
+                        output_names.append(name)
+                    shape = tuple(context.get_binding_shape(i))
                 im = torch.from_numpy(np.empty(shape, dtype=dtype)).to(device)
                 bindings[name] = Binding(name, dtype, shape, im, int(im.data_ptr()))
             binding_addrs = OrderedDict((n, d.ptr) for n, d in bindings.items())
@@ -396,12 +413,18 @@ class AutoBackend(nn.Module):
             y = list(self.ov_compiled_model(im).values())
         elif self.engine:  # TensorRT
             if self.dynamic and im.shape != self.bindings["images"].shape:
-                i = self.model.get_binding_index("images")
-                self.context.set_binding_shape(i, im.shape)  # reshape if dynamic
+                if hasattr(self.model, 'get_tensor_name'):
+                    self.context.set_input_shape("images", im.shape)
+                else:
+                    i = self.model.get_binding_index("images")
+                    self.context.set_binding_shape(i, im.shape)
                 self.bindings["images"] = self.bindings["images"]._replace(shape=im.shape)
                 for name in self.output_names:
-                    i = self.model.get_binding_index(name)
-                    self.bindings[name].data.resize_(tuple(self.context.get_binding_shape(i)))
+                    if hasattr(self.model, 'get_tensor_name'):
+                        self.bindings[name].data.resize_(tuple(self.context.get_tensor_shape(name)))
+                    else:
+                        i = self.model.get_binding_index(name)
+                        self.bindings[name].data.resize_(tuple(self.context.get_binding_shape(i)))
             s = self.bindings["images"].shape
             assert im.shape == s, f"input size {im.shape} {'>' if self.dynamic else 'not equal to'} max model size {s}"
             self.binding_addrs["images"] = int(im.data_ptr())

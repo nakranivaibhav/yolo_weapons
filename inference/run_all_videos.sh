@@ -1,7 +1,7 @@
 #!/bin/bash
 
 PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-VIDEO_DIR="/workspace/input_videos"
+VIDEO_DIR="/workspace/input_videos/2025_12_18_data_collecting"
 
 cd "$PROJECT_ROOT"
 
