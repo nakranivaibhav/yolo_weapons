@@ -11,5 +11,9 @@ uv run python inference/webcam_inference.py \
     --imgsz 640 \
     --width 1280 \
     --height 720 \
+    --weapon_model /Users/vaibhavnakrani/yolo_dangerous_weapons/models/yolo/15_dec_2025_yolo11m/weights/best.pt \
+    --track \
+    --track_persist 60 \
+    --min_hits 1
     "$@"
 
