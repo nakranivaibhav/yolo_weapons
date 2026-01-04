@@ -3,11 +3,19 @@ import json
 import base64
 import numpy as np
 from pathlib import Path
+import torch
 
 PROJECT_ROOT = Path(__file__).parent.parent.absolute()
 
 model_path = sys.argv[1]
 conf_threshold = float(sys.argv[2])
+
+if torch.backends.mps.is_available():
+    device = "mps"
+elif torch.cuda.is_available():
+    device = "cuda"
+else:
+    device = "cpu"
 
 from ultralytics.models.yolo import YOLO
 weapon_model = YOLO(model_path, task='detect')
@@ -26,7 +34,7 @@ while True:
     crop_arr = np.frombuffer(crop_bytes, dtype=np.uint8).reshape(data['shape'])
     imgsz = data['imgsz']
     
-    results = weapon_model(crop_arr, imgsz=imgsz, conf=conf_threshold, verbose=False, half=True)[0]
+    results = weapon_model(crop_arr, imgsz=imgsz, conf=conf_threshold, verbose=False, device=device)[0]
     
     detections = []
     for box in results.boxes:
