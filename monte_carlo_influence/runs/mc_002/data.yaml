@@ -1,0 +1,10 @@
+names:
+- knife
+- gun
+- rifle
+- baseball_bat
+nc: 4
+path: /workspace/yolo_dataset_4_dec
+train: /workspace/yolo_dangerous_weapons/monte_carlo_influence/runs/mc_002/train.txt
+val: /workspace/yolo_dataset_4_dec/images/valid
+test: /workspace/yolo_dataset_4_dec/images/test

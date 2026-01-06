@@ -3,7 +3,7 @@ ml-dtypes>=0.5.0
 onnx>=1.19.0
 onnxslim>=0.1.71
 onnxruntime-gpu>=1.23.0
-tensorrt-cu12>=10.0.0
+tensorrt-cu12==10.13.3.9
 torch>=2.8.0
 torchvision>=0.23.0
 ultralytics>=8.3.205

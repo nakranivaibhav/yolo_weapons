@@ -1,7 +1,7 @@
 from ultralytics.models.yolo import YOLO
 
 DATA_DIR = "/workspace/yolo_dataset_4_dec"
-model_path = "/workspace/yolo_dangerous_weapons/weapon_detection/15_dec_2025_yolo11m/weights/best.pt"
+model_path = "/workspace/yolo_dangerous_weapons/models/yolo/5_jan_2026_yolo11m/weights/best.pt"
 data_yaml = DATA_DIR + "/data.yaml"
 
 print(f"\n{'='*80}")
