@@ -9,7 +9,7 @@ BATCH_SIZE=8
 IMGSZ=640
 DATA_YAML="${PROJECT_ROOT}/yolo_dataset_4_dec/data.yaml"
 
-EXPORT_VENV="${SCRIPT_DIR}/.venv-export"
+EXPORT_VENV="${SCRIPT_DIR}/.venv"
 
 if [ ! -f "${MODEL_PATH}" ]; then
     echo "Error: Model file not found at ${MODEL_PATH}"

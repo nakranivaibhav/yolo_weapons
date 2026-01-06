@@ -3,8 +3,8 @@ import pandas as pd
 import torch
 import gc
 
-DATA_DIR = "/workspace/yolo_dataset_5_jan"
-MODEL_DIR = "/workspace/yolo_dangerous_weapons/models/yolo/25_dec_2025_yolo11m/weights"
+DATA_DIR = "/workspace/yolo_dataset_4_dec"
+MODEL_DIR = "/workspace/yolo_dangerous_weapons/models/yolo/5_jan_2026_yolo11m/weights"
 PT_MODEL = f"{MODEL_DIR}/best.pt"
 ENGINE_MODEL = f"{MODEL_DIR}/best.engine"
 DATA_YAML = f"{DATA_DIR}/data.yaml"
@@ -25,6 +25,7 @@ results_pt = model_pt.val(
     data=DATA_YAML,
     split='test',
     batch=16,
+    half=True,
     imgsz=640,
     device=0,
     plots=True,
@@ -56,6 +57,7 @@ results_engine = model_engine.val(
     data=DATA_YAML,
     split='test',
     batch=16,
+    half=True,
     imgsz=640,
     device=0,
     plots=True,
