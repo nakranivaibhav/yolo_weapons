@@ -1,6 +1,5 @@
 import os
 from pathlib import Path
-import albumentations as A
 from ultralytics.models.yolo import YOLO
 
 PROJECT_ROOT = Path(__file__).parent.parent.absolute()
@@ -25,11 +24,22 @@ results = model.train(
     patience=50,
     batch=64,
     imgsz=640,
+    cache='disk',
+    device='0,1',
+    workers=20,
+    
+    optimizer='SGD',
+    lr0=0.01,
+    lrf=0.01,
+    momentum=0.937,
+    weight_decay=0.0005,
+    warmup_epochs=5.0,
+    warmup_momentum=0.8,
+    warmup_bias_lr=0.1,
     
     hsv_h=0.02,
     hsv_s=0.5,
     hsv_v=0.5,
-    
     degrees=10.0,
     translate=0.2,
     scale=0.4,
@@ -38,22 +48,18 @@ results = model.train(
     
     fliplr=0.5,
     flipud=0.0,
+    bgr=0.0,
     
     mosaic=0.6,
     mixup=0.15,
     copy_paste=0.1,
+    copy_paste_mode='flip',
+    cutmix=0.0,
+    auto_augment='randaugment',
+    erasing=0.4,
     
     close_mosaic=10,
-    
     dropout=0.1,
-    
-    optimizer='AdamW',
-    lr0=0.001,
-    lrf=0.01,
-    weight_decay=0.01,
-    warmup_epochs=5.0,
-    warmup_momentum=0.8,
-    warmup_bias_lr=0.1,
     
     box=7.5,
     cls=0.5,
@@ -63,7 +69,6 @@ results = model.train(
     max_det=300,
     project='weapon_detection',
     name=run_name,
-    device=0,
     plots=True,
     
     amp=True,

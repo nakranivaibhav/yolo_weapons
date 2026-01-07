@@ -1,7 +1,7 @@
 #!/bin/bash
 
 COCO_DATASET="/workspace/coco_dataset"
-OUTPUT_DIR="/workspace/yolo_dangerous_weapons/models/rfdetr/dangerous_weapons_nano_$(date +%d_%b_%Y)"
+OUTPUT_DIR="/workspace/yolo_dangerous_weapons/models/rfdetr/dangerous_weapons_nano_albu_$(date +%d_%b_%Y)"
 
 RESOLUTION=640
 EPOCHS=50
@@ -19,7 +19,21 @@ cd "$(dirname "$0")/../.."
 
 source .venv/bin/activate
 
-python train/rf-detr/train_rfdetr.py \
+echo "========================================"
+echo "RF-DETR Training with Albumentations"
+echo "========================================"
+echo "Augmentations applied ON-THE-FLY:"
+echo "  - MotionBlur, GaussianBlur"
+echo "  - GaussNoise, ISONoise"
+echo "  - ImageCompression"
+echo "  - RandomBrightnessContrast, RandomGamma"
+echo "  - HueSaturationValue"
+echo "  - RandomShadow"
+echo "  - ToGray, Sharpen, CLAHE"
+echo "========================================"
+echo ""
+
+python train/rf-detr/train_rfdetr_with_albumentations.py \
     --coco-dataset "$COCO_DATASET" \
     --output-dir "$OUTPUT_DIR" \
     --resolution $RESOLUTION \
@@ -33,6 +47,7 @@ python train/rf-detr/train_rfdetr.py \
     --dropout $DROPOUT \
     --device "$DEVICE" \
     --ema-decay $EMA_DECAY \
+    --use-albumentations \
     --multi-scale \
     --expanded-scales \
     --random-resize-padding \
@@ -40,3 +55,4 @@ python train/rf-detr/train_rfdetr.py \
 
 echo ""
 echo "Training complete! Model saved to: $OUTPUT_DIR"
+
