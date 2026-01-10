@@ -4,7 +4,7 @@ set -e
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 PROJECT_ROOT="$(dirname "$SCRIPT_DIR")"
 
-VIDEO_PATH="/workspace/yolo_dangerous_weapons/classification/outside_left_no_weapons.mp4"
+VIDEO_PATH="/workspace/for-svam/2026_01_05_data_collecting/original/fov_30_umbrellas.mp4"
 OUT_DIR="${2:-}"
 
 if [ -z "$VIDEO_PATH" ]; then
@@ -19,7 +19,7 @@ fi
 
 if [ -z "$OUT_DIR" ]; then
     VIDEO_NAME=$(basename "$VIDEO_PATH" | sed 's/\.[^.]*$//')
-    OUT_DIR="/workspace/yolo_dangerous_weapons/classification/crops/outside_left"
+    OUT_DIR="/workspace/for-svam/2026_01_05_data_collecting/original/person_umbrellas"
 fi
 
 mkdir -p "$OUT_DIR"

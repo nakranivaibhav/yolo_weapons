@@ -5,9 +5,8 @@ PROJECT_ROOT="$(cd "${SCRIPT_DIR}/.." && pwd)"
 
 MODEL_PATH="${PROJECT_ROOT}/models/yolo/25_dec_2025_yolo11m/weights/best.pt"
 OUTPUT_DIR="/workspace/exports"
-BATCH_SIZE=8
+BATCH_SIZE=1
 IMGSZ=640
-DATA_YAML="${PROJECT_ROOT}/yolo_dataset_4_dec/data.yaml"
 
 EXPORT_VENV="${SCRIPT_DIR}/.venv"
 
@@ -22,7 +21,7 @@ echo "Model path: ${MODEL_PATH}"
 echo "Output dir: ${OUTPUT_DIR:-same as model}"
 echo "Batch size: ${BATCH_SIZE}"
 echo "Image size: ${IMGSZ}"
-echo "Data YAML: ${DATA_YAML}"
+echo "Export method: ONNX → trtexec (FP16)"
 echo ""
 
 cd "${SCRIPT_DIR}"
@@ -34,11 +33,11 @@ if [ ! -d "${EXPORT_VENV}" ]; then
     echo ""
 fi
 
-echo "Exporting YOLO model to TensorRT..."
+echo "Exporting YOLO model to TensorRT via trtexec..."
 echo ""
 
 if [ -n "${OUTPUT_DIR}" ]; then
-    "${EXPORT_VENV}/bin/python" export_yolo.py "${MODEL_PATH}" "${OUTPUT_DIR}" "${BATCH_SIZE}" "${IMGSZ}" "${DATA_YAML}"
+    "${EXPORT_VENV}/bin/python" export_yolo.py "${MODEL_PATH}" "${OUTPUT_DIR}" "${BATCH_SIZE}" "${IMGSZ}"
 else
-    "${EXPORT_VENV}/bin/python" export_yolo.py "${MODEL_PATH}" "" "${BATCH_SIZE}" "${IMGSZ}" "${DATA_YAML}"
+    "${EXPORT_VENV}/bin/python" export_yolo.py "${MODEL_PATH}" "" "${BATCH_SIZE}" "${IMGSZ}"
 fi

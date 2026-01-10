@@ -69,10 +69,10 @@ def get_transforms(image_processor, is_train=True):
     
     if is_train:
         transform = A.Compose([
-            A.RandomResizedCrop(size=(size, size), scale=(0.7, 1.0)),
+            A.RandomResizedCrop(size=(size, size), scale=(0.5, 1.0)),
             A.HorizontalFlip(p=0.5),
             A.Rotate(limit=15, p=0.5),
-            A.Affine(translate_percent=(-0.1, 0.1), scale=(0.9, 1.1), p=0.3),
+            A.Affine(translate_percent=(-0.15, 0.15), scale=(0.8, 1.2), p=0.3),
             
             A.OneOf([
                 A.MotionBlur(blur_limit=(7, 25), p=1.0),
@@ -81,19 +81,29 @@ def get_transforms(image_processor, is_train=True):
             ], p=0.4),
             
             A.OneOf([
-                A.GaussNoise(var_limit=(10.0, 50.0), p=1.0),
+                A.GaussNoise(std_range=(0.03, 0.2), p=1.0),
                 A.ISONoise(color_shift=(0.01, 0.05), intensity=(0.1, 0.5), p=1.0),
             ], p=0.3),
             
-            A.ImageCompression(quality_lower=30, quality_upper=90, p=0.3),
+            A.ImageCompression(quality_range=(30, 90), p=0.3),
             A.RandomBrightnessContrast(brightness_limit=0.3, contrast_limit=0.3, p=0.4),
-            A.Downscale(scale_min=0.25, scale_max=0.75, p=0.3),
+            A.Downscale(scale_range=(0.25, 0.75), p=0.35),
             A.RandomShadow(num_shadows_limit=(1, 2), shadow_roi=(0, 0.5, 1, 1), p=0.2),
             
-            A.RandomSunFlare(src_radius=50, num_flare_circles_lower=1, num_flare_circles_upper=3, p=0.15),
-            A.RandomToneCurve(scale=0.2, p=0.2),
+            A.Sharpen(alpha=(0.2, 0.5), lightness=(0.5, 1.0), p=0.2),
+            A.CLAHE(clip_limit=4.0, p=0.2),
+            A.Equalize(p=0.1),
+            
+            A.CoarseDropout(
+                num_holes_range=(1, 4),
+                hole_height_range=(int(size * 0.05), int(size * 0.15)),
+                hole_width_range=(int(size * 0.05), int(size * 0.15)),
+                fill="random",
+                p=0.25
+            ),
             
             A.HueSaturationValue(hue_shift_limit=10, sat_shift_limit=30, val_shift_limit=30, p=0.3),
+            A.ChannelShuffle(p=0.05),
             A.ToGray(p=0.1),
             
             A.Normalize(mean=mean, std=std),

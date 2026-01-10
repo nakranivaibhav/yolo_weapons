@@ -5,11 +5,11 @@ PROJECT_ROOT="$(cd "${SCRIPT_DIR}/.." && pwd)"
 
 DATA_DIR="/workspace/yolo_dataset_cls_cropped"
 OUTPUT_DIR="${PROJECT_ROOT}/models/convnext_trained"
-MODEL_NAME="facebook/dinov3-convnext-small-pretrain-lvd1689m"
-EPOCHS=100
+MODEL_NAME="facebook/convnextv2-tiny-22k-224"
+EPOCHS=10
 BATCH_SIZE=32
 LEARNING_RATE=5e-5
-NUM_WORKERS=8
+NUM_WORKERS=20
 
 echo "Project root: ${PROJECT_ROOT}"
 echo "Data directory: ${DATA_DIR}"
