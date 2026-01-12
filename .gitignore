@@ -21,3 +21,4 @@ inference_output_clf/
 inference_output_vanilla/
 !DEYO/ultralytics/data/
 *.pth
+!models/rfdetr/dangerous_weapons_nano_albu_07_Jan_2026/checkpoint_best_total.pth

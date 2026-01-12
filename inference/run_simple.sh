@@ -15,7 +15,7 @@ python inference/person_weapon_simple.py \
     --video "$VIDEO" \
     --out "$PROJECT_ROOT/inference_output/${OUTPUT_NAME}.mp4" \
     --deyo_model "/workspace/yolo_dangerous_weapons/models/deyo/deyo-x.engine" \
-    --weapon_model "/workspace/yolo_dangerous_weapons/models/yolo/25_dec_2025_yolo11m/weights/best.engine" \
+    --weapon_model "/workspace/for-svam/2026_01_05_data_collecting/original/fov_30.mp4" \
     --person_conf 0.3 \
     --weapon_conf 0.35 \
     --iou 0.45 \

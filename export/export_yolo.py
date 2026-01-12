@@ -1,9 +1,45 @@
 import sys
+import os
 import subprocess
+import shutil
 from pathlib import Path
 from ultralytics.models.yolo import YOLO
 
 PROJECT_ROOT = Path(__file__).parent.parent.absolute()
+
+def check_trtexec():
+    trtexec_path = shutil.which("trtexec")
+    if trtexec_path is None:
+        common_paths = [
+            "/usr/local/cuda/bin/trtexec",
+            "/usr/local/TensorRT/bin/trtexec",
+            "/usr/src/tensorrt/bin/trtexec",
+            "/opt/tensorrt/bin/trtexec"
+        ]
+        for path in common_paths:
+            if Path(path).exists():
+                print(f"✓ Found trtexec at: {path}")
+                print(f"  Adding to PATH for this session...")
+                os.environ['PATH'] = f"{Path(path).parent}:{os.environ['PATH']}"
+                return True
+        
+        print("\n❌ ERROR: trtexec not found in PATH")
+        print("\nNOTE: tensorrt-cu12 Python package does NOT include trtexec binary.")
+        print("      trtexec is a separate command-line tool from full TensorRT distribution.")
+        print("\nInstallation options:")
+        print("1. Install TensorRT from NVIDIA:")
+        print("   https://developer.nvidia.com/tensorrt")
+        print("\n2. If using Docker, use an NVIDIA TensorRT container:")
+        print("   docker pull nvcr.io/nvidia/tensorrt:24.01-py3")
+        print("\n3. If TensorRT is installed, add trtexec to PATH:")
+        print("   export PATH=$PATH:/path/to/TensorRT/bin")
+        print("\n4. Check common locations:")
+        print("   - /usr/local/cuda/bin/trtexec")
+        print("   - /usr/src/tensorrt/bin/trtexec")
+        return False
+    else:
+        print(f"✓ Using trtexec: {trtexec_path}")
+    return True
 
 if len(sys.argv) < 2:
     print("Usage: python export_yolo.py <model.pt> [output_dir] [batch_size] [imgsz]")
@@ -28,6 +64,9 @@ else:
 
 onnx_path = weights_dir / "best.onnx"
 engine_path = weights_dir / "best.engine"
+
+if not check_trtexec():
+    sys.exit(1)
 
 print(f"\n{'='*80}")
 print(f"🚀 Exporting TensorRT Engine via ONNX (trtexec method)")
@@ -55,10 +94,18 @@ trtexec_cmd = [
 ]
 
 print(f"Running: {' '.join(trtexec_cmd)}")
-result = subprocess.run(trtexec_cmd, check=True)
-
-if result.returncode == 0:
-    print(f"✅ Engine exported: {engine_path}")
+try:
+    result = subprocess.run(trtexec_cmd, check=True, capture_output=False)
+    if result.returncode == 0:
+        print(f"✅ Engine exported: {engine_path}")
+except subprocess.CalledProcessError as e:
+    print(f"\n❌ Error: trtexec failed with exit code {e.returncode}")
+    print("Check the output above for details.")
+    sys.exit(1)
+except FileNotFoundError:
+    print(f"\n❌ Error: trtexec command not found")
+    print("This should have been caught earlier. Please check your installation.")
+    sys.exit(1)
 
 print(f"\n{'='*80}")
 print(f"✅ Export Complete!")
