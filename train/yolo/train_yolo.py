@@ -9,7 +9,7 @@ os.chdir(PROJECT_ROOT)
 
 model_name = "yolo11m.pt"
 
-run_name = f"9_jan_2026_{model_name.replace('.pt', '')}"
+run_name = f"12_jan_2026_{model_name.replace('.pt', '')}"
 
 print(f"\n🚀 Starting training for {model_name}\n{'='*60}\n")
 print(f"Project root: {PROJECT_ROOT}")
@@ -20,7 +20,7 @@ model = YOLO(model_name)
 model_tag = model_name.replace('.pt', '')
 results = model.train(
     data=str(DATA_DIR / 'data.yaml'),
-    epochs=220,
+    epochs=200,
     patience=50,
     batch=64,
     imgsz=640,
@@ -58,7 +58,7 @@ results = model.train(
     auto_augment='randaugment',
     erasing=0.4,
     
-    close_mosaic=20,
+    close_mosaic=10,
     dropout=0.1,
     
     box=7.5,

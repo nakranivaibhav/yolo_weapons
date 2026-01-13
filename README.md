@@ -354,6 +354,20 @@ git lfs pull
 - uv package manager
 - 20GB+ disk space for export
 
-## License
+# For DDP to work, add this to ultralytics augment script 
+T = [
+                A.MotionBlur(blur_limit=(7, 25), p=0.2),
+                A.Defocus(radius=(3, 7), p=0.2),
+                A.GaussNoise(std_range=(0.03, 0.2), p=0.15),
+                A.ISONoise(color_shift=(0.01, 0.05), intensity=(0.1, 0.5), p=0.15),
+                A.ImageCompression(quality_range=(40, 90), p=0.3),
+                A.RandomBrightnessContrast(brightness_limit=0.3, contrast_limit=0.3, p=0.4),
+                A.Downscale(scale_range=(0.4, 0.85), p=0.2),
+                A.RandomShadow(num_shadows_limit=(1, 2), shadow_roi=(0, 0.5, 1, 1), p=0.2),
+                A.ToGray(p=0.1),
+                A.Sharpen(alpha=(0.2, 0.5), lightness=(0.5, 1.0), p=0.2),
+                A.CLAHE(clip_limit=4.0, p=0.2),
+                A.Equalize(p=0.1),
+                A.ChannelShuffle(p=0.05),
+            ]
 
-MIT License
