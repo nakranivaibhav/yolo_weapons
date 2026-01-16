@@ -16,7 +16,6 @@ results = model.val(
     split='test',
     batch=16,
     imgsz=640,
-    device="cpu",
     plots=True,
     save_json=True,
     project='weapon_detection',
