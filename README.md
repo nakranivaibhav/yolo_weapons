@@ -19,7 +19,7 @@ Complete end-to-end weapon detection system capable of detecting **guns, knives,
 
 | Metric | Value |
 |--------|-------|
-| **Development Time** | Oct 11, 2025 → Jan 16, 2026 (~3 months) |
+| **Development Time** | Nov 13, 2025 → Jan 16, 2026 (~2 months) |
 | **Classification Accuracy** | >96% precision & recall |
 | **Detection mAP@50** | ~95% |
 | **Real-time Performance** | 30+ FPS on 1080p (TensorRT) |
