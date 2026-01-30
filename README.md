@@ -1,9 +1,9 @@
-# 🔫 Real-Time Dangerous Weapons Detection System
+# Real-Time Dangerous Weapons Detection System
 
 > **Production-ready weapon detection pipeline built in 3 months** — from initial prototype to deployment-ready models with 96%+ precision and recall.
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Development-3%20Months-brightgreen" alt="Timeline"/>
+  <img src="https://img.shields.io/badge/Development-2%20Months-brightgreen" alt="Timeline"/>
   <img src="https://img.shields.io/badge/mAP50-95%25+-blue" alt="mAP50"/>
   <img src="https://img.shields.io/badge/FPS-30%2B-orange" alt="FPS"/>
   <img src="https://img.shields.io/badge/TensorRT-Optimized-76B900" alt="TensorRT"/>
@@ -419,12 +419,6 @@ Uses Hugging Face Transformers with custom augmentation pipeline.
 - CUDA GPU (16GB+ VRAM for training)
 - TensorRT 8.6+ (for optimized inference)
 - 20GB+ disk space for model exports
-
----
-
-## 📞 Contact
-
-For questions about implementation details or deployment assistance, please reach out.
 
 ---
 
